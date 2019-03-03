@@ -7,8 +7,13 @@
 //
 
 import UIKit
+import CoreData
 
-class ViewController: UIViewController {
+class EnthymitViewController: UITableViewController {
+    
+    var categories = Results
+
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()

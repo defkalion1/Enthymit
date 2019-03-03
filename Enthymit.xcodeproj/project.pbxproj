@@ -7,23 +7,35 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8D0C72C9083CD78AAFD0E59B /* Pods_Enthymit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15B0458C3345418234B7074D /* Pods_Enthymit.framework */; };
+		9383D9152222B7B500C9A310 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9383D9142222B7B500C9A310 /* Item.swift */; };
+		9383D9172222C4AD00C9A310 /* ItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9383D9162222C4AD00C9A310 /* ItemViewController.swift */; };
 		938AEA0222117C3A0055BECC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938AEA0122117C3A0055BECC /* AppDelegate.swift */; };
-		938AEA0422117C3A0055BECC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938AEA0322117C3A0055BECC /* ViewController.swift */; };
 		938AEA0722117C3A0055BECC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 938AEA0522117C3A0055BECC /* Main.storyboard */; };
-		938AEA0A22117C3A0055BECC /* Enthymit.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 938AEA0822117C3A0055BECC /* Enthymit.xcdatamodeld */; };
 		938AEA0C22117C3C0055BECC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 938AEA0B22117C3C0055BECC /* Assets.xcassets */; };
 		938AEA0F22117C3C0055BECC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 938AEA0D22117C3C0055BECC /* LaunchScreen.storyboard */; };
+		93E8960F221F112E00095923 /* Categories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E8960E221F112E00095923 /* Categories.swift */; };
+		93E89613221F14E000095923 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E89612221F14E000095923 /* CategoryViewController.swift */; };
+		93E8961522203BAA00095923 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E8961422203BAA00095923 /* MainViewController.swift */; };
+		93E896172220C01500095923 /* Quotes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E896162220C01500095923 /* Quotes.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		15B0458C3345418234B7074D /* Pods_Enthymit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Enthymit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		702CB66384B06747A4366D1E /* Pods-Enthymit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Enthymit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Enthymit/Pods-Enthymit.debug.xcconfig"; sourceTree = "<group>"; };
+		9383D9142222B7B500C9A310 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		9383D9162222C4AD00C9A310 /* ItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemViewController.swift; sourceTree = "<group>"; };
 		938AE9FE22117C3A0055BECC /* Enthymit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Enthymit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		938AEA0122117C3A0055BECC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		938AEA0322117C3A0055BECC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		938AEA0622117C3A0055BECC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		938AEA0922117C3A0055BECC /* Enthymit.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Enthymit.xcdatamodel; sourceTree = "<group>"; };
 		938AEA0B22117C3C0055BECC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		938AEA0E22117C3C0055BECC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		938AEA1022117C3C0055BECC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		93E8960E221F112E00095923 /* Categories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Categories.swift; sourceTree = "<group>"; };
+		93E89612221F14E000095923 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
+		93E8961422203BAA00095923 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		93E896162220C01500095923 /* Quotes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quotes.swift; sourceTree = "<group>"; };
+		9512EC56982AAF910C5350CB /* Pods-Enthymit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Enthymit.release.xcconfig"; path = "Pods/Target Support Files/Pods-Enthymit/Pods-Enthymit.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +43,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8D0C72C9083CD78AAFD0E59B /* Pods_Enthymit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		540BAB87633248D0BCEBA34C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				15B0458C3345418234B7074D /* Pods_Enthymit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		938AE9F522117C3A0055BECC = {
 			isa = PBXGroup;
 			children = (
 				938AEA0022117C3A0055BECC /* Enthymit */,
 				938AE9FF22117C3A0055BECC /* Products */,
+				CDEE3B3C67D920F4D721A1F7 /* Pods */,
+				540BAB87633248D0BCEBA34C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -57,14 +80,51 @@
 			isa = PBXGroup;
 			children = (
 				938AEA0122117C3A0055BECC /* AppDelegate.swift */,
-				938AEA0322117C3A0055BECC /* ViewController.swift */,
-				938AEA0522117C3A0055BECC /* Main.storyboard */,
-				938AEA0B22117C3C0055BECC /* Assets.xcassets */,
-				938AEA0D22117C3C0055BECC /* LaunchScreen.storyboard */,
+				938AEA18221186C20055BECC /* Controller */,
+				938AEA1B221194560055BECC /* Data Model */,
+				938AEA16221186880055BECC /* View */,
 				938AEA1022117C3C0055BECC /* Info.plist */,
-				938AEA0822117C3A0055BECC /* Enthymit.xcdatamodeld */,
+				938AEA0D22117C3C0055BECC /* LaunchScreen.storyboard */,
+				938AEA0B22117C3C0055BECC /* Assets.xcassets */,
 			);
 			path = Enthymit;
+			sourceTree = "<group>";
+		};
+		938AEA16221186880055BECC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				938AEA0522117C3A0055BECC /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		938AEA18221186C20055BECC /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				93E8961422203BAA00095923 /* MainViewController.swift */,
+				93E89612221F14E000095923 /* CategoryViewController.swift */,
+				9383D9162222C4AD00C9A310 /* ItemViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		938AEA1B221194560055BECC /* Data Model */ = {
+			isa = PBXGroup;
+			children = (
+				93E896162220C01500095923 /* Quotes.swift */,
+				93E8960E221F112E00095923 /* Categories.swift */,
+				9383D9142222B7B500C9A310 /* Item.swift */,
+			);
+			path = "Data Model";
+			sourceTree = "<group>";
+		};
+		CDEE3B3C67D920F4D721A1F7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				702CB66384B06747A4366D1E /* Pods-Enthymit.debug.xcconfig */,
+				9512EC56982AAF910C5350CB /* Pods-Enthymit.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +134,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 938AEA1322117C3C0055BECC /* Build configuration list for PBXNativeTarget "Enthymit" */;
 			buildPhases = (
+				73685E2A1FE0F40DD7F6BA3F /* [CP] Check Pods Manifest.lock */,
 				938AE9FA22117C3A0055BECC /* Sources */,
 				938AE9FB22117C3A0055BECC /* Frameworks */,
 				938AE9FC22117C3A0055BECC /* Resources */,
+				483144F9DD1431266CAB5260 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -133,14 +195,59 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		483144F9DD1431266CAB5260 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Enthymit/Pods-Enthymit-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Enthymit/Pods-Enthymit-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		73685E2A1FE0F40DD7F6BA3F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Enthymit-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		938AE9FA22117C3A0055BECC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				938AEA0422117C3A0055BECC /* ViewController.swift in Sources */,
-				938AEA0A22117C3A0055BECC /* Enthymit.xcdatamodeld in Sources */,
+				93E89613221F14E000095923 /* CategoryViewController.swift in Sources */,
 				938AEA0222117C3A0055BECC /* AppDelegate.swift in Sources */,
+				9383D9152222B7B500C9A310 /* Item.swift in Sources */,
+				93E896172220C01500095923 /* Quotes.swift in Sources */,
+				93E8960F221F112E00095923 /* Categories.swift in Sources */,
+				93E8961522203BAA00095923 /* MainViewController.swift in Sources */,
+				9383D9172222C4AD00C9A310 /* ItemViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,6 +391,7 @@
 		};
 		938AEA1422117C3C0055BECC /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 702CB66384B06747A4366D1E /* Pods-Enthymit.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -302,6 +410,7 @@
 		};
 		938AEA1522117C3C0055BECC /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9512EC56982AAF910C5350CB /* Pods-Enthymit.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -340,19 +449,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		938AEA0822117C3A0055BECC /* Enthymit.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				938AEA0922117C3A0055BECC /* Enthymit.xcdatamodel */,
-			);
-			currentVersion = 938AEA0922117C3A0055BECC /* Enthymit.xcdatamodel */;
-			path = Enthymit.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 938AE9F622117C3A0055BECC /* Project object */;
 }
