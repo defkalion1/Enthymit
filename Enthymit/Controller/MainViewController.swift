@@ -7,21 +7,67 @@
 //
 
 import UIKit
+import LocalAuthentication
 
 class MainViewController: UIViewController {
     
     
     //MARK: - Random Quotes
     @IBOutlet weak var quotesTextLabel: UILabel!
+    @IBOutlet weak var visualEffectView: UIVisualEffectView!
+    var effect:UIVisualEffect!
+    @IBOutlet weak var noWayInLabel: UILabel!
+    
     var RandomQuoteNo = Int(arc4random_uniform(UInt32(Quotes().listOfQuotes.count)))
     var quotes = Quotes()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.navigationBar.isHidden = true
+        self.noWayInLabel.isHidden = false
+        let context:LAContext = LAContext()
+        
+        if context.canEvaluatePolicy(.deviceOwnerAuthentication, error: nil){
+            context.evaluatePolicy(LAPolicy.deviceOwnerAuthentication, localizedReason: "Secure Your Data With Face ID") { (match, error) in
+                if match {
+                    print("Welcome")
+                    DispatchQueue.main.async {
+                        UIView.animate(withDuration: 0.3, animations: {
+                            self.noWayInLabel.isHidden = true
+                            self.effect = self.visualEffectView.effect
+                           self.visualEffectView.effect = nil
+                            self.visualEffectView.isHidden = true
+                        })
+                    }
+                
+                }else {
+                    print("Try Again")
+                    
+                }
+            }
+        }
+        
+        
         quotesTextLabel.text = quotes.listOfQuotes[RandomQuoteNo]
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+
         // Do any additional setup after loading the view.
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        // Hide the navigation bar on the this view controller
+        self.navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        // Show the navigation bar on other view controllers
+        self.navigationController?.setNavigationBarHidden(false, animated: animated)
+    }
+    
+    
     
 
     
@@ -37,6 +83,8 @@ class MainViewController: UIViewController {
             destinationVC.tableType = "other"
         }
     }
+    
+
     
     /*
     // MARK: - Navigation

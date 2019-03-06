@@ -14,11 +14,14 @@ import UIKit
 import RealmSwift
 
 class CategoryViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+
     
-    @IBOutlet weak var tableView: UITableView!
+
+    @IBOutlet weak var categoryTableView: UITableView!
     let realm = try! Realm()
     
-    
+
+    let formatter = DateFormatter()
     var tableType = ""
     var myHealthData : Results<HealthData>!
     var mySelfImprovementData : Results<SelfImprovement>!
@@ -26,34 +29,45 @@ class CategoryViewController: UIViewController, UITableViewDelegate, UITableView
     var myOtherData : Results<Other>!
     
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.setNavigationBarHidden(false, animated: animated)
+    }
     
+
     
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tableView.delegate = self
+        categoryTableView.delegate = self
+        categoryTableView.register(UINib(nibName: "CustomCell", bundle: nil), forCellReuseIdentifier: "customCell")
+        configureTableView()
+        formatter.dateFormat = "EEEE, MMMM dd, yyyy' at 'h:mm a"
+        
+        categoryTableView.separatorStyle = .none
+
         
         
         loadCategories()
-        //self.navigationController?.navigationBar.isHidden = false
+        self.navigationController?.navigationBar.isHidden = false
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
     
     
     
     
-    override func viewWillAppear(_ animated: Bool) {
-        if tableType == "health" {
-            title = "Health"
-        } else if tableType == "self_improvement" {
-            title = "Self Improvement"
-        } else if tableType == "topSecret"{
-            title = "Top Secret"
-        } else if tableType == "other"{
-            title = "Other"
-        }
-    }
+//    override func viewWillAppear(_ animated: Bool) {
+//        if tableType == "health" {
+//            title = "Health"
+//        } else if tableType == "self_improvement" {
+//            title = "Self Improvement"
+//        } else if tableType == "topSecret"{
+//            title = "Top Secret"
+//        } else if tableType == "other"{
+//            title = "Other"
+//        }
+//    }
 
     // MARK: - Table view data source
 
@@ -76,52 +90,60 @@ class CategoryViewController: UIViewController, UITableViewDelegate, UITableView
 
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        //let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "customCell", for: indexPath) as! CustomCategoryCell
         
-        let cell = UITableViewCell(style: .default, reuseIdentifier: "cell")
+        
+        //let cell = UITableViewCell(style: .default, reuseIdentifier: "cell")
 
         if self.tableType == "health"{
-          cell.textLabel?.text = myHealthData?[indexPath.row].name ?? "No Categories Have Been Added Yet"
-        //cell.accessoryType = UITableViewCell.AccessoryType.none
+          cell.titleLabel.text = myHealthData?[indexPath.row].name ?? "No Categories Have Been Added Yet"
+            cell.dateCreatedLabel.text = "Created " + formatter.string(from: (myHealthData?[indexPath.row].dateCreated ?? Date()))
+        
         }else if self.tableType == "self_improvement" {
-            cell.textLabel?.text = mySelfImprovementData?[indexPath.row].name ?? "No Self Improvement Items Yet"
+            cell.titleLabel.text = mySelfImprovementData?[indexPath.row].name ?? "No Self Improvement Items Yet"
+            cell.dateCreatedLabel.text = "Created " + formatter.string(from: (mySelfImprovementData?[indexPath.row].dateCreated ?? Date()))
         }else if self.tableType == "topSecret" {
-            cell.textLabel?.text = myTopSecretData?[indexPath.row].name ?? "No Top Secret Items Yet"
+            cell.titleLabel.text = myTopSecretData?[indexPath.row].name ?? "No Top Secret Items Yet"
+            cell.dateCreatedLabel.text = "Created " + formatter.string(from: (myTopSecretData?[indexPath.row].dateCreated ?? Date()))
         } else if self.tableType == "other" {
-            cell.textLabel?.text = myOtherData?[indexPath.row].name ?? "No Other Items Yet"
+            cell.titleLabel.text = myOtherData?[indexPath.row].name ?? "No Other Items Yet"
+            cell.dateCreatedLabel.text = "Created " + formatter.string(from: (myOtherData?[indexPath.row].dateCreated ?? Date()))
         }
         
         
-        cell.textLabel?.textColor = UIColor.black
-        tableView.rowHeight = 50.0
+//        cell.textLabel?.textColor = UIColor.black
+//        tableView.rowHeight = 50.0
 
         return cell
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "goToItems", sender: self)
+        performSegue(withIdentifier: "goToItems", sender: Any?.self)
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let destinationVC = segue.destination as! ItemViewController
         
-        if let indexPath = tableView.indexPathForSelectedRow {
+        if let indexPath = categoryTableView.indexPathForSelectedRow {
             
             if tableType == "health" {
                 destinationVC.fromCategory = "health"
                 destinationVC.fromHealthCategory = myHealthData?[indexPath.row]
-                destinationVC.titleLabel = myHealthData![indexPath.row].name
+                destinationVC.titleLabel = myHealthData[indexPath.row].name
             
             } else if tableType == "self_improvement" {
                 destinationVC.fromCategory = "selfImprovement"
                 destinationVC.fromSelfImprovementCategory = mySelfImprovementData?[indexPath.row]
-            
+                destinationVC.titleLabel = mySelfImprovementData[indexPath.row].name
             } else if tableType == "topSecret"{
                 destinationVC.fromCategory = "topSecret"
-            
+                destinationVC.fromTopSecretCategory = myTopSecretData?[indexPath.row]
+                destinationVC.titleLabel = myTopSecretData[indexPath.row].name
             } else if tableType == "other"{
                 destinationVC.fromCategory = "other"
+                destinationVC.fromOtherCategory = myOtherData?[indexPath.row]
+                destinationVC.titleLabel = myOtherData[indexPath.row].name
             }
         }
     }
@@ -132,11 +154,54 @@ class CategoryViewController: UIViewController, UITableViewDelegate, UITableView
         return true
     }
 
-
+    
+    //MARK: - Delete row at indexPath when user swipes
     // Override to support editing the table view.
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
+            
+            if self.tableType == "health" {
+            if let itemForDeletion = self.myHealthData?[indexPath.row] {
+                do{
+                    try realm.write {
+                        realm.delete(itemForDeletion)
+                    }
+                }catch {
+                    print("Error deleting item\(error)")
+                }
+            }
+            } else if self.tableType == "self_improvement"{
+                if let itemForDeletion = self.mySelfImprovementData?[indexPath.row] {
+                    do{
+                        try realm.write {
+                            realm.delete(itemForDeletion)
+                        }
+                    }catch {
+                        print("Error deleting item\(error)")
+                    }
+                }
+            }else if self.tableType == "topSecret"{
+                if let itemForDeletion = self.myTopSecretData?[indexPath.row] {
+                    do{
+                        try realm.write {
+                            realm.delete(itemForDeletion)
+                        }
+                    }catch {
+                        print("Error deleting item\(error)")
+                    }
+                }
+            }else if self.tableType == "other"{
+                if let itemForDeletion = self.myOtherData?[indexPath.row] {
+                    do{
+                        try realm.write {
+                            realm.delete(itemForDeletion)
+                        }
+                    }catch {
+                        print("Error deleting item\(error)")
+                    }
+                }
+            }
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
@@ -158,21 +223,23 @@ class CategoryViewController: UIViewController, UITableViewDelegate, UITableView
             if self.tableType == "health" {
                 let newItemName = HealthData()
                 newItemName.name = textField.text!
+                newItemName.dateCreated = Date()
                 
                 do{
                     try self.realm.write {
                         self.realm.add(newItemName)
+                        
                     }
                 }catch{
                     print(error)
                 }
-                
+               
                 
             }else if self.tableType == "self_improvement" {
                
                 let newItemName = SelfImprovement()
                 newItemName.name = textField.text!
-                
+                newItemName.dateCreated = Date()
                 do{
                     try self.realm.write {
                         self.realm.add(newItemName)
@@ -185,7 +252,7 @@ class CategoryViewController: UIViewController, UITableViewDelegate, UITableView
                 
                 let newItemName = TopSecret()
                 newItemName.name = textField.text!
-                
+                newItemName.dateCreated = Date()
                 do{
                     try self.realm.write {
                         self.realm.add(newItemName)
@@ -198,7 +265,7 @@ class CategoryViewController: UIViewController, UITableViewDelegate, UITableView
                 
                 let newItemName = Other()
                 newItemName.name = textField.text!
-                
+                newItemName.dateCreated = Date()
                 do{
                     try self.realm.write {
                         self.realm.add(newItemName)
@@ -210,7 +277,8 @@ class CategoryViewController: UIViewController, UITableViewDelegate, UITableView
                 
             }
             
-            self.tableView.reloadData()
+            self.categoryTableView.reloadData()
+            
         }
         
         
@@ -225,6 +293,12 @@ class CategoryViewController: UIViewController, UITableViewDelegate, UITableView
         
     }
     
+    
+    func configureTableView(){
+        categoryTableView.rowHeight = UITableView.automaticDimension
+        categoryTableView.estimatedRowHeight = 120.0
+    }
+    
 
 
     func loadCategories() {
@@ -237,9 +311,11 @@ class CategoryViewController: UIViewController, UITableViewDelegate, UITableView
         }else if tableType == "other" {
             myOtherData = realm.objects(Other.self)
         }
-        tableView.reloadData()
+        categoryTableView.reloadData()
         
     }
+    
+
     
     
 }

@@ -21,7 +21,13 @@ class Quotes {
         listOfQuotes.append("It’s the possibility of having a dream come true that makes life interesting")
         listOfQuotes.append("Think Different")
         listOfQuotes.append("Struggle More Get Better")
-        
+        listOfQuotes.append("Success is walking from failure to failure with no loss of enthusiasm")
+        listOfQuotes.append("The ones who are crazy enough to think they can change the world, are the ones that do")
+        listOfQuotes.append("All progress takes place outside the comfort zone")
+        listOfQuotes.append("The only limit to our realization of tomorrow will be our doubts of today")
+        listOfQuotes.append("If you really want to do something, you'll find a way. If you don't, you'll find an excuse")
+        listOfQuotes.append("If you can dream it, you can do it")
+            
     }
     
 }

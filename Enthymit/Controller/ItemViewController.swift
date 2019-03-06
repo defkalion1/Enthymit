@@ -51,15 +51,8 @@ class ItemViewController: UIViewController, UITextViewDelegate {
     }
     
     let realm = try! Realm()
+
     
-//    override func viewDidAppear(_ animated: Bool) {
-//
-//        if whyTextView != nil {
-//
-//        } else {
-//            whyTextView.text = ""
-//        }
-//    }
 
     @IBOutlet weak var whyTextView: UITextView!
     
@@ -69,24 +62,33 @@ class ItemViewController: UIViewController, UITextViewDelegate {
         self.whyTextView.delegate = self
         itemLabel.text = titleLabel
         
+        if fromCategory == "health" {
         if myHealthItems?.first != nil{
-        
         whyTextView.text = myHealthItems?[0].why
         }
-       
-        
-//        if myHealthItems?[0].why != nil {
-//            whyTextView.text = myHealthItems?[0].why
-//        } else {
-//            whyTextView.text = "something"
-//        }
-        
-        
-
+        }else if fromCategory == "selfImprovement" {
+            if mySImprovementItems?.first != nil{
+                whyTextView.text = mySImprovementItems?[0].why
+            }
+        }else if fromCategory == "topSecret" {
+            if myTopSecretItems?.first != nil{
+                whyTextView.text = myTopSecretItems?[0].why
+            }
+        }else if fromCategory == "other" {
+            if myOtherItems?.first != nil{
+                whyTextView.text = myOtherItems?[0].why
+            }
+        }
                 // Do any additional setup after loading the view.
-        
     
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: animated)
+    }
+    
+
     
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -95,17 +97,58 @@ class ItemViewController: UIViewController, UITextViewDelegate {
     
     }
     
-//    func textViewDidBeginEditing(_ textView: UITextView) {
-//        if fromCategory == "health"{
-//            do{
-//                try realm.write {
-//
-//                }
-//            }catch {
-//                print(error)
-//            }
-//        }
-//    }
+  
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        
+        if fromCategory == "health"{
+        if myHealthItems?.first != nil {
+            do{
+                let toDelete = self.myHealthItems![0]
+                try realm.write {
+                    realm.delete(toDelete)
+                }
+            }catch {
+                print(error)
+            }
+        }
+        }else if fromCategory == "selfImprovement" {
+            if mySImprovementItems?.first != nil {
+                do{
+                    let toDelete = self.mySImprovementItems![0]
+                    try realm.write {
+                        realm.delete(toDelete)
+                    }
+                }catch {
+                    print(error)
+                }
+            }
+            
+        }else if fromCategory == "topSecret" {
+            if myTopSecretItems?.first != nil {
+                do{
+                    let toDelete = self.myTopSecretItems![0]
+                    try realm.write {
+                        realm.delete(toDelete)
+                    }
+                }catch {
+                    print(error)
+                }
+            }
+    
+        }else if fromCategory == "other" {
+            if myOtherItems?.first != nil {
+                do{
+                    let toDelete = self.myOtherItems![0]
+                    try realm.write {
+                        realm.delete(toDelete)
+                    }
+                }catch {
+                    print(error)
+                }
+            }
+            }
+
+}
     
     func textViewDidEndEditing(_ textView: UITextView) {
         
@@ -118,13 +161,48 @@ class ItemViewController: UIViewController, UITextViewDelegate {
                 let healthItem = HealthItem()
                 healthItem.why = whyTextView.text!
                 currentHealthCategory.healthItems.append(healthItem)
-                
-                
             }
         }catch {
             print(error)
         }
-    }
+        }
+        }else if fromCategory == "selfImprovement" {
+            
+            if let currentSelfCategory = self.fromSelfImprovementCategory {
+                do {
+                    try self.realm.write {
+                        let sImprovementItem = SImprovementItem()
+                        sImprovementItem.why = whyTextView.text!
+                        currentSelfCategory.selfImprovementItems.append(sImprovementItem)
+                    }
+                }catch {
+                    print(error)
+                }
+            }
+        }else if fromCategory == "topSecret"{
+            if let currentSelfCategory = self.fromTopSecretCategory {
+                do {
+                    try self.realm.write {
+                        let topSecretItem = TopSecretItem()
+                        topSecretItem.why = whyTextView.text!
+                        currentSelfCategory.topSecretItems.append(topSecretItem)
+                    }
+                }catch {
+                    print(error)
+                }
+            }
+        }else if fromCategory == "other" {
+            if let currentCategory = self.fromOtherCategory {
+                do{
+                    try realm.write {
+                        let otherItem = OtherItem()
+                        otherItem.why = whyTextView.text!
+                        currentCategory.otherItems.append(otherItem)
+                    }
+                }catch {
+                    print(error)
+                }
+            }
         }
         
     }
@@ -152,20 +230,43 @@ class ItemViewController: UIViewController, UITextViewDelegate {
         if fromCategory == "health" {
             
             myHealthItems = fromHealthCategory?.healthItems.sorted(byKeyPath: "why")
+
+
+        }else if fromCategory == "selfImprovement" {
             
-            
-            
-            
-            
-        }else if fromCategory == "self_improvement" {
+            mySImprovementItems = fromSelfImprovementCategory?.selfImprovementItems.sorted(byKeyPath: "why")
             
         }else if fromCategory == "topSecret" {
             
+            myTopSecretItems = fromTopSecretCategory?.topSecretItems.sorted(byKeyPath: "why")
+            
         }else if fromCategory == "other" {
            
+            myOtherItems = fromOtherCategory?.otherItems.sorted(byKeyPath: "why")
+            
         }
         //whyTextView.reloadInputViews()
         
+    }
+    
+    
+    func saveItem() {
+        if fromCategory == "health" {
+            
+            if let currentHealthCategory = self.fromHealthCategory {
+                do {
+                    try self.realm.write {
+                        let healthItem = HealthItem()
+                        healthItem.why = whyTextView.text!
+                        currentHealthCategory.healthItems.append(healthItem)
+                        
+                        
+                    }
+                }catch {
+                    print(error)
+                }
+            }
+        }
     }
 
 }

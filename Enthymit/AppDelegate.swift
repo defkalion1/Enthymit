@@ -9,6 +9,7 @@
 import UIKit
 import RealmSwift
 
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -21,7 +22,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        let myName = HealthData()
 //       myName.name = "Constantine Defkalion"
         
-       
+        
+        
+        
         do {
             _ = try Realm()
 //            try realm.write {
