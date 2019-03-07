@@ -28,17 +28,48 @@ class CategoryViewController: UIViewController, UITableViewDelegate, UITableView
     var myTopSecretData : Results<TopSecret>!
     var myOtherData : Results<Other>!
     
+//    struct System {
+//        static func clearNavigationBar(forBar navBar: UINavigationBar) {
+//            navBar.setBackgroundImage(UIImage(), for: .default)
+//            navBar.shadowImage = UIImage()
+//            navBar.isTranslucent = true
+//        }
+//    }
+    
+//
+//    override func viewWillAppear(_ animated: Bool) {
+//
+//        if let navController = navigationController {
+//            System.clearNavigationBar(forBar: navController.navigationBar)
+//            navController.view.backgroundColor = .clear
+//        }
+//    }
+
+//    override func viewDidDisappear(_ animated: Bool) {
+//        super.viewWillDisappear(animated)
+//
+//        if let navController = navigationController {
+//            System.clearNavigationBar(forBar: navController.navigationBar)
+//            navController.view.backgroundColor = .clear
+//        }
+//    }
+
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationController?.setNavigationBarHidden(false, animated: animated)
+        navigationController?.setNavigationBarHidden(false, animated: animated)
     }
-    
-
-    
-    
 
     override func viewDidLoad() {
+//        if let navController = navigationController {
+//            System.clearNavigationBar(forBar: navController.navigationBar)
+//            navController.view.backgroundColor = .black
+//        }
+//        if let navController = navigationController {
+//            System.clearNavigationBar(forBar: navController.navigationBar)
+//            navController.view.backgroundColor = .clear
+//        }
+        
         super.viewDidLoad()
         categoryTableView.delegate = self
         categoryTableView.register(UINib(nibName: "CustomCell", bundle: nil), forCellReuseIdentifier: "customCell")
@@ -303,13 +334,17 @@ class CategoryViewController: UIViewController, UITableViewDelegate, UITableView
 
     func loadCategories() {
         if tableType == "health" {
-         myHealthData = realm.objects(HealthData.self)
+            myHealthData = realm.objects(HealthData.self)
+            title = "Health & Fitness"
         }else if tableType == "self_improvement" {
             mySelfImprovementData = realm.objects(SelfImprovement.self)
+            title = "Self Improvement"
         }else if tableType == "topSecret" {
             myTopSecretData = realm.objects(TopSecret.self)
+            title = "Top Secret"
         }else if tableType == "other" {
             myOtherData = realm.objects(Other.self)
+            title = "Other"
         }
         categoryTableView.reloadData()
         

@@ -60,7 +60,7 @@ class ItemViewController: UIViewController, UITextViewDelegate {
         super.viewDidLoad()
         
         self.whyTextView.delegate = self
-        itemLabel.text = titleLabel
+        self.title = titleLabel
         
         if fromCategory == "health" {
         if myHealthItems?.first != nil{
@@ -83,10 +83,10 @@ class ItemViewController: UIViewController, UITextViewDelegate {
     
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationController?.setNavigationBarHidden(false, animated: animated)
-    }
+//    override func viewWillAppear(_ animated: Bool) {
+//        super.viewWillAppear(animated)
+//        navigationController?.setNavigationBarHidden(false, animated: animated)
+//    }
     
 
     

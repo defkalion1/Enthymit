@@ -16,14 +16,21 @@ class MainViewController: UIViewController {
     @IBOutlet weak var quotesTextLabel: UILabel!
     @IBOutlet weak var visualEffectView: UIVisualEffectView!
     var effect:UIVisualEffect!
-    @IBOutlet weak var noWayInLabel: UILabel!
+
     
     var RandomQuoteNo = Int(arc4random_uniform(UInt32(Quotes().listOfQuotes.count)))
     var quotes = Quotes()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.noWayInLabel.isHidden = false
+
+        
+        if let navController = navigationController {
+            System.clearNavigationBar(forBar: navController.navigationBar)
+            navController.view.backgroundColor = .clear
+        }
+        
+        //Face ID
         let context:LAContext = LAContext()
         
         if context.canEvaluatePolicy(.deviceOwnerAuthentication, error: nil){
@@ -32,7 +39,7 @@ class MainViewController: UIViewController {
                     print("Welcome")
                     DispatchQueue.main.async {
                         UIView.animate(withDuration: 0.3, animations: {
-                            self.noWayInLabel.isHidden = true
+                            
                             self.effect = self.visualEffectView.effect
                            self.visualEffectView.effect = nil
                             self.visualEffectView.isHidden = true
@@ -53,19 +60,35 @@ class MainViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-
-        // Hide the navigation bar on the this view controller
-        self.navigationController?.setNavigationBarHidden(true, animated: animated)
+    struct System {
+        static func clearNavigationBar(forBar navBar: UINavigationBar) {
+            navBar.setBackgroundImage(UIImage(), for: .default)
+            navBar.shadowImage = UIImage()
+            navBar.isTranslucent = true
+        }
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        
-        // Show the navigation bar on other view controllers
-        self.navigationController?.setNavigationBarHidden(false, animated: animated)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if let navController = navigationController {
+            System.clearNavigationBar(forBar: navController.navigationBar)
+            navController.view.backgroundColor = .clear
+        }
     }
+    
+//    override func viewDidDisappear(_ animated: Bool) {
+//        if let navController = navigationController {
+//            System.clearNavigationBar(forBar: navController.navigationBar)
+//            navController.view.backgroundColor = .black
+//        }
+//    }
+    
+//    override func viewWillDisappear(_ animated: Bool) {
+//        super.viewWillDisappear(animated)
+//
+//        // Show the navigation bar on other view controllers
+//        self.navigationController?.setNavigationBarHidden(false, animated: animated)
+//    }
     
     
     
