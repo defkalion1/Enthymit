@@ -9,7 +9,7 @@
 import UIKit
 import LocalAuthentication
 
-class MainViewController: UIViewController {
+class MainViewController: UIViewController{
     
     
     //MARK: - Random Quotes
@@ -17,13 +17,17 @@ class MainViewController: UIViewController {
     @IBOutlet weak var visualEffectView: UIVisualEffectView!
     var effect:UIVisualEffect!
 
+
+    @IBAction func settingsButtonPressed(_ sender: UIBarButtonItem) {
+
+    }
     
     var RandomQuoteNo = Int(arc4random_uniform(UInt32(Quotes().listOfQuotes.count)))
     var quotes = Quotes()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        navigationController?.navigationBar.isHidden = true
         
         if let navController = navigationController {
             System.clearNavigationBar(forBar: navController.navigationBar)
@@ -39,7 +43,7 @@ class MainViewController: UIViewController {
                     print("Welcome")
                     DispatchQueue.main.async {
                         UIView.animate(withDuration: 0.3, animations: {
-                            
+                            self.navigationController?.navigationBar.isHidden = false
                             self.effect = self.visualEffectView.effect
                            self.visualEffectView.effect = nil
                             self.visualEffectView.isHidden = true
@@ -76,33 +80,23 @@ class MainViewController: UIViewController {
         }
     }
     
-//    override func viewDidDisappear(_ animated: Bool) {
-//        if let navController = navigationController {
-//            System.clearNavigationBar(forBar: navController.navigationBar)
-//            navController.view.backgroundColor = .black
-//        }
-//    }
-    
-//    override func viewWillDisappear(_ animated: Bool) {
-//        super.viewWillDisappear(animated)
-//
-//        // Show the navigation bar on other view controllers
-//        self.navigationController?.setNavigationBarHidden(false, animated: animated)
-//    }
-    
-    
-    
+
 
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let destinationVC = segue.destination as! CategoryViewController
+        
+        
         if segue.identifier == "fromHealth" {
+            let destinationVC = segue.destination as! CategoryViewController
             destinationVC.tableType = "health"
         }else if segue.identifier == "fromSelf" {
+            let destinationVC = segue.destination as! CategoryViewController
             destinationVC.tableType = "self_improvement"
         }else if segue.identifier == "fromTopSecret"{
+            let destinationVC = segue.destination as! CategoryViewController
             destinationVC.tableType = "topSecret"
         }else if segue.identifier == "fromOther" {
+            let destinationVC = segue.destination as! CategoryViewController
             destinationVC.tableType = "other"
         }
     }

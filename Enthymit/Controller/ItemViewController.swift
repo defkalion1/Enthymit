@@ -12,7 +12,10 @@ import RealmSwift
 class ItemViewController: UIViewController, UITextViewDelegate {
     
    
+    @IBOutlet weak var mySlider: UISlider!
     @IBOutlet weak var itemLabel: UILabel!
+    @IBOutlet weak var difficultyLevel: UILabel!
+    let step: Float = 10
     
     
     
@@ -55,16 +58,19 @@ class ItemViewController: UIViewController, UITextViewDelegate {
     
 
     @IBOutlet weak var whyTextView: UITextView!
+    @IBOutlet weak var toMakeItHappenTextView: UITextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.whyTextView.delegate = self
+        toMakeItHappenTextView.delegate = self
         self.title = titleLabel
         
         if fromCategory == "health" {
         if myHealthItems?.first != nil{
-        whyTextView.text = myHealthItems?[0].why
+            whyTextView.text = myHealthItems?[0].why
+            toMakeItHappenTextView.text = myHealthItems?[1].expectations
         }
         }else if fromCategory == "selfImprovement" {
             if mySImprovementItems?.first != nil{
@@ -83,12 +89,14 @@ class ItemViewController: UIViewController, UITextViewDelegate {
     
     }
     
-//    override func viewWillAppear(_ animated: Bool) {
-//        super.viewWillAppear(animated)
-//        navigationController?.setNavigationBarHidden(false, animated: animated)
-//    }
+    //MARK: - Difficulty Level
     
-
+    
+    @IBAction func difficultySliderValueChanged(_ sender: UISlider) {
+        let roundedValue = round(sender.value / step) * step
+        sender.value = roundedValue
+        difficultyLevel.text = "\(Int(roundedValue))"
+    }
     
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -102,13 +110,18 @@ class ItemViewController: UIViewController, UITextViewDelegate {
         
         if fromCategory == "health"{
         if myHealthItems?.first != nil {
+            if textView.tag == 1 {
             do{
+                print(textView.tag)
                 let toDelete = self.myHealthItems![0]
                 try realm.write {
                     realm.delete(toDelete)
                 }
             }catch {
                 print(error)
+            }
+            }else {
+                print("To make it happen I need to")
             }
         }
         }else if fromCategory == "selfImprovement" {
@@ -270,3 +283,7 @@ class ItemViewController: UIViewController, UITextViewDelegate {
     }
 
 }
+
+//extension ItemViewController: UISlider {
+//
+//}

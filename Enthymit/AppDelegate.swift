@@ -21,8 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         print(Realm.Configuration.defaultConfiguration.fileURL)
 //        let myName = HealthData()
 //       myName.name = "Constantine Defkalion"
-        
-        
+      
         
         
         do {
@@ -43,4 +42,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
 }
+
 

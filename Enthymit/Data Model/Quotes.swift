@@ -27,6 +27,7 @@ class Quotes {
         listOfQuotes.append("The only limit to our realization of tomorrow will be our doubts of today")
         listOfQuotes.append("If you really want to do something, you'll find a way. If you don't, you'll find an excuse")
         listOfQuotes.append("If you can dream it, you can do it")
+        listOfQuotes.append("No matter what life gives you, give something back")
             
     }
     

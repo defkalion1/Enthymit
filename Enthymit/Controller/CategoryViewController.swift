@@ -82,7 +82,7 @@ class CategoryViewController: UIViewController, UITableViewDelegate, UITableView
         
         loadCategories()
         self.navigationController?.navigationBar.isHidden = false
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        //self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
     
     
@@ -181,6 +181,7 @@ class CategoryViewController: UIViewController, UITableViewDelegate, UITableView
 
     // Override to support conditional editing of the table view.
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        
         // Return false if you do not want the specified item to be editable.
         return true
     }
