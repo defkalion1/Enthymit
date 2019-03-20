@@ -13,6 +13,7 @@
 import UIKit
 import RealmSwift
 
+
 class CategoryViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     
@@ -61,15 +62,7 @@ class CategoryViewController: UIViewController, UITableViewDelegate, UITableView
     }
 
     override func viewDidLoad() {
-//        if let navController = navigationController {
-//            System.clearNavigationBar(forBar: navController.navigationBar)
-//            navController.view.backgroundColor = .black
-//        }
-//        if let navController = navigationController {
-//            System.clearNavigationBar(forBar: navController.navigationBar)
-//            navController.view.backgroundColor = .clear
-//        }
-        
+
         super.viewDidLoad()
         categoryTableView.delegate = self
         categoryTableView.register(UINib(nibName: "CustomCell", bundle: nil), forCellReuseIdentifier: "customCell")
@@ -87,18 +80,7 @@ class CategoryViewController: UIViewController, UITableViewDelegate, UITableView
     
     
     
-    
-//    override func viewWillAppear(_ animated: Bool) {
-//        if tableType == "health" {
-//            title = "Health"
-//        } else if tableType == "self_improvement" {
-//            title = "Self Improvement"
-//        } else if tableType == "topSecret"{
-//            title = "Top Secret"
-//        } else if tableType == "other"{
-//            title = "Other"
-//        }
-//    }
+
 
     // MARK: - Table view data source
 
@@ -106,15 +88,19 @@ class CategoryViewController: UIViewController, UITableViewDelegate, UITableView
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         var count = 1
-        if self.tableType == "health"{
+        switch self.tableType {
+        case "health":
             count = self.myHealthData.count
-        } else if self.tableType == "self_improvement"{
+        case "self_improvement":
             count = self.mySelfImprovementData.count
-        } else if tableType == "topSecret" {
+        case "topSecret":
             count = self.myTopSecretData.count
-        } else if tableType == "other" {
+        case "other":
             count = self.myOtherData.count
+        default:
+            count = 1
         }
+
         return count
     }
     
@@ -253,14 +239,17 @@ class CategoryViewController: UIViewController, UITableViewDelegate, UITableView
             
             
             if self.tableType == "health" {
-                let newItemName = HealthData()
-                newItemName.name = textField.text!
-                newItemName.dateCreated = Date()
+                let newTableViewItem = HealthData()
+                newTableViewItem.name = textField.text!
+                newTableViewItem.dateCreated = Date()
+                let newEmptyListItem = HealthItem()
+                newEmptyListItem.why = ""
+                
                 
                 do{
                     try self.realm.write {
-                        self.realm.add(newItemName)
-                        
+                        self.realm.add(newTableViewItem)
+                        newTableViewItem.healthItems.append(newEmptyListItem)
                     }
                 }catch{
                     print(error)
@@ -269,12 +258,16 @@ class CategoryViewController: UIViewController, UITableViewDelegate, UITableView
                 
             }else if self.tableType == "self_improvement" {
                
-                let newItemName = SelfImprovement()
-                newItemName.name = textField.text!
-                newItemName.dateCreated = Date()
+                let newTableViewItem = SelfImprovement()
+                newTableViewItem.name = textField.text!
+                newTableViewItem.dateCreated = Date()
+                let newEmptyListItem = SImprovementItem()
+                newEmptyListItem.why = ""
                 do{
                     try self.realm.write {
-                        self.realm.add(newItemName)
+                        self.realm.add(newTableViewItem)
+                        newTableViewItem.selfImprovementItems.append(newEmptyListItem)
+                        
                     }
                 }catch{
                     print(error)
@@ -282,12 +275,16 @@ class CategoryViewController: UIViewController, UITableViewDelegate, UITableView
                 
             }else if self.tableType == "topSecret" {
                 
-                let newItemName = TopSecret()
-                newItemName.name = textField.text!
-                newItemName.dateCreated = Date()
+                let newTableViewItem = TopSecret()
+                newTableViewItem.name = textField.text!
+                newTableViewItem.dateCreated = Date()
+                let newEmptyListItem = TopSecretItem()
+                newEmptyListItem.why = ""
                 do{
                     try self.realm.write {
-                        self.realm.add(newItemName)
+                        self.realm.add(newTableViewItem)
+                        newTableViewItem.topSecretItems.append(newEmptyListItem)
+                        
                     }
                 }catch{
                     print(error)
@@ -295,12 +292,15 @@ class CategoryViewController: UIViewController, UITableViewDelegate, UITableView
                 
             }else if self.tableType == "other" {
                 
-                let newItemName = Other()
-                newItemName.name = textField.text!
-                newItemName.dateCreated = Date()
+                let newTableViewItem = Other()
+                newTableViewItem.name = textField.text!
+                newTableViewItem.dateCreated = Date()
+                let newEmptyListItem = OtherItem()
+                newEmptyListItem.why = ""
                 do{
                     try self.realm.write {
-                        self.realm.add(newItemName)
+                        self.realm.add(newTableViewItem)
+                        newTableViewItem.otherItems.append(newEmptyListItem)
                     }
                 }catch{
                     print(error)

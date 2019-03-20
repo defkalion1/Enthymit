@@ -372,7 +372,7 @@ In the categories found at the main page you can create a new item corresponding
                                 <constraints>
                                     <constraint firstAttribute="width" constant="30" id="eFN-SZ-M69"/>
                                 </constraints>
-                                <state key="normal" image="Add button 2"/>
+                                <state key="normal" image="Coral Add button"/>
                                 <connections>
                                     <action selector="addButtonPressed:" destination="3tg-Hv-8bZ" eventType="touchUpInside" id="ED8-ne-ZL4"/>
                                 </connections>
@@ -415,22 +415,22 @@ In the categories found at the main page you can create a new item corresponding
                         <rect key="frame" x="0.0" y="0.0" width="375" height="1100"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Rectangle coral-7" translatesAutoresizingMaskIntoConstraints="NO" id="yje-2Q-TPD">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="170"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Rectangle coral-7" translatesAutoresizingMaskIntoConstraints="NO" id="yje-2Q-TPD">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="184"/>
                             </imageView>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="plQ-M6-3Bu">
-                                <rect key="frame" x="0.0" y="178" width="375" height="922"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="plQ-M6-3Bu">
+                                <rect key="frame" x="0.0" y="192" width="375" height="1017"/>
                                 <subviews>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" tag="2" contentMode="scaleToFill" fixedFrame="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="black" keyboardDismissMode="interactive" translatesAutoresizingMaskIntoConstraints="NO" id="RVn-Tq-P8U" userLabel="toMakeItHappen">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" tag="4" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" indicatorStyle="black" keyboardDismissMode="interactive" translatesAutoresizingMaskIntoConstraints="NO" id="RVn-Tq-P8U" userLabel="toMakeItHappen">
                                         <rect key="frame" x="20" y="369" width="343" height="239"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="1" green="1" blue="0.98166232639999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <accessibility key="accessibilityConfiguration">
                                             <accessibilityTraits key="traits" keyboardKey="YES" adjustable="YES"/>
                                         </accessibility>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="239" id="8st-0o-3Qh"/>
+                                        </constraints>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="yes" spellCheckingType="yes" enablesReturnKeyAutomatically="YES" smartInsertDeleteType="yes"/>
@@ -439,65 +439,110 @@ In the categories found at the main page you can create a new item corresponding
                                             <outlet property="delegate" destination="h64-ze-32R" id="MhI-Va-qvl"/>
                                         </connections>
                                     </textView>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" tag="1" contentMode="scaleToFill" fixedFrame="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="black" keyboardDismissMode="interactive" text="Why you would like to start doing this particular thing that you chose?" translatesAutoresizingMaskIntoConstraints="NO" id="I3J-wH-Ro1">
-                                        <rect key="frame" x="20" y="80" width="343" height="239"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" red="1" green="1" blue="0.98166232638888884" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Why?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FcM-eS-ksc">
+                                        <rect key="frame" x="20" y="44" width="55" height="28"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="28" id="0XY-s0-XDJ"/>
+                                            <constraint firstAttribute="width" constant="55" id="Vg2-aw-GDb"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="20"/>
+                                        <color key="highlightedColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To make it happen I need to :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CiN-Qc-luV">
+                                        <rect key="frame" x="20" y="333" width="276" height="28"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="28" id="Wjw-sa-V6C"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="20"/>
+                                        <color key="highlightedColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8oh-QU-y2M">
+                                        <rect key="frame" x="48" y="-36" width="66" height="24"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="66" id="AZu-y3-10z"/>
+                                            <constraint firstAttribute="height" constant="24" id="MCr-AC-Gsm"/>
+                                        </constraints>
+                                    </view>
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="-1" maxValue="1000" translatesAutoresizingMaskIntoConstraints="NO" id="Nsn-w0-nLn">
+                                        <rect key="frame" x="18" y="742" width="347" height="30"/>
+                                        <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="29" id="ctu-q4-fCb"/>
+                                        </constraints>
+                                        <connections>
+                                            <action selector="difficultySliderValueChanged:" destination="h64-ze-32R" eventType="valueChanged" id="mAu-ds-3w4"/>
+                                        </connections>
+                                    </slider>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wCi-DQ-PgE">
+                                        <rect key="frame" x="170.66666666666666" y="697" width="42" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Level of difficulty :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NBJ-NC-kbJ">
+                                        <rect key="frame" x="20" y="638" width="188" height="28"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="28" id="IeP-Cz-bgd"/>
+                                            <constraint firstAttribute="width" constant="188" id="vII-y3-FXg"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="20"/>
+                                        <color key="highlightedColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </label>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" tag="1" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" indicatorStyle="black" keyboardDismissMode="interactive" translatesAutoresizingMaskIntoConstraints="NO" id="N8I-Dr-FAd" userLabel="why">
+                                        <rect key="frame" x="16" y="80" width="343" height="239"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="0.98166232639999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <accessibility key="accessibilityConfiguration">
                                             <accessibilityTraits key="traits" keyboardKey="YES" adjustable="YES"/>
                                         </accessibility>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="239" id="xGO-Uw-OBE"/>
+                                        </constraints>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="yes" spellCheckingType="yes" enablesReturnKeyAutomatically="YES" smartInsertDeleteType="yes"/>
                                         <dataDetectorType key="dataDetectorTypes" link="YES"/>
                                         <connections>
-                                            <outlet property="delegate" destination="h64-ze-32R" id="JNi-u1-xTD"/>
+                                            <outlet property="delegate" destination="h64-ze-32R" id="mpC-DY-cqY"/>
                                         </connections>
                                     </textView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Why?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FcM-eS-ksc">
-                                        <rect key="frame" x="20" y="44" width="55" height="28"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="20"/>
-                                        <color key="highlightedColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="To make it happen I need to :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CiN-Qc-luV">
-                                        <rect key="frame" x="20" y="333" width="276" height="28"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="20"/>
-                                        <color key="highlightedColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </label>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8oh-QU-y2M">
-                                        <rect key="frame" x="48" y="-36" width="66" height="24"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </view>
-                                    <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="-1" maxValue="1000" translatesAutoresizingMaskIntoConstraints="NO" id="Nsn-w0-nLn">
-                                        <rect key="frame" x="18" y="742" width="347" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <connections>
-                                            <action selector="difficultySliderValueChanged:" destination="h64-ze-32R" eventType="valueChanged" id="mAu-ds-3w4"/>
-                                        </connections>
-                                    </slider>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wCi-DQ-PgE">
-                                        <rect key="frame" x="170" y="697" width="42" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Level of difficulty :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NBJ-NC-kbJ">
-                                        <rect key="frame" x="20" y="638" width="188" height="28"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="20"/>
-                                        <color key="highlightedColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </label>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstItem="8oh-QU-y2M" firstAttribute="leading" secondItem="plQ-M6-3Bu" secondAttribute="leading" constant="48" id="38b-DF-wbt"/>
+                                    <constraint firstItem="RVn-Tq-P8U" firstAttribute="trailing" secondItem="Nsn-w0-nLn" secondAttribute="trailing" id="3Jq-Ho-v6V"/>
+                                    <constraint firstItem="RVn-Tq-P8U" firstAttribute="leading" secondItem="NBJ-NC-kbJ" secondAttribute="leading" id="53S-cc-6Kp"/>
+                                    <constraint firstItem="RVn-Tq-P8U" firstAttribute="top" secondItem="CiN-Qc-luV" secondAttribute="bottom" constant="8" symbolic="YES" id="99v-aD-d3R"/>
+                                    <constraint firstItem="N8I-Dr-FAd" firstAttribute="top" secondItem="FcM-eS-ksc" secondAttribute="bottom" constant="8" symbolic="YES" id="9wz-70-n9j"/>
+                                    <constraint firstItem="FcM-eS-ksc" firstAttribute="top" secondItem="8oh-QU-y2M" secondAttribute="bottom" constant="56" id="9yZ-xf-fFd"/>
+                                    <constraint firstAttribute="bottom" secondItem="Nsn-w0-nLn" secondAttribute="bottom" constant="246" id="EeJ-Df-4I8"/>
+                                    <constraint firstItem="N8I-Dr-FAd" firstAttribute="leading" secondItem="plQ-M6-3Bu" secondAttribute="leading" constant="16" id="KF6-lE-bYI"/>
+                                    <constraint firstItem="NBJ-NC-kbJ" firstAttribute="top" secondItem="RVn-Tq-P8U" secondAttribute="bottom" constant="30" id="Rtv-Sa-AyQ"/>
+                                    <constraint firstItem="Nsn-w0-nLn" firstAttribute="top" secondItem="wCi-DQ-PgE" secondAttribute="bottom" constant="24" id="SEj-l3-XNX"/>
+                                    <constraint firstItem="CiN-Qc-luV" firstAttribute="top" secondItem="N8I-Dr-FAd" secondAttribute="bottom" constant="14" id="Sji-pO-Ybt"/>
+                                    <constraint firstItem="wCi-DQ-PgE" firstAttribute="centerX" secondItem="Nsn-w0-nLn" secondAttribute="centerX" id="SxB-V5-rws"/>
+                                    <constraint firstItem="NBJ-NC-kbJ" firstAttribute="leading" secondItem="Nsn-w0-nLn" secondAttribute="leading" id="Ujb-n0-8HJ"/>
+                                    <constraint firstAttribute="trailing" secondItem="RVn-Tq-P8U" secondAttribute="trailing" constant="12" id="Vt9-n2-0h0"/>
+                                    <constraint firstItem="wCi-DQ-PgE" firstAttribute="top" secondItem="NBJ-NC-kbJ" secondAttribute="bottom" constant="31" id="foQ-4Q-luD"/>
+                                    <constraint firstAttribute="trailing" secondItem="N8I-Dr-FAd" secondAttribute="trailing" constant="16" id="hey-f2-i1f"/>
+                                    <constraint firstItem="FcM-eS-ksc" firstAttribute="leading" secondItem="plQ-M6-3Bu" secondAttribute="leading" constant="20" id="mkV-cO-ijL"/>
+                                    <constraint firstItem="CiN-Qc-luV" firstAttribute="leading" secondItem="RVn-Tq-P8U" secondAttribute="leading" id="oKc-zN-LMZ"/>
+                                    <constraint firstItem="8oh-QU-y2M" firstAttribute="top" secondItem="plQ-M6-3Bu" secondAttribute="top" constant="-36" id="vpv-zd-x4W"/>
+                                    <constraint firstItem="FcM-eS-ksc" firstAttribute="leading" secondItem="CiN-Qc-luV" secondAttribute="leading" id="wxa-Jm-31U"/>
+                                    <constraint firstItem="N8I-Dr-FAd" firstAttribute="centerX" secondItem="plQ-M6-3Bu" secondAttribute="centerX" id="ypd-yi-tPp"/>
+                                </constraints>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="plQ-M6-3Bu" firstAttribute="top" secondItem="yje-2Q-TPD" secondAttribute="bottom" constant="8" symbolic="YES" id="AtQ-mR-mF0"/>
+                            <constraint firstAttribute="bottom" secondItem="plQ-M6-3Bu" secondAttribute="bottom" constant="-109" id="Lrh-ie-fUV"/>
+                            <constraint firstItem="yje-2Q-TPD" firstAttribute="leading" secondItem="plQ-M6-3Bu" secondAttribute="leading" id="TYb-YR-XO3"/>
+                            <constraint firstItem="yje-2Q-TPD" firstAttribute="top" secondItem="bZU-jb-5Xb" secondAttribute="top" id="edu-Rb-p55"/>
+                            <constraint firstItem="yje-2Q-TPD" firstAttribute="trailing" secondItem="plQ-M6-3Bu" secondAttribute="trailing" id="g1m-yZ-bS8"/>
+                            <constraint firstItem="yje-2Q-TPD" firstAttribute="leading" secondItem="bZU-jb-5Xb" secondAttribute="leading" id="tsQ-ld-COB"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="PYM-CP-neA"/>
                     </view>
                     <size key="freeformSize" width="375" height="1100"/>
@@ -505,7 +550,7 @@ In the categories found at the main page you can create a new item corresponding
                         <outlet property="difficultyLevel" destination="wCi-DQ-PgE" id="gRi-Ri-JvS"/>
                         <outlet property="mySlider" destination="Nsn-w0-nLn" id="jUp-5G-VHX"/>
                         <outlet property="toMakeItHappenTextView" destination="RVn-Tq-P8U" id="eey-4m-vVu"/>
-                        <outlet property="whyTextView" destination="I3J-wH-Ro1" id="mrL-2i-IF6"/>
+                        <outlet property="whyTextView" destination="N8I-Dr-FAd" id="ffn-ut-V7Y"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TQ6-Dl-GdG" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -546,7 +591,7 @@ In the categories found at the main page you can create a new item corresponding
     <resources>
         <image name="About Top" width="375" height="135"/>
         <image name="Add" width="57" height="57"/>
-        <image name="Add button 2" width="38" height="37"/>
+        <image name="Coral Add button" width="38" height="37"/>
         <image name="Group" width="27" height="27"/>
         <image name="Health" width="291" height="47"/>
         <image name="Night" width="27" height="27"/>

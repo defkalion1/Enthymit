@@ -12,10 +12,11 @@ import RealmSwift
 class ItemViewController: UIViewController, UITextViewDelegate {
     
    
+
     @IBOutlet weak var mySlider: UISlider!
     @IBOutlet weak var itemLabel: UILabel!
     @IBOutlet weak var difficultyLevel: UILabel!
-    let step: Float = 10
+
     
     
     
@@ -64,38 +65,45 @@ class ItemViewController: UIViewController, UITextViewDelegate {
         super.viewDidLoad()
         
         self.whyTextView.delegate = self
-        toMakeItHappenTextView.delegate = self
+        self.toMakeItHappenTextView.delegate = self
+      
         self.title = titleLabel
         
         if fromCategory == "health" {
-        if myHealthItems?.first != nil{
+            if myHealthItems?.first?.why != nil && myHealthItems?.first?.toMakeItHappen != nil{
             whyTextView.text = myHealthItems?[0].why
-            toMakeItHappenTextView.text = myHealthItems?[1].expectations
+            toMakeItHappenTextView.text = myHealthItems?[0].toMakeItHappen
         }
         }else if fromCategory == "selfImprovement" {
             if mySImprovementItems?.first != nil{
                 whyTextView.text = mySImprovementItems?[0].why
+                toMakeItHappenTextView.text = mySImprovementItems?[0].toMakeItHappen
             }
         }else if fromCategory == "topSecret" {
             if myTopSecretItems?.first != nil{
                 whyTextView.text = myTopSecretItems?[0].why
+                toMakeItHappenTextView.text = myTopSecretItems?[0].toMakeItHappen
             }
         }else if fromCategory == "other" {
             if myOtherItems?.first != nil{
                 whyTextView.text = myOtherItems?[0].why
+                toMakeItHappenTextView.text = myOtherItems?[0].toMakeItHappen
             }
         }
                 // Do any additional setup after loading the view.
     
     }
     
+
+    
+    
     //MARK: - Difficulty Level
     
     
     @IBAction func difficultySliderValueChanged(_ sender: UISlider) {
-        let roundedValue = round(sender.value / step) * step
-        sender.value = roundedValue
-        difficultyLevel.text = "\(Int(roundedValue))"
+//        let roundedValue = round(sender.value / step) * step
+//        sender.value = roundedValue
+//        difficultyLevel.text = "\(Int(roundedValue))"
     }
     
 
@@ -104,64 +112,8 @@ class ItemViewController: UIViewController, UITextViewDelegate {
         self.view.endEditing(true)
     
     }
-    
   
-    func textViewDidBeginEditing(_ textView: UITextView) {
-        
-        if fromCategory == "health"{
-        if myHealthItems?.first != nil {
-            if textView.tag == 1 {
-            do{
-                print(textView.tag)
-                let toDelete = self.myHealthItems![0]
-                try realm.write {
-                    realm.delete(toDelete)
-                }
-            }catch {
-                print(error)
-            }
-            }else {
-                print("To make it happen I need to")
-            }
-        }
-        }else if fromCategory == "selfImprovement" {
-            if mySImprovementItems?.first != nil {
-                do{
-                    let toDelete = self.mySImprovementItems![0]
-                    try realm.write {
-                        realm.delete(toDelete)
-                    }
-                }catch {
-                    print(error)
-                }
-            }
-            
-        }else if fromCategory == "topSecret" {
-            if myTopSecretItems?.first != nil {
-                do{
-                    let toDelete = self.myTopSecretItems![0]
-                    try realm.write {
-                        realm.delete(toDelete)
-                    }
-                }catch {
-                    print(error)
-                }
-            }
     
-        }else if fromCategory == "other" {
-            if myOtherItems?.first != nil {
-                do{
-                    let toDelete = self.myOtherItems![0]
-                    try realm.write {
-                        realm.delete(toDelete)
-                    }
-                }catch {
-                    print(error)
-                }
-            }
-            }
-
-}
     
     func textViewDidEndEditing(_ textView: UITextView) {
         
@@ -169,51 +121,100 @@ class ItemViewController: UIViewController, UITextViewDelegate {
         if fromCategory == "health" {
         
             if let currentHealthCategory = self.fromHealthCategory {
+                if textView == whyTextView   {
         do {
             try self.realm.write {
-                let healthItem = HealthItem()
+                let healthItem = myHealthItems![0]
                 healthItem.why = whyTextView.text!
-                currentHealthCategory.healthItems.append(healthItem)
+                currentHealthCategory.healthItems.replace(index: 0, object: healthItem)
             }
         }catch {
             print(error)
         }
-        }
+                }else if textView == toMakeItHappenTextView  {
+                    print("2")
+                    do {
+                        try self.realm.write {
+                            let healthItem = myHealthItems![0]
+                            healthItem.toMakeItHappen = toMakeItHappenTextView.text!
+                            currentHealthCategory.healthItems.replace(index: 0, object: healthItem)
+                        }
+                    }catch {
+                        print(error)
+                    }
+                }
+            }
         }else if fromCategory == "selfImprovement" {
             
             if let currentSelfCategory = self.fromSelfImprovementCategory {
+                if textView == whyTextView {
                 do {
                     try self.realm.write {
-                        let sImprovementItem = SImprovementItem()
+                        let sImprovementItem = mySImprovementItems![0]
                         sImprovementItem.why = whyTextView.text!
-                        currentSelfCategory.selfImprovementItems.append(sImprovementItem)
+                        currentSelfCategory.selfImprovementItems.replace(index: 0, object: sImprovementItem)
                     }
                 }catch {
                     print(error)
+                }
+                }else if textView == toMakeItHappenTextView{
+                    do {
+                        try self.realm.write {
+                            let sImprovementItem = mySImprovementItems![0]
+                            sImprovementItem.toMakeItHappen = toMakeItHappenTextView.text!
+                            currentSelfCategory.selfImprovementItems.replace(index: 0, object: sImprovementItem)
+                        }
+                    }catch {
+                        print(error)
+                    }
                 }
             }
         }else if fromCategory == "topSecret"{
             if let currentSelfCategory = self.fromTopSecretCategory {
+                if textView.tag == 1 {
                 do {
                     try self.realm.write {
-                        let topSecretItem = TopSecretItem()
+                        let topSecretItem = myTopSecretItems![0]
                         topSecretItem.why = whyTextView.text!
-                        currentSelfCategory.topSecretItems.append(topSecretItem)
+                        currentSelfCategory.topSecretItems.replace(index: 0, object: topSecretItem)
                     }
                 }catch {
                     print(error)
                 }
+                }else if textView.tag == 2 {
+                    do {
+                        try self.realm.write {
+                            let topSecretItem = myTopSecretItems![0]
+                            topSecretItem.toMakeItHappen = toMakeItHappenTextView.text!
+                            currentSelfCategory.topSecretItems.replace(index: 0, object: topSecretItem)
+                        }
+                    }catch {
+                        print(error)
+                    }
+                }
             }
         }else if fromCategory == "other" {
             if let currentCategory = self.fromOtherCategory {
+                if textView.tag == 1{
                 do{
                     try realm.write {
-                        let otherItem = OtherItem()
+                        let otherItem = myOtherItems![0]
                         otherItem.why = whyTextView.text!
-                        currentCategory.otherItems.append(otherItem)
+                        currentCategory.otherItems.replace(index: 0, object: otherItem)
                     }
                 }catch {
                     print(error)
+                }
+                }else if textView.tag == 2{
+                    do{
+                        try realm.write {
+                            let otherItem = myOtherItems![0]
+                            otherItem.toMakeItHappen = toMakeItHappenTextView.text!
+                            currentCategory.otherItems.replace(index: 0, object: otherItem)
+                        }
+                    }catch {
+                        print(error)
+                    }
                 }
             }
         }
@@ -243,6 +244,8 @@ class ItemViewController: UIViewController, UITextViewDelegate {
         if fromCategory == "health" {
             
             myHealthItems = fromHealthCategory?.healthItems.sorted(byKeyPath: "why")
+            //realm?.objects(HealthItem.self)
+            
 
 
         }else if fromCategory == "selfImprovement" {
@@ -260,26 +263,6 @@ class ItemViewController: UIViewController, UITextViewDelegate {
         }
         //whyTextView.reloadInputViews()
         
-    }
-    
-    
-    func saveItem() {
-        if fromCategory == "health" {
-            
-            if let currentHealthCategory = self.fromHealthCategory {
-                do {
-                    try self.realm.write {
-                        let healthItem = HealthItem()
-                        healthItem.why = whyTextView.text!
-                        currentHealthCategory.healthItems.append(healthItem)
-                        
-                        
-                    }
-                }catch {
-                    print(error)
-                }
-            }
-        }
     }
 
 }

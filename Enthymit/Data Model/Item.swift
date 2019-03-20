@@ -10,7 +10,7 @@ import Foundation
 import RealmSwift
 
 class HealthItem: Object {
-    @objc dynamic var why = "why"
+    @objc dynamic var why = ""
     @objc dynamic var toMakeItHappen = ""
     @objc dynamic var expectations = ""
     @objc dynamic var stopped = ""
