@@ -64,6 +64,7 @@ class CategoryViewController: UIViewController, UITableViewDelegate, UITableView
     override func viewDidLoad() {
 
         super.viewDidLoad()
+        navigationItem.largeTitleDisplayMode = .never
         categoryTableView.delegate = self
         categoryTableView.register(UINib(nibName: "CustomCell", bundle: nil), forCellReuseIdentifier: "customCell")
         configureTableView()
@@ -113,7 +114,7 @@ class CategoryViewController: UIViewController, UITableViewDelegate, UITableView
         //let cell = UITableViewCell(style: .default, reuseIdentifier: "cell")
 
         if self.tableType == "health"{
-          cell.titleLabel.text = myHealthData?[indexPath.row].name ?? "No Categories Have Been Added Yet"
+            cell.titleLabel.text = myHealthData?[indexPath.row].name ?? "No Categories Have Been Added Yet"
             cell.dateCreatedLabel.text = "Created " + formatter.string(from: (myHealthData?[indexPath.row].dateCreated ?? Date()))
         
         }else if self.tableType == "self_improvement" {

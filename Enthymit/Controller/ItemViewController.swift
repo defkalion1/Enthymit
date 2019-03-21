@@ -14,7 +14,8 @@ class ItemViewController: UIViewController, UITextViewDelegate {
    
 
     @IBOutlet weak var mySlider: UISlider!
-    @IBOutlet weak var itemLabel: UILabel!
+    
+    @IBOutlet weak var itemLabel: UITextField!
     @IBOutlet weak var difficultyLevel: UILabel!
 
     
@@ -67,7 +68,10 @@ class ItemViewController: UIViewController, UITextViewDelegate {
         self.whyTextView.delegate = self
         self.toMakeItHappenTextView.delegate = self
       
-        self.title = titleLabel
+        
+      
+        self.itemLabel.text = titleLabel
+        
         
         if fromCategory == "health" {
             if myHealthItems?.first?.why != nil && myHealthItems?.first?.toMakeItHappen != nil{
@@ -221,6 +225,11 @@ class ItemViewController: UIViewController, UITextViewDelegate {
         
     }
     
+    
+    @IBAction func titleChanged(_ sender: UITextField) {
+  
+        
+    }
     
     
 //    func textViewDidBeginEditing(_ textView: UITextView) {

@@ -10,7 +10,8 @@ import UIKit
 import LocalAuthentication
 
 class MainViewController: UIViewController{
-    
+    //let searchController = UISearchController(searchResultsController: nil)
+
     
     //MARK: - Random Quotes
     @IBOutlet weak var quotesTextLabel: UILabel!
@@ -28,10 +29,12 @@ class MainViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.isHidden = true
+        //navigationItem.searchController = searchController
         
         if let navController = navigationController {
             System.clearNavigationBar(forBar: navController.navigationBar)
             navController.view.backgroundColor = .clear
+            
         }
         
         //Face ID
