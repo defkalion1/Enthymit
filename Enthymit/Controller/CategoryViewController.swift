@@ -28,32 +28,6 @@ class CategoryViewController: UIViewController, UITableViewDelegate, UITableView
     var mySelfImprovementData : Results<SelfImprovement>!
     var myTopSecretData : Results<TopSecret>!
     var myOtherData : Results<Other>!
-    
-//    struct System {
-//        static func clearNavigationBar(forBar navBar: UINavigationBar) {
-//            navBar.setBackgroundImage(UIImage(), for: .default)
-//            navBar.shadowImage = UIImage()
-//            navBar.isTranslucent = true
-//        }
-//    }
-    
-//
-//    override func viewWillAppear(_ animated: Bool) {
-//
-//        if let navController = navigationController {
-//            System.clearNavigationBar(forBar: navController.navigationBar)
-//            navController.view.backgroundColor = .clear
-//        }
-//    }
-
-//    override func viewDidDisappear(_ animated: Bool) {
-//        super.viewWillDisappear(animated)
-//
-//        if let navController = navigationController {
-//            System.clearNavigationBar(forBar: navController.navigationBar)
-//            navController.view.backgroundColor = .clear
-//        }
-//    }
 
     
     override func viewWillAppear(_ animated: Bool) {
@@ -142,6 +116,7 @@ class CategoryViewController: UIViewController, UITableViewDelegate, UITableView
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let destinationVC = segue.destination as! ItemViewController
+        destinationVC.delegate = self
         
         if let indexPath = categoryTableView.indexPathForSelectedRow {
             
@@ -149,19 +124,24 @@ class CategoryViewController: UIViewController, UITableViewDelegate, UITableView
                 destinationVC.fromCategory = "health"
                 destinationVC.fromHealthCategory = myHealthData?[indexPath.row]
                 destinationVC.titleLabel = myHealthData[indexPath.row].name
+                destinationVC.row = indexPath.row
+                
             
             } else if tableType == "self_improvement" {
                 destinationVC.fromCategory = "selfImprovement"
                 destinationVC.fromSelfImprovementCategory = mySelfImprovementData?[indexPath.row]
                 destinationVC.titleLabel = mySelfImprovementData[indexPath.row].name
+                destinationVC.row = indexPath.row
             } else if tableType == "topSecret"{
                 destinationVC.fromCategory = "topSecret"
                 destinationVC.fromTopSecretCategory = myTopSecretData?[indexPath.row]
                 destinationVC.titleLabel = myTopSecretData[indexPath.row].name
+                destinationVC.row = indexPath.row
             } else if tableType == "other"{
                 destinationVC.fromCategory = "other"
                 destinationVC.fromOtherCategory = myOtherData?[indexPath.row]
                 destinationVC.titleLabel = myOtherData[indexPath.row].name
+                destinationVC.row = indexPath.row
             }
         }
     }
@@ -235,6 +215,8 @@ class CategoryViewController: UIViewController, UITableViewDelegate, UITableView
         var textField = UITextField()
         
         let alert = UIAlertController(title: "Add New Item", message: "", preferredStyle: .alert)
+        
+        let cancelPressed = UIAlertAction(title: "Cancel", style: .cancel) { (action) in }
         
         let action = UIAlertAction(title: "Add", style: .default) { (action) in
             
@@ -322,6 +304,7 @@ class CategoryViewController: UIViewController, UITableViewDelegate, UITableView
         }
         
         alert.addAction(action)
+        alert.addAction(cancelPressed)
         present(alert, animated: true, completion: nil)
         
     }
@@ -354,6 +337,73 @@ class CategoryViewController: UIViewController, UITableViewDelegate, UITableView
     
 
     
+    
+}
+
+extension CategoryViewController: CanReceive{
+    
+    func dataReceived(data: String, at: Int) {
+        print("any")
+        
+            
+            if tableType == "health" {
+                do{
+                    try realm.write {
+                        let newName = myHealthData[at]
+                        newName.name = data
+                        realm.add(newName)
+                        
+                    }
+                }catch{
+                    print(error)
+                }
+               //let newName = myHealthData[row].name
+                
+                
+            } else if tableType == "self_improvement" {
+                
+                do{
+                    try realm.write {
+                        let newName = mySelfImprovementData[at]
+                        newName.name = data
+                        realm.add(newName)
+                        
+                    }
+                }catch{
+                    print(error)
+                }
+                
+            } else if tableType == "topSecret"{
+                
+                do{
+                    try realm.write {
+                        let newName = myTopSecretData[at]
+                        newName.name = data
+                        realm.add(newName)
+                        
+                    }
+                }catch{
+                    print(error)
+                }
+                
+            } else if tableType == "other"{
+               
+                do{
+                    try realm.write {
+                        let newName = myOtherData[at]
+                        newName.name = data
+                        realm.add(newName)
+                        
+                    }
+                }catch{
+                    print(error)
+                }
+                
+            }
+        
+        categoryTableView.reloadData()
+        
+    }
     
 }
 
