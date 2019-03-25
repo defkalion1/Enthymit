@@ -13,7 +13,7 @@
         <!--Settings-->
         <scene sceneID="F9a-Pi-jgb">
             <objects>
-                <tableViewController title="Settings" id="OMT-sQ-HPO" sceneMemberID="viewController">
+                <tableViewController title="Settings" id="OMT-sQ-HPO" customClass="SettingsStaticTableViewController" customModule="Enthymit" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="static" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="X6A-BZ-XQ3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -77,6 +77,9 @@
                                                 </imageView>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="wtt-22-Zga">
                                                     <rect key="frame" x="310" y="15" width="51" height="30"/>
+                                                    <connections>
+                                                        <action selector="darkThemePressed:" destination="OMT-sQ-HPO" eventType="valueChanged" id="ViM-IM-wwk"/>
+                                                    </connections>
                                                 </switch>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Dark Theme" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="klA-8g-Tyb">
                                                     <rect key="frame" x="66" y="18" width="112" height="26"/>
@@ -133,6 +136,9 @@
                                             <subviews>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="eoL-4h-jVn">
                                                     <rect key="frame" x="310" y="14" width="51" height="32"/>
+                                                    <connections>
+                                                        <action selector="authPressed:" destination="OMT-sQ-HPO" eventType="valueChanged" id="kYX-4c-0OU"/>
+                                                    </connections>
                                                 </switch>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Use Face/Touch ID" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kMC-RX-R6H">
                                                     <rect key="frame" x="16" y="17" width="172" height="26"/>
@@ -160,10 +166,14 @@
                             <outlet property="delegate" destination="OMT-sQ-HPO" id="Wd5-Om-xmo"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="darkTheme" destination="wtt-22-Zga" id="BY7-Nr-iFS"/>
+                        <outlet property="securityUnlock" destination="eoL-4h-jVn" id="xn5-l7-6dy"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Oh5-fp-cqo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="744.79999999999995" y="-584.48275862068965"/>
+            <point key="canvasLocation" x="746" y="-579"/>
         </scene>
         <!--Info View Controller-->
         <scene sceneID="9G8-kn-BVk">
