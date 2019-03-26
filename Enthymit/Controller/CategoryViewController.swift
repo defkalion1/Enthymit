@@ -12,9 +12,10 @@
 
 import UIKit
 import RealmSwift
+import SwipeCellKit
 
 
-class CategoryViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class CategoryViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, SwipeTableViewCellDelegate {
 
     
 
@@ -83,6 +84,7 @@ class CategoryViewController: UIViewController, UITableViewDelegate, UITableView
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "customCell", for: indexPath) as! CustomCategoryCell
+        cell.delegate = self
         
         
         //let cell = UITableViewCell(style: .default, reuseIdentifier: "cell")
@@ -156,55 +158,120 @@ class CategoryViewController: UIViewController, UITableViewDelegate, UITableView
     
     //MARK: - Delete row at indexPath when user swipes
     // Override to support editing the table view.
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            
-            if self.tableType == "health" {
-            if let itemForDeletion = self.myHealthData?[indexPath.row] {
-                do{
-                    try realm.write {
-                        realm.delete(itemForDeletion)
-                    }
-                }catch {
-                    print("Error deleting item\(error)")
-                }
-            }
-            } else if self.tableType == "self_improvement"{
-                if let itemForDeletion = self.mySelfImprovementData?[indexPath.row] {
-                    do{
-                        try realm.write {
-                            realm.delete(itemForDeletion)
+//    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+//        if editingStyle == .delete {
+//            // Delete the row from the data source
+//
+//            if self.tableType == "health" {
+//            if let itemForDeletion = self.myHealthData?[indexPath.row] {
+//                do{
+//                    try realm.write {
+//                        realm.delete(itemForDeletion)
+//                    }
+//                }catch {
+//                    print("Error deleting item\(error)")
+//                }
+//            }
+//            } else if self.tableType == "self_improvement"{
+//                if let itemForDeletion = self.mySelfImprovementData?[indexPath.row] {
+//                    do{
+//                        try realm.write {
+//                            realm.delete(itemForDeletion)
+//                        }
+//                    }catch {
+//                        print("Error deleting item\(error)")
+//                    }
+//                }
+//            }else if self.tableType == "topSecret"{
+//                if let itemForDeletion = self.myTopSecretData?[indexPath.row] {
+//                    do{
+//                        try realm.write {
+//                            realm.delete(itemForDeletion)
+//                        }
+//                    }catch {
+//                        print("Error deleting item\(error)")
+//                    }
+//                }
+//            }else if self.tableType == "other"{
+//                if let itemForDeletion = self.myOtherData?[indexPath.row] {
+//                    do{
+//                        try realm.write {
+//                            realm.delete(itemForDeletion)
+//                        }
+//                    }catch {
+//                        print("Error deleting item\(error)")
+//                    }
+//                }
+//            }
+//            tableView.deleteRows(at: [indexPath], with: .fade)
+//        } else if editingStyle == .insert {
+//            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+//        }
+//    }
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
+        guard orientation == .right else { return nil }
+        
+        let deleteAction = SwipeAction(style: .destructive, title: "Delete") { action, indexPath in
+            // handle action by updating model with deletion
+                        if self.tableType == "health" {
+                        if let itemForDeletion = self.myHealthData?[indexPath.row] {
+                            do{
+                                try self.realm.write {
+                                    self.realm.delete(itemForDeletion)
+                                }
+                            }catch {
+                                print("Error deleting item\(error)")
+                            }
                         }
-                    }catch {
-                        print("Error deleting item\(error)")
-                    }
-                }
-            }else if self.tableType == "topSecret"{
-                if let itemForDeletion = self.myTopSecretData?[indexPath.row] {
-                    do{
-                        try realm.write {
-                            realm.delete(itemForDeletion)
+                        } else if self.tableType == "self_improvement"{
+                            if let itemForDeletion = self.mySelfImprovementData?[indexPath.row] {
+                                do{
+                                    try self.realm.write {
+                                        self.realm.delete(itemForDeletion)
+                                    }
+                                }catch {
+                                    print("Error deleting item\(error)")
+                                }
+                            }
+                        }else if self.tableType == "topSecret"{
+                            if let itemForDeletion = self.myTopSecretData?[indexPath.row] {
+                                do{
+                                    try self.realm.write {
+                                        self.realm.delete(itemForDeletion)
+                                    }
+                                }catch {
+                                    print("Error deleting item\(error)")
+                                }
+                            }
+                        }else if self.tableType == "other"{
+                            if let itemForDeletion = self.myOtherData?[indexPath.row] {
+                                do{
+                                    try self.realm.write {
+                                        self.realm.delete(itemForDeletion)
+                                    }
+                                }catch {
+                                    print("Error deleting item\(error)")
+                                }
+                            }
                         }
-                    }catch {
-                        print("Error deleting item\(error)")
-                    }
-                }
-            }else if self.tableType == "other"{
-                if let itemForDeletion = self.myOtherData?[indexPath.row] {
-                    do{
-                        try realm.write {
-                            realm.delete(itemForDeletion)
-                        }
-                    }catch {
-                        print("Error deleting item\(error)")
-                    }
-                }
-            }
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+        }
+        
+        // customize the action appearance
+        deleteAction.image = UIImage(named: "delete")
+        deleteAction.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        deleteAction.textColor = #colorLiteral(red: 0.9985004067, green: 0.3443530202, blue: 0.2414973676, alpha: 1)
+        
+        return [deleteAction]
+    }
+    
+    func tableView(_ tableView: UITableView, editActionsOptionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> SwipeOptions {
+        var options = SwipeOptions()
+        options.expansionStyle = .destructive
+        options.transitionStyle = .border
+        options.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        
+        //options.transitionStyle = .reveal
+        return options
     }
     
     //MARK: - Add Button Pressed
@@ -214,7 +281,7 @@ class CategoryViewController: UIViewController, UITableViewDelegate, UITableView
         
         var textField = UITextField()
         
-        let alert = UIAlertController(title: "Add New Item", message: "", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Add A New Item", message: "", preferredStyle: .alert)
         
         let cancelPressed = UIAlertAction(title: "Cancel", style: .cancel) { (action) in }
         

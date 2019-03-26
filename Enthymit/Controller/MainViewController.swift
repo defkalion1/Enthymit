@@ -37,7 +37,9 @@ class MainViewController: UIViewController{
             
         }
         
+        let defaults = UserDefaults.standard
         //Face ID
+        if defaults.bool(forKey: "AuthIsOn") == true {
         let context:LAContext = LAContext()
         
         if context.canEvaluatePolicy(.deviceOwnerAuthentication, error: nil){
@@ -59,7 +61,12 @@ class MainViewController: UIViewController{
                 }
             }
         }
-        
+        }else{
+            self.navigationController?.navigationBar.isHidden = false
+            self.effect = self.visualEffectView.effect
+            self.visualEffectView.effect = nil
+            self.visualEffectView.isHidden = true
+        }
         
         quotesTextLabel.text = quotes.listOfQuotes[RandomQuoteNo]
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)

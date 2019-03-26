@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import SwipeCellKit
 
-class CustomCategoryCell: UITableViewCell {
+class CustomCategoryCell: SwipeTableViewCell {
 
     
     @IBOutlet weak var titleLabel: UILabel!

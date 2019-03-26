@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import LocalAuthentication
 
 class SettingsStaticTableViewController: UITableViewController {
     
@@ -15,7 +16,7 @@ class SettingsStaticTableViewController: UITableViewController {
     @IBOutlet weak var darkTheme: UISwitch!
     @IBOutlet weak var securityUnlock: UISwitch!
     
-    let defaults = UserDefaults.standard
+    public let defaults = UserDefaults.standard
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,8 +36,46 @@ class SettingsStaticTableViewController: UITableViewController {
     @IBAction func authPressed(_ sender: UISwitch) {
         self.defaults.set(securityUnlock.isOn, forKey: "AuthIsOn")
         
+                let context:LAContext = LAContext()
+        
+                if context.canEvaluatePolicy(.deviceOwnerAuthentication, error: nil){
+                    context.evaluatePolicy(LAPolicy.deviceOwnerAuthentication, localizedReason: "Secure Your Data With Face ID") { (match, error) in
+                        if match {
+                            print("Welcome")
+                            DispatchQueue.main.async {
+                                UIView.animate(withDuration: 0.3, animations: {
+                                        self.dismiss(animated: true, completion: nil)
+        //                            self.effect = self.visualEffectView.effect
+        //                            self.visualEffectView.effect = nil
+        //                            self.visualEffectView.isHidden = true
+                                })
+                            }
+        
+                        }else {
+                            print("Try Again")
+                            self.securityUnlock.isOn = !self.securityUnlock.isOn
+                            self.defaults.set(self.securityUnlock.isOn, forKey: "AuthIsOn")
+                            DispatchQueue.main.async {
+                                self.securityUnlock.setOn(false, animated: true)
+                                self.tableView.reloadData()
+                                
+                                
+                            }
+                            
+        
+                        }
+                    }
+                }
         
     }
-    
+    func loadData(){
+        
+        DispatchQueue.main.async {
+            self.securityUnlock.setOn(false, animated: true)
+            self.tableView.reloadData()
+            
+            
+        }
+    }
     
 }
