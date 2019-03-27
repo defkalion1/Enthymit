@@ -13,8 +13,18 @@ class SettingsStaticTableViewController: UITableViewController {
     
     
     
+
+
+    @IBOutlet weak var lockIcon: UIImageView!
+    @IBOutlet weak var appearanceLabel: UILabel!
+    @IBOutlet weak var appearanceView: UIView!
+    @IBOutlet weak var authLabel: UILabel!
+    @IBOutlet weak var DarkThemeLabel: UILabel!
+    @IBOutlet weak var coralRect: UIImageView!
     @IBOutlet weak var darkTheme: UISwitch!
     @IBOutlet weak var securityUnlock: UISwitch!
+    @IBOutlet weak var privacyView: UIView!
+    @IBOutlet weak var privacyLabel: UILabel!
     
     public let defaults = UserDefaults.standard
 
@@ -22,6 +32,19 @@ class SettingsStaticTableViewController: UITableViewController {
         super.viewDidLoad()
         darkTheme.isOn = defaults.bool(forKey: "DarkThemeIsOn")
         securityUnlock.isOn = defaults.bool(forKey: "AuthIsOn")
+        
+        if securityUnlock.isOn == true {
+            lockIcon.image = UIImage(named: "Lock Closed")
+        }else{
+            lockIcon.image = UIImage(named: "Lock Opened")
+        }
+        
+        if darkTheme.isOn == true {
+            setDarkTheme()
+        }else{
+            setLightTheme()
+        }
+        
 
     }
     
@@ -29,6 +52,13 @@ class SettingsStaticTableViewController: UITableViewController {
     @IBAction func darkThemePressed(_ sender: UISwitch) {
         //self.defaults.set(darkThemeOn, forKey: "DarkThemeOn")
         self.defaults.set(darkTheme.isOn, forKey: "DarkThemeIsOn")
+        if darkTheme.isOn == true{
+            setDarkTheme()
+        }else{
+            setLightTheme()
+        }
+        
+        
         
     }
     
@@ -45,6 +75,12 @@ class SettingsStaticTableViewController: UITableViewController {
                             DispatchQueue.main.async {
                                 UIView.animate(withDuration: 0.3, animations: {
                                         self.dismiss(animated: true, completion: nil)
+                                    if self.securityUnlock.isOn == true {
+                                        self.lockIcon.image = UIImage(named: "Lock Closed")
+                                    }else{
+                                        self.lockIcon.image = UIImage(named: "Lock Opened")
+                                    }
+                                    
         //                            self.effect = self.visualEffectView.effect
         //                            self.visualEffectView.effect = nil
         //                            self.visualEffectView.isHidden = true
@@ -53,14 +89,21 @@ class SettingsStaticTableViewController: UITableViewController {
         
                         }else {
                             print("Try Again")
-                            self.securityUnlock.isOn = !self.securityUnlock.isOn
-                            self.defaults.set(self.securityUnlock.isOn, forKey: "AuthIsOn")
                             DispatchQueue.main.async {
-                                self.securityUnlock.setOn(false, animated: true)
-                                self.tableView.reloadData()
-                                
-                                
+                                self.securityUnlock.isOn = !self.securityUnlock.isOn
+                                self.defaults.set(self.securityUnlock.isOn, forKey: "AuthIsOn")
+                                self.lockIcon.image = UIImage(named: "Lock Opened")
                             }
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                                
+                                
+                            
                             
         
                         }
@@ -68,14 +111,28 @@ class SettingsStaticTableViewController: UITableViewController {
                 }
         
     }
-    func loadData(){
+    
+    func setDarkTheme() {
+        self.tableView.backgroundColor = DarkTheme.background
+        authLabel.textColor = DarkTheme.textColor
+        coralRect.backgroundColor = DarkTheme.background
+        DarkThemeLabel.textColor = DarkTheme.textColor
+        appearanceView.backgroundColor = DarkTheme.background
+        appearanceLabel.textColor = DarkTheme.headerText
+        privacyView.backgroundColor = DarkTheme.background
+        privacyLabel.textColor = DarkTheme.headerText
+
+    }
+    func setLightTheme(){
+        self.tableView.backgroundColor = LightTheme.background
+        authLabel.textColor = LightTheme.textColor
+        coralRect.backgroundColor = LightTheme.background
+        DarkThemeLabel.textColor = LightTheme.textColor
+        appearanceView.backgroundColor = LightTheme.background
+        appearanceLabel.textColor = LightTheme.headerText
+        privacyView.backgroundColor = LightTheme.background
+        privacyLabel.textColor = LightTheme.headerText
         
-        DispatchQueue.main.async {
-            self.securityUnlock.setOn(false, animated: true)
-            self.tableView.reloadData()
-            
-            
-        }
     }
     
 }

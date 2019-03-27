@@ -18,9 +18,12 @@ import SwipeCellKit
 class CategoryViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, SwipeTableViewCellDelegate {
 
     
-
+    
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var coral: UIImageView!
     @IBOutlet weak var categoryTableView: UITableView!
     let realm = try! Realm()
+    public let defaults = UserDefaults.standard
     
 
     let formatter = DateFormatter()
@@ -34,12 +37,31 @@ class CategoryViewController: UIViewController, UITableViewDelegate, UITableView
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(false, animated: animated)
+        //MARK: - Appearance
+         if defaults.bool(forKey: "DarkThemeIsOn") == true {
+            tableView.backgroundColor = DarkTheme.background
+            coral.backgroundColor = DarkTheme.background
+            view.backgroundColor = DarkTheme.background
+         }else{
+            tableView.backgroundColor = LightTheme.background
+            coral.backgroundColor = LightTheme.background
+            view.backgroundColor = LightTheme.background
+        }
+        
+    
+    
+    
     }
+    
+    
+    
+    
+    
 
     override func viewDidLoad() {
 
         super.viewDidLoad()
-        navigationItem.largeTitleDisplayMode = .never
+        //navigationItem.largeTitleDisplayMode = .never
         categoryTableView.delegate = self
         categoryTableView.register(UINib(nibName: "CustomCell", bundle: nil), forCellReuseIdentifier: "customCell")
         configureTableView()

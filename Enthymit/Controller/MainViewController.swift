@@ -10,15 +10,16 @@ import UIKit
 import LocalAuthentication
 
 class MainViewController: UIViewController{
-    //let searchController = UISearchController(searchResultsController: nil)
+
 
     
     //MARK: - Random Quotes
     @IBOutlet weak var quotesTextLabel: UILabel!
     @IBOutlet weak var visualEffectView: UIVisualEffectView!
     var effect:UIVisualEffect!
-
-
+    @IBOutlet weak var coral: UIImageView!
+    public let defaults = UserDefaults.standard
+    
     @IBAction func settingsButtonPressed(_ sender: UIBarButtonItem) {
 
     }
@@ -28,16 +29,22 @@ class MainViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         navigationController?.navigationBar.isHidden = true
-        //navigationItem.searchController = searchController
+        
+        
+        
+        
+
         
         if let navController = navigationController {
             System.clearNavigationBar(forBar: navController.navigationBar)
             navController.view.backgroundColor = .clear
             
+            
         }
         
-        let defaults = UserDefaults.standard
+        
         //Face ID
         if defaults.bool(forKey: "AuthIsOn") == true {
         let context:LAContext = LAContext()
@@ -88,10 +95,23 @@ class MainViewController: UIViewController{
             System.clearNavigationBar(forBar: navController.navigationBar)
             navController.view.backgroundColor = .clear
         }
+        
+        //MARK: - Appearance
+        if defaults.bool(forKey: "DarkThemeIsOn") == true {
+            view.backgroundColor = DarkTheme.background
+            coral.backgroundColor = DarkTheme.background
+            quotesTextLabel.textColor = DarkTheme.quoteText
+            quotesTextLabel.backgroundColor = DarkTheme.background
+        }else{
+            view.backgroundColor = LightTheme.background
+            coral.backgroundColor = LightTheme.background
+            quotesTextLabel.textColor = LightTheme.quoteText
+            quotesTextLabel.backgroundColor = LightTheme.background
+        }
+        
+        
     }
     
-
-
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         

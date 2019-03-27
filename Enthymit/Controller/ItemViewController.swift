@@ -15,12 +15,19 @@ protocol CanReceive {
 
 
 class ItemViewController: UIViewController, UITextViewDelegate {
-    
+    public let defaults = UserDefaults.standard
    
 
 
     
-
+    @IBOutlet weak var coral: UIImageView!
+    @IBOutlet weak var expectationsLabel: UILabel!
+    @IBOutlet weak var levelOfDifficultyLabel: UILabel!
+    @IBOutlet weak var toMakeItHappenLabel: UILabel!
+    @IBOutlet weak var whyLabel: UILabel!
+    @IBOutlet weak var whyTextView: UITextView!
+    @IBOutlet weak var toMakeItHappenTextView: UITextView!
+    @IBOutlet weak var expectationsTextView: UITextView!
     @IBOutlet weak var difficultySlider: UISlider!
     @IBOutlet weak var itemLabel: UITextField!
     @IBOutlet weak var difficultyLevel: UILabel!
@@ -67,9 +74,7 @@ class ItemViewController: UIViewController, UITextViewDelegate {
 
     
 
-    @IBOutlet weak var whyTextView: UITextView!
-    @IBOutlet weak var toMakeItHappenTextView: UITextView!
-    @IBOutlet weak var expectationsTextView: UITextView!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -77,6 +82,7 @@ class ItemViewController: UIViewController, UITextViewDelegate {
         self.whyTextView.delegate = self
         self.toMakeItHappenTextView.delegate = self
         self.expectationsTextView.delegate = self
+        navigationItem.largeTitleDisplayMode = .never
         
 
       
@@ -141,6 +147,44 @@ class ItemViewController: UIViewController, UITextViewDelegate {
             print("1")
         }
     
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        //MARK: - Appearance
+        if defaults.bool(forKey: "DarkThemeIsOn") == true {
+            coral.backgroundColor = DarkTheme.background
+            itemLabel.textColor = DarkTheme.textColor
+            whyLabel.textColor = DarkTheme.textColor
+            whyTextView.textColor = DarkTheme.textColor
+            toMakeItHappenLabel.textColor = DarkTheme.textColor
+            toMakeItHappenTextView.backgroundColor = DarkTheme.background
+            toMakeItHappenTextView.textColor = DarkTheme.textColor
+            whyTextView.backgroundColor = DarkTheme.background
+            levelOfDifficultyLabel.textColor = DarkTheme.textColor
+            difficultySlider.maximumTrackTintColor = DarkTheme.headerText
+            difficultyLevel.textColor = DarkTheme.quoteText
+            expectationsLabel.textColor = DarkTheme.textColor
+            expectationsTextView.backgroundColor = DarkTheme.background
+            expectationsTextView.textColor = DarkTheme.textColor
+            view.backgroundColor = DarkTheme.background
+        }else{
+            coral.backgroundColor = LightTheme.background
+            itemLabel.textColor = LightTheme.textColor
+            whyLabel.textColor = LightTheme.textColor
+            whyTextView.textColor = LightTheme.textColor
+            toMakeItHappenLabel.textColor = LightTheme.textColor
+            whyTextView.backgroundColor = LightTheme.background
+            levelOfDifficultyLabel.textColor = LightTheme.textColor
+            difficultySlider.maximumTrackTintColor = DarkTheme.headerText
+            difficultyLevel.textColor = LightTheme.quoteText
+            expectationsLabel.textColor = LightTheme.textColor
+            expectationsTextView.backgroundColor = LightTheme.background
+            expectationsTextView.textColor = LightTheme.textColor
+            view.backgroundColor = LightTheme.background
+            toMakeItHappenTextView.backgroundColor = LightTheme.background
+            toMakeItHappenTextView.textColor = LightTheme.textColor
+        }
     }
     
 
