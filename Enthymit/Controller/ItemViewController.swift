@@ -8,6 +8,7 @@
 
 import UIKit
 import RealmSwift
+import UserNotifications
 
 protocol CanReceive {
     func dataReceived(data: String, at: Int)
@@ -83,6 +84,10 @@ class ItemViewController: UIViewController, UITextViewDelegate {
         self.toMakeItHappenTextView.delegate = self
         self.expectationsTextView.delegate = self
         navigationItem.largeTitleDisplayMode = .never
+        //self.navigationController?.navigationBar.isHidden = true
+        
+        
+        
         
 
       
@@ -168,6 +173,7 @@ class ItemViewController: UIViewController, UITextViewDelegate {
             expectationsTextView.backgroundColor = DarkTheme.background
             expectationsTextView.textColor = DarkTheme.textColor
             view.backgroundColor = DarkTheme.background
+            difficultySlider.minimumTrackTintColor = DarkTheme.slider
         }else{
             coral.backgroundColor = LightTheme.background
             itemLabel.textColor = LightTheme.textColor
@@ -184,6 +190,7 @@ class ItemViewController: UIViewController, UITextViewDelegate {
             view.backgroundColor = LightTheme.background
             toMakeItHappenTextView.backgroundColor = LightTheme.background
             toMakeItHappenTextView.textColor = LightTheme.textColor
+            difficultySlider.minimumTrackTintColor = LightTheme.slider
         }
     }
     
@@ -445,9 +452,31 @@ class ItemViewController: UIViewController, UITextViewDelegate {
             
         }
     
-            
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destinationVC = segue.destination as! ReminderViewController
+        destinationVC.notificationTitle = itemLabel.text!
+    }
+    
+
+    //MARK: - Notifications
+        
+    @IBAction func notificattionsButtonPressed(_ sender: UIButton) {
         
         
+        
+        performSegue(withIdentifier: "goToReminder", sender: self)
+        
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { (didAllow, error) in
+            if error != nil{
+                print("notifications will appear only if you allow them")
+            }else{
+                print("nice you will get notifications")
+            }
+        }
+        
+    }
+    
         
         
         //tap.selectionChanged()

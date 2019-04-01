@@ -42,10 +42,12 @@ class CategoryViewController: UIViewController, UITableViewDelegate, UITableView
             tableView.backgroundColor = DarkTheme.background
             coral.backgroundColor = DarkTheme.background
             view.backgroundColor = DarkTheme.background
+            
          }else{
             tableView.backgroundColor = LightTheme.background
             coral.backgroundColor = LightTheme.background
             view.backgroundColor = LightTheme.background
+            
         }
         
     
@@ -280,9 +282,13 @@ class CategoryViewController: UIViewController, UITableViewDelegate, UITableView
         
         // customize the action appearance
         deleteAction.image = UIImage(named: "delete")
-        deleteAction.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        if defaults.bool(forKey: "DarkThemeIsOn") == true {
+            
+        deleteAction.backgroundColor = DarkTheme.background
         deleteAction.textColor = #colorLiteral(red: 0.9985004067, green: 0.3443530202, blue: 0.2414973676, alpha: 1)
-        
+        }else{
+            deleteAction.backgroundColor = LightTheme.background
+        }
         return [deleteAction]
     }
     
@@ -321,7 +327,7 @@ class CategoryViewController: UIViewController, UITableViewDelegate, UITableView
                 do{
                     try self.realm.write {
                         self.realm.add(newTableViewItem)
-                        newTableViewItem.healthItems.append(newEmptyListItem)
+                        newTableViewItem.healthItems.append(newEmptyListItem)  
                     }
                 }catch{
                     print(error)
@@ -382,6 +388,7 @@ class CategoryViewController: UIViewController, UITableViewDelegate, UITableView
             }
             
             self.categoryTableView.reloadData()
+            
             
         }
         

@@ -10,6 +10,7 @@
 		8D0C72C9083CD78AAFD0E59B /* Pods_Enthymit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15B0458C3345418234B7074D /* Pods_Enthymit.framework */; };
 		9309C371224BA91000289A4C /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9309C370224BA91000289A4C /* Theme.swift */; };
 		9309C374224BADAB00289A4C /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9309C373224BADAB00289A4C /* Colors.xcassets */; };
+		9339EA3E2250C3EA002D4863 /* ReminderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9339EA3D2250C3EA002D4863 /* ReminderViewController.swift */; };
 		93513351222ECEEA00DFBBDB /* CustomCellClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9351334F222ECEEA00DFBBDB /* CustomCellClass.swift */; };
 		93513352222ECEEA00DFBBDB /* CustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93513350222ECEEA00DFBBDB /* CustomCell.xib */; };
 		93513355222FF14B00DFBBDB /* LogIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93513354222FF14B00DFBBDB /* LogIn.swift */; };
@@ -32,6 +33,7 @@
 		702CB66384B06747A4366D1E /* Pods-Enthymit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Enthymit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Enthymit/Pods-Enthymit.debug.xcconfig"; sourceTree = "<group>"; };
 		9309C370224BA91000289A4C /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		9309C373224BADAB00289A4C /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		9339EA3D2250C3EA002D4863 /* ReminderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderViewController.swift; sourceTree = "<group>"; };
 		9351334F222ECEEA00DFBBDB /* CustomCellClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCellClass.swift; sourceTree = "<group>"; };
 		93513350222ECEEA00DFBBDB /* CustomCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomCell.xib; sourceTree = "<group>"; };
 		93513354222FF14B00DFBBDB /* LogIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogIn.swift; sourceTree = "<group>"; };
@@ -141,6 +143,7 @@
 				93E89612221F14E000095923 /* CategoryViewController.swift */,
 				9383D9162222C4AD00C9A310 /* ItemViewController.swift */,
 				93513354222FF14B00DFBBDB /* LogIn.swift */,
+				9339EA3D2250C3EA002D4863 /* ReminderViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -286,6 +289,7 @@
 				93ABCC792231237D00F84BD5 /* InfoViewController.swift in Sources */,
 				938AEA0222117C3A0055BECC /* AppDelegate.swift in Sources */,
 				93782395224951CF001068FE /* SettingsStaticTableViewController.swift in Sources */,
+				9339EA3E2250C3EA002D4863 /* ReminderViewController.swift in Sources */,
 				9383D9152222B7B500C9A310 /* Item.swift in Sources */,
 				93E896172220C01500095923 /* Quotes.swift in Sources */,
 				93E8960F221F112E00095923 /* Categories.swift in Sources */,
