@@ -13,7 +13,6 @@
 		9339EA3E2250C3EA002D4863 /* ReminderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9339EA3D2250C3EA002D4863 /* ReminderViewController.swift */; };
 		93513351222ECEEA00DFBBDB /* CustomCellClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9351334F222ECEEA00DFBBDB /* CustomCellClass.swift */; };
 		93513352222ECEEA00DFBBDB /* CustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93513350222ECEEA00DFBBDB /* CustomCell.xib */; };
-		93513355222FF14B00DFBBDB /* LogIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93513354222FF14B00DFBBDB /* LogIn.swift */; };
 		93782395224951CF001068FE /* SettingsStaticTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93782394224951CF001068FE /* SettingsStaticTableViewController.swift */; };
 		9383D9152222B7B500C9A310 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9383D9142222B7B500C9A310 /* Item.swift */; };
 		9383D9172222C4AD00C9A310 /* ItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9383D9162222C4AD00C9A310 /* ItemViewController.swift */; };
@@ -36,7 +35,6 @@
 		9339EA3D2250C3EA002D4863 /* ReminderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderViewController.swift; sourceTree = "<group>"; };
 		9351334F222ECEEA00DFBBDB /* CustomCellClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCellClass.swift; sourceTree = "<group>"; };
 		93513350222ECEEA00DFBBDB /* CustomCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomCell.xib; sourceTree = "<group>"; };
-		93513354222FF14B00DFBBDB /* LogIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogIn.swift; sourceTree = "<group>"; };
 		93782394224951CF001068FE /* SettingsStaticTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsStaticTableViewController.swift; sourceTree = "<group>"; };
 		9383D9142222B7B500C9A310 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		9383D9162222C4AD00C9A310 /* ItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemViewController.swift; sourceTree = "<group>"; };
@@ -142,7 +140,6 @@
 				93ABCC782231237D00F84BD5 /* InfoViewController.swift */,
 				93E89612221F14E000095923 /* CategoryViewController.swift */,
 				9383D9162222C4AD00C9A310 /* ItemViewController.swift */,
-				93513354222FF14B00DFBBDB /* LogIn.swift */,
 				9339EA3D2250C3EA002D4863 /* ReminderViewController.swift */,
 			);
 			path = Controller;
@@ -296,7 +293,6 @@
 				9309C371224BA91000289A4C /* Theme.swift in Sources */,
 				93E8961522203BAA00095923 /* MainViewController.swift in Sources */,
 				93513351222ECEEA00DFBBDB /* CustomCellClass.swift in Sources */,
-				93513355222FF14B00DFBBDB /* LogIn.swift in Sources */,
 				9383D9172222C4AD00C9A310 /* ItemViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

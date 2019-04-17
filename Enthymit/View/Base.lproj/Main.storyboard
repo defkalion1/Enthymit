@@ -499,26 +499,6 @@ In the categories found at the main page you can create a new item corresponding
                                         <color key="textColor" red="0.13331398367881775" green="0.13334444165229797" blue="0.13331207633018494" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="highlightedColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" allowsEditingTextAttributes="YES" minimumFontSize="21" translatesAutoresizingMaskIntoConstraints="NO" id="Ntz-rt-vSc">
-                                        <rect key="frame" x="16" y="53" width="343" height="50"/>
-                                        <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="mNA-OF-pBN"/>
-                                        </constraints>
-                                        <attributedString key="attributedText">
-                                            <fragment content="Title">
-                                                <attributes>
-                                                    <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                                    <font key="NSFont" size="21" name=".SFNSDisplay"/>
-                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineHeightMultiple="0.5" tighteningFactorForTruncation="0.0"/>
-                                                </attributes>
-                                            </fragment>
-                                        </attributedString>
-                                        <textInputTraits key="textInputTraits"/>
-                                        <connections>
-                                            <action selector="titleChanged:" destination="h64-ze-32R" eventType="editingDidEnd" id="qbv-8M-iac"/>
-                                        </connections>
-                                    </textField>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" tag="4" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" indicatorStyle="black" keyboardDismissMode="interactive" translatesAutoresizingMaskIntoConstraints="NO" id="RVn-Tq-P8U" userLabel="toMakeItHappen">
                                         <rect key="frame" x="16" y="472" width="343" height="239"/>
                                         <color key="backgroundColor" red="1" green="1" blue="0.98166232639999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -601,23 +581,42 @@ In the categories found at the main page you can create a new item corresponding
                                             <outlet property="delegate" destination="h64-ze-32R" id="mpC-DY-cqY"/>
                                         </connections>
                                     </textView>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" allowsEditingTextAttributes="YES" placeholder="Won't you have a title?" minimumFontSize="19" translatesAutoresizingMaskIntoConstraints="NO" id="Ntz-rt-vSc">
+                                        <rect key="frame" x="16" y="53" width="343" height="76"/>
+                                        <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="76" id="E4J-cW-Zgx"/>
+                                        </constraints>
+                                        <attributedString key="attributedText">
+                                            <fragment content="Title">
+                                                <attributes>
+                                                    <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                    <font key="NSFont" metaFont="system" size="21"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <action selector="titleChanged:" destination="h64-ze-32R" eventType="editingDidEnd" id="qbv-8M-iac"/>
+                                        </connections>
+                                    </textField>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="Ntz-rt-vSc" firstAttribute="centerX" secondItem="plQ-M6-3Bu" secondAttribute="centerX" id="2DL-jB-DsC"/>
                                     <constraint firstItem="R3h-g7-zB9" firstAttribute="top" secondItem="nE8-S2-RPT" secondAttribute="bottom" constant="36" id="3Dl-gV-kyU"/>
-                                    <constraint firstItem="Ntz-rt-vSc" firstAttribute="leading" secondItem="plQ-M6-3Bu" secondAttribute="leading" constant="16" id="3P8-CN-TsD"/>
                                     <constraint firstItem="R3h-g7-zB9" firstAttribute="leading" secondItem="wQD-6b-acu" secondAttribute="leading" id="79t-rW-9ux"/>
-                                    <constraint firstItem="Ntz-rt-vSc" firstAttribute="leading" secondItem="FcM-eS-ksc" secondAttribute="leading" id="A3E-Cs-Pyl"/>
                                     <constraint firstItem="NBJ-NC-kbJ" firstAttribute="leading" secondItem="nE8-S2-RPT" secondAttribute="leading" id="A3h-AE-fwv"/>
                                     <constraint firstAttribute="trailing" secondItem="gNJ-Qa-sSG" secondAttribute="trailing" constant="97" id="Anu-VR-NgZ"/>
-                                    <constraint firstAttribute="trailing" secondItem="Ntz-rt-vSc" secondAttribute="trailing" constant="16" id="GHo-O7-Wlt"/>
-                                    <constraint firstItem="FcM-eS-ksc" firstAttribute="top" secondItem="Ntz-rt-vSc" secondAttribute="bottom" constant="44" id="GbG-at-zjy"/>
                                     <constraint firstItem="CiN-Qc-luV" firstAttribute="leading" secondItem="RVn-Tq-P8U" secondAttribute="leading" id="KB7-1m-aOG"/>
+                                    <constraint firstItem="Ntz-rt-vSc" firstAttribute="leading" secondItem="FcM-eS-ksc" secondAttribute="leading" id="LJb-6z-SJS"/>
                                     <constraint firstItem="CiN-Qc-luV" firstAttribute="trailing" secondItem="R3h-g7-zB9" secondAttribute="trailing" id="MJn-12-TLo"/>
                                     <constraint firstItem="N8I-Dr-FAd" firstAttribute="leading" secondItem="CiN-Qc-luV" secondAttribute="leading" id="McZ-fV-o8H"/>
+                                    <constraint firstItem="Ntz-rt-vSc" firstAttribute="trailing" secondItem="N8I-Dr-FAd" secondAttribute="trailing" id="MoJ-bg-kzH"/>
                                     <constraint firstItem="NBJ-NC-kbJ" firstAttribute="top" secondItem="RVn-Tq-P8U" secondAttribute="bottom" constant="30" id="Nam-1Z-htq"/>
                                     <constraint firstItem="nE8-S2-RPT" firstAttribute="leading" secondItem="R3h-g7-zB9" secondAttribute="leading" id="O9m-hb-5tm"/>
                                     <constraint firstItem="gNJ-Qa-sSG" firstAttribute="top" secondItem="RVn-Tq-P8U" secondAttribute="bottom" constant="25" id="Ogh-4L-HYg"/>
-                                    <constraint firstItem="Ntz-rt-vSc" firstAttribute="trailing" secondItem="N8I-Dr-FAd" secondAttribute="trailing" id="SCL-HJ-DQM"/>
+                                    <constraint firstItem="FcM-eS-ksc" firstAttribute="top" secondItem="Ntz-rt-vSc" secondAttribute="bottom" constant="18" id="VNA-pP-eFS"/>
                                     <constraint firstItem="RVn-Tq-P8U" firstAttribute="trailing" secondItem="nE8-S2-RPT" secondAttribute="trailing" id="Xnx-ik-vkT"/>
                                     <constraint firstAttribute="bottom" secondItem="wQD-6b-acu" secondAttribute="bottom" constant="273" id="Zno-Vz-RSk"/>
                                     <constraint firstItem="RVn-Tq-P8U" firstAttribute="leading" secondItem="NBJ-NC-kbJ" secondAttribute="leading" id="aqa-D0-Gid"/>
@@ -625,12 +624,13 @@ In the categories found at the main page you can create a new item corresponding
                                     <constraint firstItem="wQD-6b-acu" firstAttribute="top" secondItem="R3h-g7-zB9" secondAttribute="bottom" constant="8" symbolic="YES" id="cxH-hW-QXl"/>
                                     <constraint firstItem="CiN-Qc-luV" firstAttribute="top" secondItem="N8I-Dr-FAd" secondAttribute="bottom" constant="14" id="gc4-vc-D1T"/>
                                     <constraint firstItem="FcM-eS-ksc" firstAttribute="leading" secondItem="N8I-Dr-FAd" secondAttribute="leading" id="h5B-5u-Qig"/>
-                                    <constraint firstItem="Ntz-rt-vSc" firstAttribute="top" secondItem="plQ-M6-3Bu" secondAttribute="top" constant="53" id="iVa-Yb-QGx"/>
+                                    <constraint firstAttribute="trailing" secondItem="Ntz-rt-vSc" secondAttribute="trailing" constant="16" id="k6s-83-jwn"/>
+                                    <constraint firstItem="Ntz-rt-vSc" firstAttribute="top" secondItem="plQ-M6-3Bu" secondAttribute="top" constant="53" id="kCZ-P2-bQA"/>
+                                    <constraint firstItem="Ntz-rt-vSc" firstAttribute="leading" secondItem="plQ-M6-3Bu" secondAttribute="leading" constant="16" id="n3e-mM-V6e"/>
                                     <constraint firstItem="NBJ-NC-kbJ" firstAttribute="centerY" secondItem="gNJ-Qa-sSG" secondAttribute="centerY" id="nTX-hD-ZVQ"/>
                                     <constraint firstItem="nE8-S2-RPT" firstAttribute="top" secondItem="gNJ-Qa-sSG" secondAttribute="bottom" constant="25" id="qYP-4T-aFm"/>
                                     <constraint firstItem="nE8-S2-RPT" firstAttribute="trailing" secondItem="wQD-6b-acu" secondAttribute="trailing" id="qtZ-AL-Av5"/>
                                     <constraint firstItem="N8I-Dr-FAd" firstAttribute="top" secondItem="FcM-eS-ksc" secondAttribute="bottom" constant="8" symbolic="YES" id="tDe-X1-mja"/>
-                                    <constraint firstItem="Ntz-rt-vSc" firstAttribute="centerX" secondItem="plQ-M6-3Bu" secondAttribute="centerX" id="twC-3m-88z"/>
                                     <constraint firstItem="RVn-Tq-P8U" firstAttribute="top" secondItem="CiN-Qc-luV" secondAttribute="bottom" constant="8" symbolic="YES" id="x3A-lf-njV"/>
                                 </constraints>
                             </scrollView>
@@ -662,7 +662,7 @@ In the categories found at the main page you can create a new item corresponding
                         <viewLayoutGuide key="safeArea" id="PYM-CP-neA"/>
                     </view>
                     <navigationItem key="navigationItem" id="DLT-Yb-7al">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="Mld-g6-Jen">
+                        <barButtonItem key="rightBarButtonItem" title="Item" style="plain" id="Mld-g6-Jen">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="6el-ER-iNY">
                                 <rect key="frame" x="327" y="6.6666666666666679" width="32" height="31.000000000000004"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -686,6 +686,7 @@ In the categories found at the main page you can create a new item corresponding
                         <outlet property="expectationsTextView" destination="wQD-6b-acu" id="RQC-Rl-hWF"/>
                         <outlet property="itemLabel" destination="Ntz-rt-vSc" id="9mk-6g-Gb3"/>
                         <outlet property="levelOfDifficultyLabel" destination="NBJ-NC-kbJ" id="plb-bb-m0R"/>
+                        <outlet property="reminderButton" destination="6el-ER-iNY" id="FUx-nj-W8c"/>
                         <outlet property="toMakeItHappenLabel" destination="CiN-Qc-luV" id="OvP-HG-F4t"/>
                         <outlet property="toMakeItHappenTextView" destination="RVn-Tq-P8U" id="eey-4m-vVu"/>
                         <outlet property="whyLabel" destination="FcM-eS-ksc" id="RKd-ll-djH"/>
@@ -837,7 +838,7 @@ In the categories found at the main page you can create a new item corresponding
         <image name="Settings Coral with shadow" width="375" height="203"/>
         <image name="Top" width="291" height="47"/>
         <image name="coral rect with shadow" width="375" height="204"/>
-        <image name="icon_ios_alarm_filled" width="32" height="31"/>
+        <image name="icon_ios_alarm_filled" width="28" height="27"/>
         <image name="info" width="27" height="27"/>
     </resources>
     <inferredMetricsTieBreakers>

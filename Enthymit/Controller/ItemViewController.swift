@@ -32,7 +32,8 @@ class ItemViewController: UIViewController, UITextViewDelegate {
     @IBOutlet weak var difficultySlider: UISlider!
     @IBOutlet weak var itemLabel: UITextField!
     @IBOutlet weak var difficultyLevel: UILabel!
-
+    @IBOutlet weak var reminderButton: UIButton!
+    
     
     var delegate : CanReceive?
     var row : Int?
@@ -103,6 +104,12 @@ class ItemViewController: UIViewController, UITextViewDelegate {
                 difficultySlider.value = myHealthItems?[0].difficulty ?? 1.0
                 expectationsTextView.text = myHealthItems?[0].expectations
                 
+                if myHealthItems?[0].notificationKey == "" {
+                    reminderButton.setImage(UIImage(named: "icon_ios_alarm"), for: .normal)
+                }else{
+                    reminderButton.setImage(UIImage(named: "icon_ios_alarm_filled"), for: .normal)
+                
+        }
         }
         }else if fromCategory == "selfImprovement" {
             if mySImprovementItems?.first != nil{
@@ -110,13 +117,28 @@ class ItemViewController: UIViewController, UITextViewDelegate {
                 toMakeItHappenTextView.text = mySImprovementItems?[0].toMakeItHappen
                 difficultySlider.value = mySImprovementItems?[0].difficulty ?? 1.0
                 expectationsTextView.text = mySImprovementItems?[0].expectations
+                
+                if mySImprovementItems?[0].notificationKey == "" {
+                    reminderButton.setImage(UIImage(named: "icon_ios_alarm"), for: .normal)
+                }else{
+                    reminderButton.setImage(UIImage(named: "icon_ios_alarm_filled"), for: .normal)
+                    
+                }
             }
-        }else if fromCategory == "topSecret" {
+        }
+        else if fromCategory == "topSecret" {
             if myTopSecretItems?.first != nil{
                 whyTextView.text = myTopSecretItems?[0].why
                 toMakeItHappenTextView.text = myTopSecretItems?[0].toMakeItHappen
                 difficultySlider.value = myTopSecretItems?[0].difficulty ?? 1.0
                 expectationsTextView.text = myTopSecretItems?[0].expectations
+                
+                if myTopSecretItems?[0].notificationKey == "" {
+                    reminderButton.setImage(UIImage(named: "icon_ios_alarm"), for: .normal)
+                }else{
+                    reminderButton.setImage(UIImage(named: "icon_ios_alarm_filled"), for: .normal)
+                    
+                }
             }
         }else if fromCategory == "other" {
             if myOtherItems?.first != nil{
@@ -124,8 +146,16 @@ class ItemViewController: UIViewController, UITextViewDelegate {
                 toMakeItHappenTextView.text = myOtherItems?[0].toMakeItHappen
                 difficultySlider.value = myOtherItems?[0].difficulty ?? 1.0
                 expectationsTextView.text = myOtherItems?[0].expectations
+                
+                if myOtherItems?[0].notificationKey == "" {
+                    reminderButton.setImage(UIImage(named: "icon_ios_alarm"), for: .normal)
+                }else{
+                    reminderButton.setImage(UIImage(named: "icon_ios_alarm_filled"), for: .normal)
+                    
+                }
             }
         }
+        
                 // Do any additional setup after loading the view.
         switch difficultySlider.value {
         case 1.0:
@@ -191,9 +221,61 @@ class ItemViewController: UIViewController, UITextViewDelegate {
             toMakeItHappenTextView.backgroundColor = LightTheme.background
             toMakeItHappenTextView.textColor = LightTheme.textColor
             difficultySlider.minimumTrackTintColor = LightTheme.slider
+            
         }
+        
+
+        
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        if fromCategory == "health" {
+            if myHealthItems?.first?.why != nil{
+                
+                
+                if myHealthItems?[0].notificationKey == "" {
+                    reminderButton.setImage(UIImage(named: "icon_ios_alarm"), for: .normal)
+                }else{
+                    reminderButton.setImage(UIImage(named: "icon_ios_alarm_filled"), for: .normal)
+                    
+                }
+            }
+        }else if fromCategory == "selfImprovement" {
+            if mySImprovementItems?.first != nil{
+                
+                
+                if mySImprovementItems?[0].notificationKey == "" {
+                    reminderButton.setImage(UIImage(named: "icon_ios_alarm"), for: .normal)
+                }else{
+                    reminderButton.setImage(UIImage(named: "icon_ios_alarm_filled"), for: .normal)
+                    
+                }
+            }
+        }
+        else if fromCategory == "topSecret" {
+            if myTopSecretItems?.first != nil{
+                
+                
+                if myTopSecretItems?[0].notificationKey == "" {
+                    reminderButton.setImage(UIImage(named: "icon_ios_alarm"), for: .normal)
+                }else{
+                    reminderButton.setImage(UIImage(named: "icon_ios_alarm_filled"), for: .normal)
+                    
+                }
+            }
+        }else if fromCategory == "other" {
+            if myOtherItems?.first != nil{
+                
+                
+                if myOtherItems?[0].notificationKey == "" {
+                    reminderButton.setImage(UIImage(named: "icon_ios_alarm"), for: .normal)
+                }else{
+                    reminderButton.setImage(UIImage(named: "icon_ios_alarm_filled"), for: .normal)
+                    
+                }
+            }
+        }
+    }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
@@ -456,6 +538,33 @@ class ItemViewController: UIViewController, UITextViewDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let destinationVC = segue.destination as! ReminderViewController
         destinationVC.notificationTitle = itemLabel.text!
+        destinationVC.fromCategory = fromCategory
+        
+        
+        if fromCategory == "health" {
+            
+            destinationVC.myHealthItems = fromHealthCategory?.healthItems.sorted(byKeyPath: "why")
+            destinationVC.fromHealthCategory = fromHealthCategory
+            
+            
+        }else if fromCategory == "selfImprovement" {
+            
+            destinationVC.mySImprovementItems = fromSelfImprovementCategory?.selfImprovementItems.sorted(byKeyPath: "why")
+            destinationVC.fromSelfImprovementCategory = fromSelfImprovementCategory
+            
+        }else if fromCategory == "topSecret" {
+            
+            destinationVC.myTopSecretItems = fromTopSecretCategory?.topSecretItems.sorted(byKeyPath: "why")
+            destinationVC.fromTopSecretCategory = fromTopSecretCategory
+            
+        }else if fromCategory == "other" {
+            
+            destinationVC.myOtherItems = fromOtherCategory?.otherItems.sorted(byKeyPath: "why")
+            destinationVC.fromOtherCategory = fromOtherCategory
+            
+        }
+        
+        
     }
     
 
@@ -464,52 +573,188 @@ class ItemViewController: UIViewController, UITextViewDelegate {
     @IBAction func notificattionsButtonPressed(_ sender: UIButton) {
         
         
-        
-        performSegue(withIdentifier: "goToReminder", sender: self)
-        
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { (didAllow, error) in
             if error != nil{
-                print("notifications will appear only if you allow them")
+                print("notifications error")
             }else{
                 print("nice you will get notifications")
             }
         }
         
-    }
-    
+        UNUserNotificationCenter.current().getNotificationSettings(){ (settings) in
+            
+            switch settings.alertSetting{
+            case .enabled:
+                DispatchQueue.main.async {
+                    
+                    if self.fromCategory == "health" {
+                        if self.myHealthItems?.first?.why != nil{
+                            
+                            
+                            if self.myHealthItems?[0].notificationKey == "" {
+                                
+                                self.performSegue(withIdentifier: "goToReminder", sender: self)
+                            }else{
+                                self.showActionSheet(key: (self.myHealthItems?[0].notificationKey)!)
+                                
+                            }
+                        }
+                    }else if self.fromCategory == "selfImprovement" {
+                        if self.mySImprovementItems?.first != nil{
+                            
+                            
+                            if self.mySImprovementItems?[0].notificationKey == "" {
+                                self.performSegue(withIdentifier: "goToReminder", sender: self)
+                            }else{
+                                self.showActionSheet(key: (self.mySImprovementItems?[0].notificationKey)!)
+                                
+                            }
+                        }
+                    }
+                    else if self.fromCategory == "topSecret" {
+                        if self.myTopSecretItems?.first != nil{
+                            
+                            
+                            if self.myTopSecretItems?[0].notificationKey == "" {
+                                self.performSegue(withIdentifier: "goToReminder", sender: self)
+                            }else{
+                                self.showActionSheet(key: (self.myTopSecretItems?[0].notificationKey)!)
+                                
+                            }
+                        }
+                    }else if self.fromCategory == "other" {
+                        if self.myOtherItems?.first != nil{
+                            
+                            
+                            if self.myOtherItems?[0].notificationKey == "" {
+                                self.performSegue(withIdentifier: "goToReminder", sender: self)
+                            }else{
+                                self.showActionSheet(key: (self.myOtherItems?[0].notificationKey)!)
+                                
+                            }
+                        }
+                    }
+
+                }
+                //Permissions are granted
+                print("allowed")
+
+            case .disabled:
+                //Permissions are not granted
+                DispatchQueue.main.async {
+                    let alert = UIAlertController(title: "Notifications Not Enabled", message: "In order to receive notifications as well as use this feature, you have to go into settings and allow notifications for this app.", preferredStyle: .alert)
+                    let dismiss = UIAlertAction(title: "Dismiss", style: .cancel, handler: { (action) in })
+                    
+                    alert.addAction(dismiss)
+                    self.present(alert,animated: true,completion: nil)
+                }
+                
+                
+            case .notSupported:
+                print("dfdfdf")
+                //The application does not support this notification type
+            }
+        }
         
         
-        //tap.selectionChanged()
-    
-    
 
-    
-    
-//    func textViewDidBeginEditing(_ textView: UITextView) {
-//
-//        whyTextView.sizeToFit()
-//        // Run code here for when user begins type into the text view
-//
-//    }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
     }
-    */
+    
+
+    func showActionSheet(key: String){
+        
+        
+        let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        //let action = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        
+        let clear = UIAlertAction(title: "Clear Reminder", style: .default) { (action) in
+            
+            UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [key])
+            
+            
+            if self.fromCategory == "health" {
+                
+                if let currentHealthCategory = self.fromHealthCategory {
+                    do {
+                        try self.realm.write {
+                            let healthItem = self.myHealthItems![0]
+                            healthItem.notificationKey = ""
+                            currentHealthCategory.healthItems.replace(index: 0, object: healthItem)
+                        }
+                        print("saved")
+                    }catch {
+                        print(error)
+                    }
+                }
+                
+            }else if self.fromCategory == "selfImprovement" {
+                
+                if let currentSelfCategory = self.fromSelfImprovementCategory {
+                    
+                    do {
+                        try self.realm.write {
+                            let sImprovementItem = self.mySImprovementItems![0]
+                            sImprovementItem.notificationKey = ""
+                            currentSelfCategory.selfImprovementItems.replace(index: 0, object: sImprovementItem)
+                        }
+                    }catch {
+                        print(error)
+                    }
+                }
+            }else if self.fromCategory == "topSecret"{
+                if let currentSelfCategory = self.fromTopSecretCategory {
+                    do {
+                        try self.realm.write {
+                            let topSecretItem = self.myTopSecretItems![0]
+                            topSecretItem.notificationKey = ""
+                            currentSelfCategory.topSecretItems.replace(index: 0, object: topSecretItem)
+                        }
+                    }catch {
+                        print(error)
+                    }
+                    
+                    
+                }
+            }else if self.fromCategory == "other" {
+                if let currentCategory = self.fromOtherCategory {
+                    
+                    do{
+                        try self.realm.write {
+                            let otherItem = self.myOtherItems![0]
+                            otherItem.notificationKey = ""
+                            currentCategory.otherItems.replace(index: 0, object: otherItem)
+                        }
+                    }catch {
+                        print(error)
+                    }
+                }
+            }
+            
+            self.reminderButton.setImage(UIImage(named: "icon_ios_alarm"), for: .normal)
+        }
+        
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel) { (action) in
+            
+        }
+        
+        let edit = UIAlertAction(title: "Edit Reminder", style: .default) { (action) in
+            
+        }
+        
+        actionSheet.addAction(clear)
+        actionSheet.addAction(cancel)
+        //actionSheet.addAction(edit)
+        
+        present(actionSheet,animated: true, completion: nil)
+        
+    }
+    
     
     func loadItems () {
         
         if fromCategory == "health" {
             
             myHealthItems = fromHealthCategory?.healthItems.sorted(byKeyPath: "why")
-            
-            //realm?.objects(HealthItem.self)
-            
-
 
         }else if fromCategory == "selfImprovement" {
             
@@ -532,7 +777,3 @@ class ItemViewController: UIViewController, UITextViewDelegate {
     
 
 }
-
-//extension ItemViewController: UISlider {
-//
-//}

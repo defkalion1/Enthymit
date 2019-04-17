@@ -15,6 +15,7 @@ class HealthItem: Object {
     @objc dynamic var expectations = ""
     @objc dynamic var stopped = ""
     @objc dynamic var difficulty : Float = 1.0
+    @objc dynamic var notificationKey = ""
     var parentCategory = LinkingObjects(fromType: HealthData.self, property: "healthItems")
 }
 
@@ -24,6 +25,7 @@ class SImprovementItem: Object {
     @objc dynamic var expectations = ""
     @objc dynamic var stopped = ""
     @objc dynamic var difficulty : Float = 1.0
+    @objc dynamic var notificationKey = ""
     var parentCategory = LinkingObjects(fromType: SelfImprovement.self, property: "selfImprovementItems")
 }
 
@@ -33,6 +35,7 @@ class TopSecretItem: Object {
     @objc dynamic var expectations = ""
     @objc dynamic var stopped = ""
     @objc dynamic var difficulty : Float = 1.0
+    @objc dynamic var notificationKey = ""
     var parentCategory = LinkingObjects(fromType: TopSecret.self, property: "topSecretItems")
 }
 
@@ -42,5 +45,6 @@ class OtherItem: Object {
     @objc dynamic var expectations = ""
     @objc dynamic var stopped = ""
     @objc dynamic var difficulty : Float = 1.0
+    @objc dynamic var notificationKey = ""
     var parentCategory = LinkingObjects(fromType: Other.self, property: "otherItems")
 }

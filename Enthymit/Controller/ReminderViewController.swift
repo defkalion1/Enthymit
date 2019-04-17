@@ -8,6 +8,7 @@
 
 import UIKit
 import UserNotifications
+import RealmSwift
 
 class ReminderViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
 
@@ -25,8 +26,19 @@ class ReminderViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     var dateComponents = DateComponents()
     let content = UNMutableNotificationContent()
     var repeating = false
+    public let defaults = UserDefaults.standard
+    var fromCategory = ""
+    let realm = try! Realm()
     
+    var myHealthItems : Results<HealthItem>?
+    var mySImprovementItems : Results<SImprovementItem>?
+    var myTopSecretItems : Results<TopSecretItem>?
+    var myOtherItems : Results<OtherItem>?
     
+    var fromHealthCategory : HealthData?
+    var fromSelfImprovementCategory : SelfImprovement?
+    var fromTopSecretCategory : TopSecret?
+    var fromOtherCategory : Other?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -73,13 +85,75 @@ class ReminderViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     }
     
     
+    
     @IBAction func doneButtonPressed(_ sender: UIButton) {
-        self.dismiss(animated: true)
+        
+        
         
         let trigger = UNCalendarNotificationTrigger(
             dateMatching: dateComponents, repeats: repeating)
         let uuidString = UUID().uuidString
         print(uuidString)
+        
+        if fromCategory == "health" {
+
+            if let currentHealthCategory = self.fromHealthCategory {
+                do {
+                    try self.realm.write {
+                        let healthItem = myHealthItems![0]
+                        healthItem.notificationKey = uuidString
+                        currentHealthCategory.healthItems.replace(index: 0, object: healthItem)
+                    }
+                    print("saved")
+                }catch {
+                    print(error)
+                }
+            }
+            
+        }else if fromCategory == "selfImprovement" {
+            
+            if let currentSelfCategory = self.fromSelfImprovementCategory {
+                
+                do {
+                    try self.realm.write {
+                        let sImprovementItem = mySImprovementItems![0]
+                        sImprovementItem.notificationKey = uuidString
+                        currentSelfCategory.selfImprovementItems.replace(index: 0, object: sImprovementItem)
+                    }
+                }catch {
+                    print(error)
+                }
+            }
+        }else if fromCategory == "topSecret"{
+            if let currentSelfCategory = self.fromTopSecretCategory {
+                do {
+                    try self.realm.write {
+                        let topSecretItem = myTopSecretItems![0]
+                        topSecretItem.notificationKey = uuidString
+                        currentSelfCategory.topSecretItems.replace(index: 0, object: topSecretItem)
+                    }
+                }catch {
+                    print(error)
+                }
+                
+                
+            }
+        }else if fromCategory == "other" {
+            if let currentCategory = self.fromOtherCategory {
+                
+                do{
+                    try realm.write {
+                        let otherItem = myOtherItems![0]
+                        otherItem.notificationKey = uuidString
+                        currentCategory.otherItems.replace(index: 0, object: otherItem)
+                    }
+                }catch {
+                    print(error)
+                }
+            }
+        }
+        
+        
         let request = UNNotificationRequest(identifier: uuidString,
                                             content: content, trigger: trigger)
         
@@ -89,6 +163,9 @@ class ReminderViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
                 // Handle any errors.
             }
         }
+        
+
+        self.dismiss(animated: true)
         
     }
     
