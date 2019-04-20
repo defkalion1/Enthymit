@@ -173,6 +173,7 @@ class ReminderViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     
     @IBAction func cancelButtonPressed(_ sender: UIButton) {
         self.dismiss(animated: true)
+        
     }
     
     

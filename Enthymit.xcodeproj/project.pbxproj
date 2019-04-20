@@ -148,9 +148,9 @@
 		938AEA1B221194560055BECC /* Data Model */ = {
 			isa = PBXGroup;
 			children = (
-				93E896162220C01500095923 /* Quotes.swift */,
 				93E8960E221F112E00095923 /* Categories.swift */,
 				9383D9142222B7B500C9A310 /* Item.swift */,
+				93E896162220C01500095923 /* Quotes.swift */,
 			);
 			path = "Data Model";
 			sourceTree = "<group>";

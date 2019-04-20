@@ -314,11 +314,11 @@ In the categories found at the main page you can create a new item corresponding
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="coral rect with shadow" translatesAutoresizingMaskIntoConstraints="NO" id="gP1-b1-KrX">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="207"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="204"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" spacing="55" translatesAutoresizingMaskIntoConstraints="NO" id="fJp-RO-hcY">
-                                <rect key="frame" x="42" y="331.66666666666674" width="291" height="353"/>
+                                <rect key="frame" x="42" y="332" width="291" height="353"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p4V-5l-31d" userLabel="Health">
@@ -358,7 +358,9 @@ In the categories found at the main page you can create a new item corresponding
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 </view>
-                                <blurEffect style="light"/>
+                                <vibrancyEffect>
+                                    <blurEffect style="light"/>
+                                </vibrancyEffect>
                             </visualEffectView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -662,7 +664,7 @@ In the categories found at the main page you can create a new item corresponding
                         <viewLayoutGuide key="safeArea" id="PYM-CP-neA"/>
                     </view>
                     <navigationItem key="navigationItem" id="DLT-Yb-7al">
-                        <barButtonItem key="rightBarButtonItem" title="Item" style="plain" id="Mld-g6-Jen">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="icon_ios_alarm_filled" style="plain" id="Mld-g6-Jen">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="6el-ER-iNY">
                                 <rect key="frame" x="327" y="6.6666666666666679" width="32" height="31.000000000000004"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
