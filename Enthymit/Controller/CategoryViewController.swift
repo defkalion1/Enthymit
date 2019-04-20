@@ -318,7 +318,11 @@ class CategoryViewController: UIViewController, UITableViewDelegate, UITableView
             
             if self.tableType == "health" {
                 let newTableViewItem = HealthData()
-                newTableViewItem.name = textField.text!
+                if textField.text == "" {
+                    newTableViewItem.name = "Untitled"
+                }else{
+                    newTableViewItem.name = textField.text!
+                }
                 newTableViewItem.dateCreated = Date()
                 let newEmptyListItem = HealthItem()
                 newEmptyListItem.why = ""
@@ -337,7 +341,11 @@ class CategoryViewController: UIViewController, UITableViewDelegate, UITableView
             }else if self.tableType == "self_improvement" {
                
                 let newTableViewItem = SelfImprovement()
-                newTableViewItem.name = textField.text!
+                if textField.text == "" {
+                    newTableViewItem.name = "Untitled"
+                }else{
+                    newTableViewItem.name = textField.text!
+                }
                 newTableViewItem.dateCreated = Date()
                 let newEmptyListItem = SImprovementItem()
                 newEmptyListItem.why = ""
@@ -354,7 +362,11 @@ class CategoryViewController: UIViewController, UITableViewDelegate, UITableView
             }else if self.tableType == "topSecret" {
                 
                 let newTableViewItem = TopSecret()
-                newTableViewItem.name = textField.text!
+                if textField.text == "" {
+                    newTableViewItem.name = "Untitled"
+                }else{
+                    newTableViewItem.name = textField.text!
+                }
                 newTableViewItem.dateCreated = Date()
                 let newEmptyListItem = TopSecretItem()
                 newEmptyListItem.why = ""
@@ -371,7 +383,11 @@ class CategoryViewController: UIViewController, UITableViewDelegate, UITableView
             }else if self.tableType == "other" {
                 
                 let newTableViewItem = Other()
-                newTableViewItem.name = textField.text!
+                if textField.text == "" {
+                    newTableViewItem.name = "Untitled"
+                }else{
+                    newTableViewItem.name = textField.text!
+                }
                 newTableViewItem.dateCreated = Date()
                 let newEmptyListItem = OtherItem()
                 newEmptyListItem.why = ""

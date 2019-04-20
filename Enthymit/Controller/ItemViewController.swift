@@ -30,9 +30,9 @@ class ItemViewController: UIViewController, UITextViewDelegate {
     @IBOutlet weak var toMakeItHappenTextView: UITextView!
     @IBOutlet weak var expectationsTextView: UITextView!
     @IBOutlet weak var difficultySlider: UISlider!
-    @IBOutlet weak var itemLabel: UITextField!
     @IBOutlet weak var difficultyLevel: UILabel!
     @IBOutlet weak var reminderButton: UIButton!
+    @IBOutlet weak var itemTitle: UITextView!
     
     
     var delegate : CanReceive?
@@ -86,6 +86,7 @@ class ItemViewController: UIViewController, UITextViewDelegate {
         self.whyTextView.delegate = self
         self.toMakeItHappenTextView.delegate = self
         self.expectationsTextView.delegate = self
+        self.itemTitle.delegate = self
         navigationItem.largeTitleDisplayMode = .never
         //self.navigationController?.navigationBar.isHidden = true
         
@@ -96,7 +97,7 @@ class ItemViewController: UIViewController, UITextViewDelegate {
       
         
       
-        self.itemLabel.text = titleLabel
+        self.itemTitle.text = titleLabel
         
         
         if fromCategory == "health" {
@@ -223,7 +224,6 @@ class ItemViewController: UIViewController, UITextViewDelegate {
         //MARK: - Appearance
         if defaults.bool(forKey: "DarkThemeIsOn") == true {
             coral.backgroundColor = DarkTheme.background
-            itemLabel.textColor = DarkTheme.textColor
             whyLabel.textColor = DarkTheme.textColor
             whyTextView.textColor = DarkTheme.textColor
             toMakeItHappenLabel.textColor = DarkTheme.textColor
@@ -238,9 +238,10 @@ class ItemViewController: UIViewController, UITextViewDelegate {
             expectationsTextView.textColor = DarkTheme.textColor
             view.backgroundColor = DarkTheme.background
             difficultySlider.minimumTrackTintColor = DarkTheme.slider
+            itemTitle.textColor = DarkTheme.textColor
+            itemTitle.backgroundColor = DarkTheme.background
         }else{
             coral.backgroundColor = LightTheme.background
-            itemLabel.textColor = LightTheme.textColor
             whyLabel.textColor = LightTheme.textColor
             whyTextView.textColor = LightTheme.textColor
             toMakeItHappenLabel.textColor = LightTheme.textColor
@@ -255,6 +256,8 @@ class ItemViewController: UIViewController, UITextViewDelegate {
             toMakeItHappenTextView.backgroundColor = LightTheme.background
             toMakeItHappenTextView.textColor = LightTheme.textColor
             difficultySlider.minimumTrackTintColor = LightTheme.slider
+            itemTitle.textColor = LightTheme.textColor
+            itemTitle.backgroundColor = LightTheme.background
             
         }
         
@@ -464,14 +467,14 @@ class ItemViewController: UIViewController, UITextViewDelegate {
                 }
             }
         }
+        //MARK: - Title Changed
+        if textView == itemTitle {
+            delegate?.dataReceived(data: itemTitle.text!, at: row!)
+        }
         
     }
     
-    //MARK: - Title Changed
-    @IBAction func titleChanged(_ sender: UITextField) {
-        delegate?.dataReceived(data: itemLabel.text!, at: row!)
-        
-    }
+
     
  
     
@@ -572,7 +575,7 @@ class ItemViewController: UIViewController, UITextViewDelegate {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let destinationVC = segue.destination as! ReminderViewController
-        destinationVC.notificationTitle = itemLabel.text!
+        destinationVC.notificationTitle = itemTitle.text!
         destinationVC.fromCategory = fromCategory
         
         
