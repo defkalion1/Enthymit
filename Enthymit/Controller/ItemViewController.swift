@@ -208,7 +208,10 @@ class ItemViewController: UIViewController, UITextViewDelegate {
                 
                 
                }
-                    self.foundNot()
+                
+            }else {
+                print("found none")
+                self.foundNot()
             }
             
             

@@ -10,11 +10,12 @@ import UIKit
 import UserNotifications
 import RealmSwift
 
-class ReminderViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class ReminderViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
 
+    @IBOutlet weak var notificationBodyTextField: UITextField!
     @IBOutlet weak var datePickerView: UIDatePicker!
     @IBOutlet weak var repeatPickerView: UIPickerView!
-    let choises = ["Never","Every Day","Every Other Day", "Weekly"]
+    let choises = ["Never","Every Day","Every Other Day", "Every Week"]
     var day = DateFormatter()
     var month = DateFormatter()
     var year = DateFormatter()
@@ -42,6 +43,12 @@ class ReminderViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //MARK: - Keyboard will go upwoards
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+    
+        
         //var down: UISwipeGestureRecognizer.Direction
         day.dateFormat = "d"
         month.dateFormat = "M"
@@ -56,9 +63,34 @@ class ReminderViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
        
         content.title = notificationTitle
         content.sound = UNNotificationSound.default
+        self.notificationBodyTextField.delegate = self
+        
+        
+        
         
         
         // Do any additional setup after loading the view.
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
+    }
+    
+
+    
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.view.frame.origin.y == 0 {
+                self.view.frame.origin.y -= keyboardSize.height
+            }
+        }
+    }
+    
+    @objc func keyboardWillHide(notification: NSNotification) {
+        if self.view.frame.origin.y != 0 {
+            self.view.frame.origin.y = 0
+        }
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -77,7 +109,7 @@ class ReminderViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         print(choises[row])
-        if choises[row] == "Every Day"{
+        if choises[row] == "Every Week"{
             repeating = true
         }else{
             repeating = false
@@ -93,6 +125,10 @@ class ReminderViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         let trigger = UNCalendarNotificationTrigger(
             dateMatching: dateComponents, repeats: repeating)
         let uuidString = UUID().uuidString
+        if notificationBodyTextField != nil {
+            content.body = notificationBodyTextField.text!
+        }
+        
         print(uuidString)
         
         if fromCategory == "health" {
