@@ -7,12 +7,30 @@
 //
 
 import UIKit
+import WebKit
 
 class InfoViewController: UIViewController {
 
+    @IBOutlet weak var webView: WKWebView!
+    @IBOutlet var mainView: UIView!
+    public let defaults = UserDefaults.standard
+    let videoCode = "Ah0Ys50CqO8"
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        if defaults.bool(forKey: "DarkThemeIsOn") == true {
+            mainView.backgroundColor = DarkTheme.background
+        }else{
+            mainView.backgroundColor = LightTheme.background
+        }
+        
+        let url = URL(string: "https://www.youtube.com/embed/\(videoCode)")
+        let request = URLRequest(url: url!)
+        webView.load(request)
+        
+        
         // Do any additional setup after loading the view.
     }
     

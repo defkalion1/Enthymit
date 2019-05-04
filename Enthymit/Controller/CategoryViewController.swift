@@ -72,14 +72,13 @@ class CategoryViewController: UIViewController, UITableViewDelegate, UITableView
         categoryTableView.separatorStyle = .none
 
         
-        
         loadCategories()
         self.navigationController?.navigationBar.isHidden = false
         //self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
     
     
-    
+
 
 
     // MARK: - Table view data source

@@ -268,6 +268,19 @@ class ItemViewController: UIViewController, UITextViewDelegate {
         
     }
     
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        
+        if textView == itemTitle {
+            if text == "\n"{
+                textView.resignFirstResponder()
+                return false
+                
+            }
+        }
+        
+        return true
+    }
+    
 //    override func viewDidAppear(_ animated: Bool) {
 //
 //        if fromCategory == "health" {

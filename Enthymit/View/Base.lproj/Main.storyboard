@@ -212,48 +212,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="900"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Uy5-Z4-zYH">
-                                <rect key="frame" x="0.0" y="106" width="375" height="794"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="28" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="xiw-r7-DgD">
-                                        <rect key="frame" x="12" y="52" width="351" height="690"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="690" id="JON-r6-Dgp"/>
-                                            <constraint firstAttribute="width" constant="351" id="gud-Gr-9KQ"/>
-                                        </constraints>
-                                        <string key="text">We all have a new goal, a new years resolution or want to pick up on a new hobby, but most of us stop or forget about the goal that we have set half way through. Whether that might be eating better, sleeping better, studying more etc. 
-
-Now we know that motivation is something we all want to keep going, but if we are going to be honest, motivation is only the biggening.
-
-After a while you might get tired and you might or most probably will lose the motivation you had. One of the only ways that you can gain it back is by remembering why you started.
-
-In the categories found at the main page you can create a new item corresponding to that category. Then you will be able to note down the why, what is it that you have to do in order to achieve this and many more.</string>
-                                        <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="22"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="xiw-r7-DgD" secondAttribute="bottom" constant="52" id="BNT-hb-wrK"/>
-                                    <constraint firstItem="xiw-r7-DgD" firstAttribute="centerX" secondItem="Uy5-Z4-zYH" secondAttribute="centerX" id="I2n-KV-ILw"/>
-                                    <constraint firstItem="xiw-r7-DgD" firstAttribute="centerY" secondItem="Uy5-Z4-zYH" secondAttribute="centerY" id="QF0-dW-v5Z"/>
-                                    <constraint firstAttribute="trailing" secondItem="xiw-r7-DgD" secondAttribute="trailing" constant="12" id="eyp-rT-yYh"/>
-                                    <constraint firstItem="xiw-r7-DgD" firstAttribute="top" secondItem="Uy5-Z4-zYH" secondAttribute="top" constant="52" id="zfH-Da-2OI"/>
-                                </constraints>
-                            </scrollView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="About Top" translatesAutoresizingMaskIntoConstraints="NO" id="EYd-o4-PAc">
-                                <rect key="frame" x="0.0" y="-6" width="375" height="149"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="252"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="149" id="i6y-bq-v7e"/>
-                                    <constraint firstAttribute="width" constant="375" id="tOU-uc-Ttk"/>
+                                    <constraint firstAttribute="height" constant="252" id="T9K-3y-0S4"/>
+                                    <constraint firstAttribute="width" constant="375" id="TUg-Q9-TLf"/>
+                                    <constraint firstAttribute="width" secondItem="EYd-o4-PAc" secondAttribute="height" multiplier="125:84" id="sxS-e1-At0"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6MS-UY-eZx">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6MS-UY-eZx">
                                 <rect key="frame" x="318" y="56" width="41" height="33"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="33" id="7op-69-n3W"/>
-                                    <constraint firstAttribute="width" constant="41" id="gOe-2h-OLi"/>
-                                </constraints>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="Done">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -263,35 +232,36 @@ In the categories found at the main page you can create a new item corresponding
                                     <action selector="doneButtonPressed:" destination="YkV-Ow-Cz1" eventType="touchUpInside" id="Y7X-p5-OjT"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="About" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g5P-jJ-N5p">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="About" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g5P-jJ-N5p">
                                 <rect key="frame" x="16" y="55" width="100" height="43"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="43" id="lyx-ZE-rDe"/>
-                                    <constraint firstAttribute="width" constant="100" id="rGX-6v-oB5"/>
-                                </constraints>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="35"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <wkWebView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="quk-Ah-hPY">
+                                <rect key="frame" x="16" y="260" width="343" height="508"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <wkWebViewConfiguration key="configuration" allowsAirPlayForMediaPlayback="NO" allowsPictureInPictureMediaPlayback="NO">
+                                    <dataDetectorTypes key="dataDetectorTypes" none="YES"/>
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="6MS-UY-eZx" firstAttribute="leading" secondItem="g5P-jJ-N5p" secondAttribute="trailing" constant="202" id="3aa-3s-BC5"/>
-                            <constraint firstItem="Uy5-Z4-zYH" firstAttribute="top" secondItem="g5P-jJ-N5p" secondAttribute="bottom" constant="8" symbolic="YES" id="DJj-Nu-rjj"/>
-                            <constraint firstItem="EYd-o4-PAc" firstAttribute="leading" secondItem="FeK-kq-tuZ" secondAttribute="leading" id="Hvb-p4-9Eh"/>
-                            <constraint firstItem="EYd-o4-PAc" firstAttribute="trailing" secondItem="FeK-kq-tuZ" secondAttribute="trailing" id="Oe8-a1-voq"/>
-                            <constraint firstItem="g5P-jJ-N5p" firstAttribute="top" secondItem="FeK-kq-tuZ" secondAttribute="top" constant="11" id="YHI-fl-BYv"/>
-                            <constraint firstItem="6MS-UY-eZx" firstAttribute="top" secondItem="FeK-kq-tuZ" secondAttribute="top" constant="12" id="aOz-ak-cko"/>
-                            <constraint firstItem="FeK-kq-tuZ" firstAttribute="trailing" secondItem="6MS-UY-eZx" secondAttribute="trailing" constant="16" id="clj-f6-0W4"/>
-                            <constraint firstAttribute="bottom" secondItem="Uy5-Z4-zYH" secondAttribute="bottom" id="eFI-7w-k9l"/>
-                            <constraint firstItem="Uy5-Z4-zYH" firstAttribute="trailing" secondItem="EYd-o4-PAc" secondAttribute="trailing" id="efF-wu-WOB"/>
-                            <constraint firstItem="Uy5-Z4-zYH" firstAttribute="leading" secondItem="EYd-o4-PAc" secondAttribute="leading" id="gbu-gb-JsV"/>
-                            <constraint firstItem="g5P-jJ-N5p" firstAttribute="leading" secondItem="FeK-kq-tuZ" secondAttribute="leading" constant="16" id="tTJ-cD-Mvz"/>
-                            <constraint firstItem="EYd-o4-PAc" firstAttribute="top" secondItem="heX-ck-vLH" secondAttribute="top" constant="-6" id="x31-D2-CR9"/>
+                            <constraint firstItem="EYd-o4-PAc" firstAttribute="top" secondItem="heX-ck-vLH" secondAttribute="top" id="Bcy-Sp-pc2"/>
+                            <constraint firstItem="EYd-o4-PAc" firstAttribute="trailing" secondItem="FeK-kq-tuZ" secondAttribute="trailing" id="cHu-qZ-B8b"/>
+                            <constraint firstItem="EYd-o4-PAc" firstAttribute="leading" secondItem="FeK-kq-tuZ" secondAttribute="leading" id="hCv-aU-U3T"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="FeK-kq-tuZ"/>
                     </view>
                     <size key="freeformSize" width="375" height="900"/>
+                    <connections>
+                        <outlet property="mainView" destination="heX-ck-vLH" id="XYQ-eD-w97"/>
+                        <outlet property="webView" destination="quk-Ah-hPY" id="srW-Dp-7TG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UAE-PX-Mk0" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="jPH-Ru-LEP" userLabel="Exit" sceneMemberID="exit"/>
@@ -306,10 +276,19 @@ In the categories found at the main page you can create a new item corresponding
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eC0-a7-2Xi">
+                                <rect key="frame" x="0.0" y="778" width="375" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" insetsLayoutMarginsFromSafeArea="NO" id="GLH-IA-Rex">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="34"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </view>
+                                <blurEffect style="light"/>
+                            </visualEffectView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PIP-7r-rIB" userLabel="C">
                                 <rect key="frame" x="33" y="183" width="308" height="144"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Your Quotes Will Appear Here" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EIW-lb-0Gj">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Your Quotes Will Appear Here" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="8" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="EIW-lb-0Gj">
                                         <rect key="frame" x="0.0" y="0.0" width="308" height="144"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="20"/>
@@ -328,23 +307,15 @@ In the categories found at the main page you can create a new item corresponding
                                     <constraint firstAttribute="height" constant="204" id="IWp-yF-kTF"/>
                                 </constraints>
                             </imageView>
-                            <visualEffectView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eC0-a7-2Xi">
-                                <rect key="frame" x="0.0" y="750" width="375" height="812"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" insetsLayoutMarginsFromSafeArea="NO" id="GLH-IA-Rex">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                </view>
-                                <vibrancyEffect>
-                                    <blurEffect style="light"/>
-                                </vibrancyEffect>
-                            </visualEffectView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DBD-eq-8ar">
                                 <rect key="frame" x="0.0" y="204" width="375" height="115"/>
                             </view>
-                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" spacing="51" translatesAutoresizingMaskIntoConstraints="NO" id="fJp-RO-hcY">
-                                <rect key="frame" x="42" y="353" width="291" height="341"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U2h-su-GBR">
+                                <rect key="frame" x="33" y="349" width="308" height="362"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleAspectFit" axis="vertical" distribution="fillEqually" alignment="center" spacing="58" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="r37-Ic-gT6">
+                                <rect key="frame" x="41.666666666666657" y="349" width="291" height="362"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p4V-5l-31d" userLabel="Health">
                                         <rect key="frame" x="0.0" y="0.0" width="291" height="47"/>
@@ -354,55 +325,57 @@ In the categories found at the main page you can create a new item corresponding
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ovO-I5-M0x" userLabel="Self Improvement">
-                                        <rect key="frame" x="0.0" y="98" width="291" height="47"/>
+                                        <rect key="frame" x="0.0" y="105" width="291" height="47"/>
                                         <state key="normal" image="Self"/>
                                         <connections>
                                             <segue destination="3tg-Hv-8bZ" kind="show" identifier="fromSelf" id="Mze-nJ-q0Z"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rtR-1H-X8Q" userLabel="Top Secret">
-                                        <rect key="frame" x="0.0" y="196" width="291" height="47"/>
+                                        <rect key="frame" x="0.0" y="210" width="291" height="47"/>
                                         <state key="normal" image="Top"/>
                                         <connections>
                                             <segue destination="3tg-Hv-8bZ" kind="show" identifier="fromTopSecret" id="Mqi-Fk-0KZ"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2kp-4c-0UN" userLabel="Other">
-                                        <rect key="frame" x="0.0" y="294" width="291" height="47"/>
+                                        <rect key="frame" x="0.0" y="315" width="291" height="47"/>
                                         <state key="normal" image="Ohter"/>
                                         <connections>
                                             <segue destination="3tg-Hv-8bZ" kind="show" identifier="fromOther" id="2uh-eS-iNa"/>
                                         </connections>
                                     </button>
                                 </subviews>
-                            </stackView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xo2-Yh-aWF">
-                                <rect key="frame" x="0.0" y="694" width="375" height="9"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="9" id="0BY-32-ttW"/>
-                                    <constraint firstAttribute="width" constant="375" id="4GH-MO-o8d"/>
+                                    <constraint firstItem="ovO-I5-M0x" firstAttribute="top" secondItem="p4V-5l-31d" secondAttribute="bottom" constant="58" id="hyM-Y4-6Ug"/>
+                                    <constraint firstItem="rtR-1H-X8Q" firstAttribute="top" secondItem="ovO-I5-M0x" secondAttribute="bottom" constant="58" id="qXd-UG-FLV"/>
+                                    <constraint firstItem="2kp-4c-0UN" firstAttribute="top" secondItem="rtR-1H-X8Q" secondAttribute="bottom" constant="58" id="u9C-lH-hwv"/>
                                 </constraints>
-                            </view>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="ApP-7c-KDe" firstAttribute="bottom" secondItem="DBD-eq-8ar" secondAttribute="bottom" constant="459" id="0O4-dN-Dec"/>
                             <constraint firstItem="PIP-7r-rIB" firstAttribute="top" secondItem="ApP-7c-KDe" secondAttribute="top" constant="43" id="1ZN-zM-Cyl"/>
                             <constraint firstItem="DBD-eq-8ar" firstAttribute="top" secondItem="gP1-b1-KrX" secondAttribute="bottom" id="6mb-2i-6Gp"/>
-                            <constraint firstItem="ApP-7c-KDe" firstAttribute="bottom" secondItem="xo2-Yh-aWF" secondAttribute="bottom" constant="75" id="GQP-KF-tYa"/>
+                            <constraint firstItem="ApP-7c-KDe" firstAttribute="trailing" secondItem="U2h-su-GBR" secondAttribute="trailing" constant="34" id="7UG-CR-uM5"/>
+                            <constraint firstAttribute="bottom" secondItem="U2h-su-GBR" secondAttribute="bottom" constant="101" id="7Wx-Uw-auD"/>
+                            <constraint firstItem="ApP-7c-KDe" firstAttribute="bottom" secondItem="U2h-su-GBR" secondAttribute="bottom" constant="67" id="F4M-UC-xV7"/>
                             <constraint firstItem="DBD-eq-8ar" firstAttribute="top" secondItem="ApP-7c-KDe" secondAttribute="top" constant="64" id="Gs6-TX-RLO"/>
+                            <constraint firstItem="r37-Ic-gT6" firstAttribute="centerX" secondItem="U2h-su-GBR" secondAttribute="centerX" id="Ih8-0Y-Hxl"/>
                             <constraint firstItem="ApP-7c-KDe" firstAttribute="trailing" secondItem="PIP-7r-rIB" secondAttribute="trailing" constant="34" id="LIF-cS-1nK"/>
                             <constraint firstItem="gP1-b1-KrX" firstAttribute="trailing" secondItem="ApP-7c-KDe" secondAttribute="trailing" id="O6A-2x-KQj"/>
                             <constraint firstItem="PIP-7r-rIB" firstAttribute="leading" secondItem="ApP-7c-KDe" secondAttribute="leading" constant="33" id="RBG-hd-d9X"/>
                             <constraint firstItem="DBD-eq-8ar" firstAttribute="centerX" secondItem="FSh-yZ-p70" secondAttribute="centerX" id="Uq7-tw-8Oh"/>
-                            <constraint firstAttribute="bottom" secondItem="DBD-eq-8ar" secondAttribute="bottom" constant="493" id="Yr8-5f-0DC"/>
+                            <constraint firstItem="U2h-su-GBR" firstAttribute="top" secondItem="PIP-7r-rIB" secondAttribute="bottom" constant="22" id="WkS-8a-M9V"/>
                             <constraint firstItem="gP1-b1-KrX" firstAttribute="top" secondItem="FSh-yZ-p70" secondAttribute="top" id="d8o-x9-wmy"/>
-                            <constraint firstItem="xo2-Yh-aWF" firstAttribute="trailing" secondItem="ApP-7c-KDe" secondAttribute="trailing" id="ffU-ws-AgD"/>
-                            <constraint firstItem="xo2-Yh-aWF" firstAttribute="leading" secondItem="ApP-7c-KDe" secondAttribute="leading" id="goz-nK-miF"/>
+                            <constraint firstItem="r37-Ic-gT6" firstAttribute="bottom" secondItem="U2h-su-GBR" secondAttribute="bottom" id="eMe-eY-wnn"/>
                             <constraint firstItem="DBD-eq-8ar" firstAttribute="leading" secondItem="ApP-7c-KDe" secondAttribute="leading" id="l2g-RM-hFl"/>
                             <constraint firstItem="DBD-eq-8ar" firstAttribute="trailing" secondItem="ApP-7c-KDe" secondAttribute="trailing" id="p43-Kx-s7M"/>
                             <constraint firstItem="gP1-b1-KrX" firstAttribute="leading" secondItem="ApP-7c-KDe" secondAttribute="leading" id="pRY-UK-A5o"/>
                             <constraint firstItem="DBD-eq-8ar" firstAttribute="top" secondItem="ApP-7c-KDe" secondAttribute="top" constant="64" id="rIR-9s-Bts"/>
+                            <constraint firstItem="U2h-su-GBR" firstAttribute="leading" secondItem="ApP-7c-KDe" secondAttribute="leading" constant="33" id="xkE-01-JxN"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ApP-7c-KDe"/>
                     </view>
@@ -417,9 +390,7 @@ In the categories found at the main page you can create a new item corresponding
                             </barButtonItem>
                             <barButtonItem image="info" id="IBC-wZ-M9O">
                                 <connections>
-                                    <segue destination="YkV-Ow-Cz1" kind="popoverPresentation" identifier="goToInfo" popoverAnchorBarButtonItem="IBC-wZ-M9O" id="yfd-TF-rwo">
-                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                    </segue>
+                                    <segue destination="YkV-Ow-Cz1" kind="presentation" identifier="goToInfo" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="yfd-TF-rwo"/>
                                 </connections>
                             </barButtonItem>
                         </rightBarButtonItems>
@@ -433,7 +404,7 @@ In the categories found at the main page you can create a new item corresponding
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QjT-aB-dWL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="885.60000000000002" y="138.17733990147784"/>
+            <point key="canvasLocation" x="884" y="136.69950738916256"/>
         </scene>
         <!--Items-->
         <scene sceneID="3P6-Gk-aDG">
@@ -458,7 +429,7 @@ In the categories found at the main page you can create a new item corresponding
                                     <constraint firstAttribute="height" constant="30" id="4O1-sZ-PK0"/>
                                     <constraint firstAttribute="width" constant="30" id="aGH-Sp-jHC"/>
                                 </constraints>
-                                <state key="normal" image="Coral Add button"/>
+                                <state key="normal" title="New Item" image="Coral Add button"/>
                                 <connections>
                                     <action selector="addButtonPressed:" destination="3tg-Hv-8bZ" eventType="touchUpInside" id="ED8-ne-ZL4"/>
                                 </connections>
@@ -655,7 +626,7 @@ In the categories found at the main page you can create a new item corresponding
                                             <constraint firstAttribute="height" constant="76" id="VGA-tx-ONK"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences" spellCheckingType="yes" enablesReturnKeyAutomatically="YES" smartInsertDeleteType="yes"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences" spellCheckingType="yes" returnKeyType="done" smartInsertDeleteType="yes"/>
                                     </textView>
                                 </subviews>
                                 <constraints>
@@ -705,6 +676,7 @@ In the categories found at the main page you can create a new item corresponding
                             <constraint firstItem="yje-2Q-TPD" firstAttribute="leading" secondItem="PYM-CP-neA" secondAttribute="leading" id="Wgn-eq-1AB"/>
                             <constraint firstItem="yje-2Q-TPD" firstAttribute="trailing" secondItem="PYM-CP-neA" secondAttribute="trailing" id="Xe1-QP-RHL"/>
                             <constraint firstItem="plQ-M6-3Bu" firstAttribute="top" secondItem="PYM-CP-neA" secondAttribute="top" id="YLL-Zy-gZf"/>
+                            <constraint firstItem="de9-EZ-PSG" firstAttribute="top" secondItem="yje-2Q-TPD" secondAttribute="bottom" constant="19" id="auh-qO-XGV"/>
                             <constraint firstItem="plQ-M6-3Bu" firstAttribute="trailing" secondItem="yje-2Q-TPD" secondAttribute="trailing" id="gDo-k5-uj2"/>
                             <constraint firstItem="plQ-M6-3Bu" firstAttribute="leading" secondItem="bZU-jb-5Xb" secondAttribute="leading" id="mbg-0J-t5p"/>
                             <constraint firstAttribute="bottom" secondItem="plQ-M6-3Bu" secondAttribute="bottom" id="yIA-qQ-0G5"/>
@@ -759,20 +731,16 @@ In the categories found at the main page you can create a new item corresponding
                                 <rect key="frame" x="16" y="105" width="343" height="602"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tMQ-Lp-IY1">
-                                        <rect key="frame" x="0.0" y="0.0" width="343" height="45"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="44"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pJx-iT-0fM">
-                                                <rect key="frame" x="11" y="8" width="56" height="34"/>
-                                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="18"/>
-                                                <state key="normal" title="Cancel">
-                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="cancelButtonPressed:" destination="gZ6-cb-L2V" eventType="touchUpInside" id="sUr-Su-cra"/>
-                                                </connections>
-                                            </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create A New Reminder" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="817-6H-Tax">
+                                                <rect key="frame" x="79" y="9" width="185" height="25"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7LT-VB-nof">
-                                                <rect key="frame" x="292" y="8" width="41" height="34"/>
+                                                <rect key="frame" x="285" y="5" width="41" height="33"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <state key="normal" title="Done">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -781,55 +749,45 @@ In the categories found at the main page you can create a new item corresponding
                                                     <action selector="doneButtonPressed:" destination="gZ6-cb-L2V" eventType="touchUpInside" id="vW2-gk-bN3"/>
                                                 </connections>
                                             </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create A New Reminder" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="817-6H-Tax">
-                                                <rect key="frame" x="82" y="12" width="184" height="26"/>
-                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pJx-iT-0fM">
+                                                <rect key="frame" x="8" y="5" width="56" height="33"/>
+                                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="18"/>
+                                                <state key="normal" title="Cancel">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="cancelButtonPressed:" destination="gZ6-cb-L2V" eventType="touchUpInside" id="sUr-Su-cra"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" red="1" green="0.3449999988079071" blue="0.24300000071525574" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="7LT-VB-nof" secondAttribute="trailing" constant="10" id="45J-wB-fEv"/>
-                                            <constraint firstItem="pJx-iT-0fM" firstAttribute="leading" secondItem="tMQ-Lp-IY1" secondAttribute="leading" constant="11" id="Ocm-Ds-c4N"/>
-                                            <constraint firstAttribute="bottom" secondItem="pJx-iT-0fM" secondAttribute="bottom" constant="3" id="QOd-xf-UUz"/>
-                                            <constraint firstItem="pJx-iT-0fM" firstAttribute="top" secondItem="tMQ-Lp-IY1" secondAttribute="top" constant="8" id="SLS-o5-eKL"/>
-                                            <constraint firstItem="7LT-VB-nof" firstAttribute="leading" secondItem="817-6H-Tax" secondAttribute="trailing" constant="26" id="Vve-4V-TkC"/>
-                                            <constraint firstItem="7LT-VB-nof" firstAttribute="top" secondItem="tMQ-Lp-IY1" secondAttribute="top" constant="8" id="djO-58-aJ2"/>
-                                            <constraint firstAttribute="bottom" secondItem="817-6H-Tax" secondAttribute="bottom" constant="7" id="fV4-yi-abL"/>
-                                            <constraint firstItem="817-6H-Tax" firstAttribute="leading" secondItem="pJx-iT-0fM" secondAttribute="trailing" constant="15" id="fsJ-1W-tb1"/>
-                                            <constraint firstItem="817-6H-Tax" firstAttribute="top" secondItem="tMQ-Lp-IY1" secondAttribute="top" constant="12" id="h08-Qg-sIi"/>
-                                            <constraint firstItem="817-6H-Tax" firstAttribute="leading" secondItem="pJx-iT-0fM" secondAttribute="trailing" constant="15" id="oWY-Wo-rke"/>
-                                            <constraint firstItem="7LT-VB-nof" firstAttribute="leading" secondItem="817-6H-Tax" secondAttribute="trailing" constant="26" id="uZq-xQ-wTc"/>
-                                            <constraint firstAttribute="height" constant="45" id="vQh-Ja-mtq"/>
-                                            <constraint firstAttribute="bottom" secondItem="7LT-VB-nof" secondAttribute="bottom" constant="3" id="w1i-NZ-Bvd"/>
+                                            <constraint firstAttribute="trailing" secondItem="817-6H-Tax" secondAttribute="trailing" constant="79" id="9IX-4F-PYC"/>
+                                            <constraint firstAttribute="trailing" secondItem="7LT-VB-nof" secondAttribute="trailing" constant="17" id="CLJ-sw-uGB"/>
+                                            <constraint firstAttribute="bottom" secondItem="pJx-iT-0fM" secondAttribute="bottom" constant="6" id="DF9-M7-lFz"/>
+                                            <constraint firstAttribute="bottom" secondItem="817-6H-Tax" secondAttribute="bottom" constant="10" id="DFE-pr-Mnx"/>
+                                            <constraint firstItem="7LT-VB-nof" firstAttribute="leading" secondItem="817-6H-Tax" secondAttribute="trailing" constant="21" id="Lfs-6g-PTO"/>
+                                            <constraint firstAttribute="bottom" secondItem="7LT-VB-nof" secondAttribute="bottom" constant="6" id="LrZ-0i-Qib"/>
+                                            <constraint firstItem="pJx-iT-0fM" firstAttribute="top" secondItem="tMQ-Lp-IY1" secondAttribute="top" constant="5" id="MUY-3f-Aep"/>
+                                            <constraint firstAttribute="trailing" secondItem="7LT-VB-nof" secondAttribute="trailing" constant="17" id="QVe-cv-F2Q"/>
+                                            <constraint firstItem="pJx-iT-0fM" firstAttribute="leading" secondItem="tMQ-Lp-IY1" secondAttribute="leading" constant="8" id="QyP-9t-MD5"/>
+                                            <constraint firstItem="817-6H-Tax" firstAttribute="leading" secondItem="pJx-iT-0fM" secondAttribute="trailing" constant="15" id="TfF-nS-pTC"/>
+                                            <constraint firstItem="817-6H-Tax" firstAttribute="leading" secondItem="tMQ-Lp-IY1" secondAttribute="leading" constant="79" id="d0P-FH-fLv"/>
+                                            <constraint firstItem="7LT-VB-nof" firstAttribute="top" secondItem="tMQ-Lp-IY1" secondAttribute="top" constant="5" id="dhg-dg-2eO"/>
+                                            <constraint firstItem="817-6H-Tax" firstAttribute="top" secondItem="tMQ-Lp-IY1" secondAttribute="top" constant="9" id="eVl-hb-WBD"/>
+                                            <constraint firstAttribute="bottom" secondItem="7LT-VB-nof" secondAttribute="bottom" constant="6" id="s2w-dB-bUT"/>
+                                            <constraint firstItem="7LT-VB-nof" firstAttribute="top" secondItem="tMQ-Lp-IY1" secondAttribute="top" constant="5" id="sMp-QQ-N3l"/>
                                         </constraints>
                                     </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="I want to be reminded about this starting from" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0hl-XL-LYH">
-                                        <rect key="frame" x="51" y="53" width="241" height="59"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="24"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Type Here..." clearsOnBeginEditing="YES" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Gjl-0p-YQ1">
+                                        <rect key="frame" x="8" y="564" width="327" height="30"/>
+                                        <color key="backgroundColor" red="0.95576462013467312" green="0.95576462013467312" blue="0.95576462013467312" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jfX-Ce-hzW">
-                                        <rect key="frame" x="0.0" y="361" width="343" height="114"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                        <connections>
-                                            <outlet property="dataSource" destination="gZ6-cb-L2V" id="zqX-y6-057"/>
-                                            <outlet property="delegate" destination="gZ6-cb-L2V" id="akB-rY-nO4"/>
-                                        </connections>
-                                    </pickerView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="And continuing" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gc2-ds-PGJ">
-                                        <rect key="frame" x="94" y="324" width="154" height="29"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="24"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="Z0C-75-dH5">
-                                        <rect key="frame" x="0.0" y="146" width="343" height="143"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
+                                    </textField>
+                                    <datePicker contentMode="scaleAspectFit" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="Z0C-75-dH5">
+                                        <rect key="frame" x="8" y="111" width="327" height="168"/>
                                         <date key="date" timeIntervalSinceReferenceDate="575736180.04757404">
                                             <!--2019-03-31 2:43:00 PM +0000-->
                                         </date>
@@ -837,37 +795,69 @@ In the categories found at the main page you can create a new item corresponding
                                             <action selector="datePickerView:" destination="gZ6-cb-L2V" eventType="valueChanged" id="8zw-M9-hLl"/>
                                         </connections>
                                     </datePicker>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Add something more to your notification" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nET-ac-s4r">
-                                        <rect key="frame" x="51" y="477" width="241" height="58"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I want to be reminded about this starting from" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="0hl-XL-LYH">
+                                        <rect key="frame" x="8" y="53" width="327" height="50.333333333333343"/>
+                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="24"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="And continuing" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="gc2-ds-PGJ">
+                                        <rect key="frame" x="95" y="286.66666666666669" width="153" height="28.666666666666686"/>
+                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="24"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <pickerView contentMode="scaleToFill" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="jfX-Ce-hzW">
+                                        <rect key="frame" x="8" y="323" width="327" height="163"/>
+                                        <connections>
+                                            <outlet property="dataSource" destination="gZ6-cb-L2V" id="zqX-y6-057"/>
+                                            <outlet property="delegate" destination="gZ6-cb-L2V" id="akB-rY-nO4"/>
+                                        </connections>
+                                    </pickerView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add something more to your notification" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="nET-ac-s4r">
+                                        <rect key="frame" x="8" y="494.00000000000006" width="327" height="52.666666666666686"/>
                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="22"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Type Here..." clearsOnBeginEditing="YES" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Gjl-0p-YQ1">
-                                        <rect key="frame" x="8" y="552" width="327" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" red="0.95576462013467312" green="0.95576462013467312" blue="0.95576462013467312" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done" textContentType="organization-title"/>
-                                    </textField>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="tMQ-Lp-IY1" secondAttribute="trailing" id="0MH-B1-m2i"/>
-                                    <constraint firstItem="tMQ-Lp-IY1" firstAttribute="leading" secondItem="vSd-DO-a4t" secondAttribute="leading" id="8PP-ge-wdu"/>
-                                    <constraint firstItem="tMQ-Lp-IY1" firstAttribute="top" secondItem="vSd-DO-a4t" secondAttribute="top" id="fBw-Cj-Gec"/>
+                                    <constraint firstItem="0hl-XL-LYH" firstAttribute="leading" secondItem="vSd-DO-a4t" secondAttribute="leading" constant="8" id="7Bm-lR-gDg"/>
+                                    <constraint firstItem="Z0C-75-dH5" firstAttribute="top" secondItem="vSd-DO-a4t" secondAttribute="top" constant="111" id="9hg-zY-0oO"/>
+                                    <constraint firstItem="0hl-XL-LYH" firstAttribute="top" secondItem="tMQ-Lp-IY1" secondAttribute="bottom" constant="9" id="EEw-IX-oTV"/>
+                                    <constraint firstItem="Gjl-0p-YQ1" firstAttribute="top" secondItem="nET-ac-s4r" secondAttribute="bottom" constant="17.333333333333371" id="Gnv-Hd-8d9"/>
+                                    <constraint firstAttribute="trailing" secondItem="jfX-Ce-hzW" secondAttribute="trailing" constant="8" id="KdY-7U-l5u"/>
+                                    <constraint firstAttribute="trailing" secondItem="nET-ac-s4r" secondAttribute="trailing" constant="8" id="OLg-Df-5ad"/>
+                                    <constraint firstItem="gc2-ds-PGJ" firstAttribute="centerY" secondItem="vSd-DO-a4t" secondAttribute="centerY" id="Q3S-EC-tTT"/>
+                                    <constraint firstItem="Gjl-0p-YQ1" firstAttribute="leading" secondItem="0hl-XL-LYH" secondAttribute="leading" id="RG7-BE-r0A"/>
+                                    <constraint firstItem="jfX-Ce-hzW" firstAttribute="top" secondItem="gc2-ds-PGJ" secondAttribute="bottom" constant="7.6666666666666288" id="RSa-3Y-V4m"/>
+                                    <constraint firstItem="tMQ-Lp-IY1" firstAttribute="top" secondItem="vSd-DO-a4t" secondAttribute="top" id="TDT-UR-UkY"/>
+                                    <constraint firstItem="nET-ac-s4r" firstAttribute="top" secondItem="jfX-Ce-hzW" secondAttribute="bottom" constant="8.0000000000000568" id="TmZ-9P-WAd"/>
+                                    <constraint firstItem="tMQ-Lp-IY1" firstAttribute="leading" secondItem="vSd-DO-a4t" secondAttribute="leading" id="Vat-hE-rcy"/>
+                                    <constraint firstItem="Gjl-0p-YQ1" firstAttribute="trailing" secondItem="0hl-XL-LYH" secondAttribute="trailing" id="XEH-66-e5J"/>
+                                    <constraint firstItem="Z0C-75-dH5" firstAttribute="leading" secondItem="vSd-DO-a4t" secondAttribute="leading" constant="8" id="YvO-wY-3bJ"/>
+                                    <constraint firstAttribute="trailing" secondItem="0hl-XL-LYH" secondAttribute="trailing" constant="8" id="apN-jb-JcU"/>
+                                    <constraint firstItem="jfX-Ce-hzW" firstAttribute="leading" secondItem="vSd-DO-a4t" secondAttribute="leading" constant="8" id="bLx-md-gjj"/>
+                                    <constraint firstItem="nET-ac-s4r" firstAttribute="leading" secondItem="vSd-DO-a4t" secondAttribute="leading" constant="8" id="bV8-Xo-8Uv"/>
+                                    <constraint firstItem="Gjl-0p-YQ1" firstAttribute="leading" secondItem="vSd-DO-a4t" secondAttribute="leading" constant="8" id="bxJ-NR-Ncp"/>
+                                    <constraint firstItem="gc2-ds-PGJ" firstAttribute="top" secondItem="Z0C-75-dH5" secondAttribute="bottom" constant="7.6666666666666856" id="c2o-dV-gFO"/>
+                                    <constraint firstAttribute="bottom" secondItem="Gjl-0p-YQ1" secondAttribute="bottom" constant="8" id="ffU-bv-0Qd"/>
+                                    <constraint firstItem="gc2-ds-PGJ" firstAttribute="centerX" secondItem="vSd-DO-a4t" secondAttribute="centerX" id="hQh-oN-44t"/>
+                                    <constraint firstAttribute="trailing" secondItem="Gjl-0p-YQ1" secondAttribute="trailing" constant="8" id="hyU-67-DGf"/>
+                                    <constraint firstAttribute="trailing" secondItem="tMQ-Lp-IY1" secondAttribute="trailing" id="r3N-2s-J3W"/>
+                                    <constraint firstItem="Z0C-75-dH5" firstAttribute="top" secondItem="0hl-XL-LYH" secondAttribute="bottom" constant="7.6666666666666572" id="uJC-Ec-Rjw"/>
+                                    <constraint firstAttribute="trailing" secondItem="Z0C-75-dH5" secondAttribute="trailing" constant="8" id="yOR-pj-FcW"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="0.40169270833333331" alpha="0.49737799657534248" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="N0B-Hc-3Ef" firstAttribute="bottom" secondItem="vSd-DO-a4t" secondAttribute="bottom" constant="71" id="RV1-Md-vCO"/>
-                            <constraint firstItem="N0B-Hc-3Ef" firstAttribute="trailing" secondItem="vSd-DO-a4t" secondAttribute="trailing" constant="16" id="i13-08-HPT"/>
-                            <constraint firstItem="vSd-DO-a4t" firstAttribute="top" secondItem="N0B-Hc-3Ef" secondAttribute="top" constant="61" id="nRD-mu-9Cu"/>
-                            <constraint firstItem="vSd-DO-a4t" firstAttribute="leading" secondItem="N0B-Hc-3Ef" secondAttribute="leading" constant="16" id="odw-tA-Mgy"/>
+                            <constraint firstItem="vSd-DO-a4t" firstAttribute="top" secondItem="N0B-Hc-3Ef" secondAttribute="top" constant="61" id="Kbg-Se-BsJ"/>
+                            <constraint firstItem="vSd-DO-a4t" firstAttribute="leading" secondItem="Thp-3e-VkG" secondAttribute="leadingMargin" id="PS7-R1-8X1"/>
+                            <constraint firstItem="vSd-DO-a4t" firstAttribute="trailing" secondItem="Thp-3e-VkG" secondAttribute="trailingMargin" id="W9h-F6-bva"/>
+                            <constraint firstItem="vSd-DO-a4t" firstAttribute="centerY" secondItem="Thp-3e-VkG" secondAttribute="centerY" id="fNS-vM-Rnl"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="N0B-Hc-3Ef"/>
                     </view>
@@ -879,7 +869,7 @@ In the categories found at the main page you can create a new item corresponding
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aHk-ky-D5M" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3560.8000000000002" y="-3.6945812807881775"/>
+            <point key="canvasLocation" x="3559.1999999999998" y="-4.4334975369458132"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="aiv-WH-fdK">
@@ -913,7 +903,7 @@ In the categories found at the main page you can create a new item corresponding
         </scene>
     </scenes>
     <resources>
-        <image name="About Top" width="375" height="135"/>
+        <image name="About Top" width="375" height="226"/>
         <image name="Add" width="57" height="57"/>
         <image name="Coral Add button" width="38" height="37"/>
         <image name="Group" width="27" height="27"/>
@@ -929,6 +919,6 @@ In the categories found at the main page you can create a new item corresponding
         <image name="info" width="27" height="27"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Mqi-Fk-0KZ"/>
+        <segue reference="Mze-nJ-q0Z"/>
     </inferredMetricsTieBreakers>
 </document>
