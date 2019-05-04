@@ -623,7 +623,6 @@ class ItemViewController: UIViewController, UITextViewDelegate {
     
 
     //MARK: - Notifications
-        
     @IBAction func notificattionsButtonPressed(_ sender: UIButton) {
         
         
