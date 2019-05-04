@@ -323,9 +323,6 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstItem="2kp-4c-0UN" firstAttribute="top" secondItem="rtR-1H-X8Q" secondAttribute="bottom" constant="58" id="u9C-lH-hwv"/>
-                                </constraints>
                             </stackView>
                             <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eC0-a7-2Xi">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
@@ -360,7 +357,6 @@
                             <constraint firstItem="gP1-b1-KrX" firstAttribute="top" secondItem="FSh-yZ-p70" secondAttribute="top" id="d8o-x9-wmy"/>
                             <constraint firstItem="eC0-a7-2Xi" firstAttribute="leading" secondItem="ApP-7c-KDe" secondAttribute="leading" id="djP-1k-YWd"/>
                             <constraint firstItem="r37-Ic-gT6" firstAttribute="bottom" secondItem="U2h-su-GBR" secondAttribute="bottom" id="eMe-eY-wnn"/>
-                            <constraint firstItem="GLH-IA-Rex" firstAttribute="top" secondItem="r37-Ic-gT6" secondAttribute="bottom" constant="67" id="kVR-IQ-mV2"/>
                             <constraint firstItem="DBD-eq-8ar" firstAttribute="leading" secondItem="ApP-7c-KDe" secondAttribute="leading" id="l2g-RM-hFl"/>
                             <constraint firstItem="DBD-eq-8ar" firstAttribute="trailing" secondItem="ApP-7c-KDe" secondAttribute="trailing" id="p43-Kx-s7M"/>
                             <constraint firstItem="gP1-b1-KrX" firstAttribute="leading" secondItem="ApP-7c-KDe" secondAttribute="leading" id="pRY-UK-A5o"/>
