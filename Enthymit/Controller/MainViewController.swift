@@ -13,6 +13,8 @@ class MainViewController: UIViewController{
 
 
     
+    @IBOutlet weak var settingsButton: UIBarButtonItem!
+    @IBOutlet weak var infoButton: UIBarButtonItem!
     //MARK: - Random Quotes
     @IBOutlet weak var quotesTextLabel: UILabel!
     @IBOutlet weak var visualEffectView: UIVisualEffectView!
@@ -30,13 +32,6 @@ class MainViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //navigationController?.navigationBar.isHidden = true
-        
-        
-        
-        
-
-        
         if let navController = navigationController {
             System.clearNavigationBar(forBar: navController.navigationBar)
             navController.view.backgroundColor = .clear
@@ -47,6 +42,13 @@ class MainViewController: UIViewController{
         
         //Face ID
         if defaults.bool(forKey: "AuthIsOn") == true {
+            infoButton.isEnabled = false
+            settingsButton.isEnabled = false
+            settingsButton.image = UIImage()
+            infoButton.image = UIImage()
+            
+            
+            
         let context:LAContext = LAContext()
         
         if context.canEvaluatePolicy(.deviceOwnerAuthentication, error: nil){
@@ -55,7 +57,13 @@ class MainViewController: UIViewController{
                     print("Welcome")
                     DispatchQueue.main.async {
                         UIView.animate(withDuration: 0.3, animations: {
+                            
+                            self.infoButton.isEnabled = true
+                            self.settingsButton.isEnabled = true
+                            self.settingsButton.image = UIImage(named: "Group")
+                            self.infoButton.image = UIImage(named: "info")
                             self.navigationController?.navigationBar.isHidden = false
+                            
                             self.effect = self.visualEffectView.effect
                            self.visualEffectView.effect = nil
                             self.visualEffectView.isHidden = true

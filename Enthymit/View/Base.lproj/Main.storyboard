@@ -214,27 +214,46 @@
             <objects>
                 <viewController title="About" id="YkV-Ow-Cz1" customClass="InfoViewController" customModule="Enthymit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="heX-ck-vLH">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="900"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="About Top" translatesAutoresizingMaskIntoConstraints="NO" id="EYd-o4-PAc">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="252"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="252" id="T9K-3y-0S4"/>
-                                    <constraint firstAttribute="width" constant="375" id="TUg-Q9-TLf"/>
-                                    <constraint firstAttribute="width" secondItem="EYd-o4-PAc" secondAttribute="height" multiplier="125:84" id="sxS-e1-At0"/>
-                                </constraints>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="coral rect with shadow" translatesAutoresizingMaskIntoConstraints="NO" id="EYd-o4-PAc">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="185"/>
                             </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" adjustsFontForContentSizeCategory="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UeY-XH-MD1">
+                                <rect key="frame" x="8" y="185" width="359" height="627"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <string key="text">We all have a new goal. A new years resolution or want to pick up on a new hobby, but most of us stop or forget about the goal that we have set half way through. I always wanted to take note of a goal I have so that I could go back and remember. Remember why I started. Now, none of the typical note Apps fitted my needs because I would end up losing the goals or ideas I have written down in my notes clutter. So that is why I created Enthymit. 
+
+The name comes from the ancient greek word Enthymoumai ( Ενθυμούμαι ) which means  I remember. 
+
+With Enthymit you are able to pick a category whether that is health and fitness or top secret for your secret goals and projects. Then you are able to create your new item and begin by writing down some fundamental questions that will help you better understand your goal and refer to them later on.
+
+ Also each time you open the app, you get a different random quote handpicked just for you in order to give you a bit more motivation and courage if needed to tackle what you have set out. 
+
+So this is it, a very simple goal orientated note taking app that you can look back at what you have set out for yourself and you won’ t get lost in all of your notes clutter.  
+  
+*Please note that all data are stored locally on your device. Therefore if you delete the app all of your app data including your items will be lost. Also if you download the app on a different device your items on this device won't be visible there*</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="EYd-o4-PAc" firstAttribute="top" secondItem="heX-ck-vLH" secondAttribute="top" id="Bcy-Sp-pc2"/>
-                            <constraint firstItem="EYd-o4-PAc" firstAttribute="trailing" secondItem="FeK-kq-tuZ" secondAttribute="trailing" id="cHu-qZ-B8b"/>
-                            <constraint firstItem="EYd-o4-PAc" firstAttribute="leading" secondItem="FeK-kq-tuZ" secondAttribute="leading" id="hCv-aU-U3T"/>
+                            <constraint firstItem="EYd-o4-PAc" firstAttribute="leading" secondItem="FeK-kq-tuZ" secondAttribute="leading" id="1JU-io-jX7"/>
+                            <constraint firstItem="EYd-o4-PAc" firstAttribute="leading" secondItem="FeK-kq-tuZ" secondAttribute="leading" id="1g1-Xn-0ep"/>
+                            <constraint firstAttribute="bottom" secondItem="UeY-XH-MD1" secondAttribute="bottom" id="6aG-SZ-bKb"/>
+                            <constraint firstItem="EYd-o4-PAc" firstAttribute="trailing" secondItem="FeK-kq-tuZ" secondAttribute="trailing" id="8zl-CB-YlO"/>
+                            <constraint firstItem="UeY-XH-MD1" firstAttribute="leading" secondItem="FeK-kq-tuZ" secondAttribute="leading" constant="8" id="LiF-xD-cF9"/>
+                            <constraint firstItem="EYd-o4-PAc" firstAttribute="trailing" secondItem="FeK-kq-tuZ" secondAttribute="trailing" id="MsX-E5-6GV"/>
+                            <constraint firstItem="UeY-XH-MD1" firstAttribute="top" secondItem="FeK-kq-tuZ" secondAttribute="top" constant="45" id="R63-pU-FIX"/>
+                            <constraint firstItem="EYd-o4-PAc" firstAttribute="top" secondItem="heX-ck-vLH" secondAttribute="top" id="T9F-6R-kqo"/>
+                            <constraint firstItem="FeK-kq-tuZ" firstAttribute="trailing" secondItem="UeY-XH-MD1" secondAttribute="trailing" constant="8" id="XvH-Mp-THa"/>
+                            <constraint firstItem="UeY-XH-MD1" firstAttribute="top" secondItem="EYd-o4-PAc" secondAttribute="bottom" id="dHU-BA-Qjv"/>
+                            <constraint firstItem="EYd-o4-PAc" firstAttribute="top" secondItem="heX-ck-vLH" secondAttribute="top" id="ptX-M7-9a4"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="FeK-kq-tuZ"/>
                     </view>
-                    <size key="freeformSize" width="375" height="900"/>
                     <connections>
                         <outlet property="mainView" destination="heX-ck-vLH" id="XYQ-eD-w97"/>
                     </connections>
@@ -254,9 +273,8 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PIP-7r-rIB" userLabel="C">
                                 <rect key="frame" x="33" y="183" width="308" height="144"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Your Quotes Will Appear Here" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="8" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="EIW-lb-0Gj">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Quotes Will Appear Here" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="8" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="EIW-lb-0Gj">
                                         <rect key="frame" x="0.0" y="0.0" width="308" height="144"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="20"/>
                                         <color key="textColor" red="0.2627450980392157" green="0.2627450980392157" blue="0.2627450980392157" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -265,6 +283,10 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="PIP-7r-rIB" secondAttribute="height" multiplier="77:36" id="7MQ-w7-EXg"/>
+                                    <constraint firstItem="EIW-lb-0Gj" firstAttribute="leading" secondItem="PIP-7r-rIB" secondAttribute="leading" id="AzY-6F-vhz"/>
+                                    <constraint firstItem="EIW-lb-0Gj" firstAttribute="top" secondItem="PIP-7r-rIB" secondAttribute="top" id="Ka7-QL-drI"/>
+                                    <constraint firstAttribute="bottom" secondItem="EIW-lb-0Gj" secondAttribute="bottom" id="RCk-WN-3jI"/>
+                                    <constraint firstAttribute="trailing" secondItem="EIW-lb-0Gj" secondAttribute="trailing" id="ohX-3M-3zN"/>
                                 </constraints>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="coral rect with shadow" translatesAutoresizingMaskIntoConstraints="NO" id="gP1-b1-KrX">
@@ -324,7 +346,7 @@
                                     </button>
                                 </subviews>
                             </stackView>
-                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eC0-a7-2Xi">
+                            <visualEffectView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eC0-a7-2Xi">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="GLH-IA-Rex">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
@@ -339,7 +361,6 @@
                             <constraint firstItem="ApP-7c-KDe" firstAttribute="bottom" secondItem="DBD-eq-8ar" secondAttribute="bottom" constant="459" id="0O4-dN-Dec"/>
                             <constraint firstItem="PIP-7r-rIB" firstAttribute="top" secondItem="ApP-7c-KDe" secondAttribute="top" constant="43" id="1ZN-zM-Cyl"/>
                             <constraint firstItem="eC0-a7-2Xi" firstAttribute="top" secondItem="FSh-yZ-p70" secondAttribute="top" id="1vm-fJ-6Hs"/>
-                            <constraint firstItem="eC0-a7-2Xi" firstAttribute="width" secondItem="FSh-yZ-p70" secondAttribute="height" multiplier="375:812" id="5NF-LC-Ddd"/>
                             <constraint firstItem="DBD-eq-8ar" firstAttribute="top" secondItem="gP1-b1-KrX" secondAttribute="bottom" id="6mb-2i-6Gp"/>
                             <constraint firstItem="ApP-7c-KDe" firstAttribute="trailing" secondItem="U2h-su-GBR" secondAttribute="trailing" constant="34" id="7UG-CR-uM5"/>
                             <constraint firstItem="r37-Ic-gT6" firstAttribute="height" secondItem="U2h-su-GBR" secondAttribute="height" id="Cqv-Dk-hKT"/>
@@ -376,7 +397,7 @@
                             </barButtonItem>
                             <barButtonItem image="info" id="IBC-wZ-M9O">
                                 <connections>
-                                    <segue destination="YkV-Ow-Cz1" kind="show" identifier="goToInfo" id="yfd-TF-rwo"/>
+                                    <segue destination="YkV-Ow-Cz1" kind="show" identifier="" id="yfd-TF-rwo"/>
                                 </connections>
                             </barButtonItem>
                         </rightBarButtonItems>
@@ -384,7 +405,9 @@
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="coral" destination="gP1-b1-KrX" id="EC4-BC-Nof"/>
+                        <outlet property="infoButton" destination="IBC-wZ-M9O" id="3So-Mj-dZR"/>
                         <outlet property="quotesTextLabel" destination="EIW-lb-0Gj" id="0gZ-bS-L98"/>
+                        <outlet property="settingsButton" destination="HHR-M7-npA" id="q1F-gZ-56o"/>
                         <outlet property="visualEffectView" destination="eC0-a7-2Xi" id="01o-3L-JmN"/>
                     </connections>
                 </viewController>
@@ -662,7 +685,6 @@
                             <constraint firstItem="yje-2Q-TPD" firstAttribute="leading" secondItem="PYM-CP-neA" secondAttribute="leading" id="Wgn-eq-1AB"/>
                             <constraint firstItem="yje-2Q-TPD" firstAttribute="trailing" secondItem="PYM-CP-neA" secondAttribute="trailing" id="Xe1-QP-RHL"/>
                             <constraint firstItem="plQ-M6-3Bu" firstAttribute="top" secondItem="PYM-CP-neA" secondAttribute="top" id="YLL-Zy-gZf"/>
-                            <constraint firstItem="de9-EZ-PSG" firstAttribute="top" secondItem="yje-2Q-TPD" secondAttribute="bottom" constant="19" id="auh-qO-XGV"/>
                             <constraint firstItem="plQ-M6-3Bu" firstAttribute="trailing" secondItem="yje-2Q-TPD" secondAttribute="trailing" id="gDo-k5-uj2"/>
                             <constraint firstItem="plQ-M6-3Bu" firstAttribute="leading" secondItem="bZU-jb-5Xb" secondAttribute="leading" id="mbg-0J-t5p"/>
                             <constraint firstAttribute="bottom" secondItem="plQ-M6-3Bu" secondAttribute="bottom" id="yIA-qQ-0G5"/>
@@ -695,6 +717,7 @@
                         <outlet property="itemTitle" destination="de9-EZ-PSG" id="hUq-DR-TUe"/>
                         <outlet property="levelOfDifficultyLabel" destination="NBJ-NC-kbJ" id="plb-bb-m0R"/>
                         <outlet property="reminderButton" destination="6el-ER-iNY" id="FUx-nj-W8c"/>
+                        <outlet property="scrollView" destination="plQ-M6-3Bu" id="yea-Jj-5DQ"/>
                         <outlet property="toMakeItHappenLabel" destination="CiN-Qc-luV" id="OvP-HG-F4t"/>
                         <outlet property="toMakeItHappenTextView" destination="RVn-Tq-P8U" id="eey-4m-vVu"/>
                         <outlet property="whyLabel" destination="FcM-eS-ksc" id="RKd-ll-djH"/>
@@ -889,7 +912,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="About Top" width="375" height="226"/>
         <image name="Add" width="57" height="57"/>
         <image name="Coral Add button" width="38" height="37"/>
         <image name="Group" width="27" height="27"/>

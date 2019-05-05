@@ -21,6 +21,7 @@ class ItemViewController: UIViewController, UITextViewDelegate {
 
 
     
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var coral: UIImageView!
     @IBOutlet weak var expectationsLabel: UILabel!
     @IBOutlet weak var levelOfDifficultyLabel: UILabel!
@@ -91,7 +92,8 @@ class ItemViewController: UIViewController, UITextViewDelegate {
         //self.navigationController?.navigationBar.isHidden = true
         
         
-        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         
         
       
@@ -281,6 +283,17 @@ class ItemViewController: UIViewController, UITextViewDelegate {
         return true
     }
     
+    
+    
+
+    
+    
+    @objc func keyboardWillHide(notification: NSNotification) {
+        if self.scrollView.frame.origin.y != 0 {
+            self.scrollView.frame.origin.y = 0
+        }
+    }
+    
 //    override func viewDidAppear(_ animated: Bool) {
 //
 //        if fromCategory == "health" {
@@ -330,13 +343,30 @@ class ItemViewController: UIViewController, UITextViewDelegate {
 //            }
 //        }
 //    }
-
+    var isEditingg = false
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
         self.view.endEditing(true)
     
     }
-  
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if textView == expectationsTextView {
+            DispatchQueue.main.async {
+                self.isEditingg = true
+            }
+        
+        }
+    }
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if expectationsTextView.isFirstResponder {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.scrollView.frame.origin.y == 0 {
+                self.scrollView.frame.origin.y -= keyboardSize.height
+            }
+        }
+        }
+    }
     
     
     func textViewDidEndEditing(_ textView: UITextView) {

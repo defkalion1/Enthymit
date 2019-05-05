@@ -15,7 +15,7 @@ class ReminderViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     @IBOutlet weak var notificationBodyTextField: UITextField!
     @IBOutlet weak var datePickerView: UIDatePicker!
     @IBOutlet weak var repeatPickerView: UIPickerView!
-    let choises = ["Never","Every Day","Every Other Day", "Every Week"]
+    let choises = ["Never","Every Week"]
     var day = DateFormatter()
     var month = DateFormatter()
     var year = DateFormatter()
