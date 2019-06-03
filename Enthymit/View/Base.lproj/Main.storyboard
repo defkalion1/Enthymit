@@ -283,17 +283,6 @@ So this is it, a very simple goal orientated note taking app that you can look b
                                 <rect key="frame" x="0.0" y="0.0" width="376.33333333333331" height="204"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
-                            <visualEffectView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eC0-a7-2Xi">
-                                <rect key="frame" x="0.0" y="780" width="375" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" insetsLayoutMarginsFromSafeArea="NO" id="GLH-IA-Rex">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="32"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                </view>
-                                <vibrancyEffect>
-                                    <blurEffect style="light"/>
-                                </vibrancyEffect>
-                            </visualEffectView>
                             <button opaque="NO" contentMode="scaleAspectFit" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p4V-5l-31d" userLabel="Health">
                                 <rect key="frame" x="42" y="383" width="291" height="47"/>
                                 <constraints>
@@ -344,22 +333,34 @@ So this is it, a very simple goal orientated note taking app that you can look b
                                     <segue destination="3tg-Hv-8bZ" kind="show" identifier="fromOther" id="2uh-eS-iNa"/>
                                 </connections>
                             </button>
+                            <visualEffectView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eC0-a7-2Xi">
+                                <rect key="frame" x="0.0" y="0.0" width="376.33333333333331" height="812"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="GLH-IA-Rex">
+                                    <rect key="frame" x="0.0" y="0.0" width="376.33333333333331" height="812"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </view>
+                                <blurEffect style="light"/>
+                            </visualEffectView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstAttribute="bottom" secondItem="eC0-a7-2Xi" secondAttribute="bottom" id="5pB-Ev-bh5"/>
                             <constraint firstItem="K5V-y8-7oU" firstAttribute="centerX" secondItem="FSh-yZ-p70" secondAttribute="centerX" id="6NY-uF-7gu"/>
                             <constraint firstItem="gP1-b1-KrX" firstAttribute="leading" secondItem="ApP-7c-KDe" secondAttribute="leading" id="6xh-cV-RLe"/>
                             <constraint firstItem="gP1-b1-KrX" firstAttribute="trailing" secondItem="ApP-7c-KDe" secondAttribute="trailing" id="98v-gc-Lua"/>
+                            <constraint firstItem="eC0-a7-2Xi" firstAttribute="leading" secondItem="ApP-7c-KDe" secondAttribute="leading" id="GhW-Rc-2ZF"/>
                             <constraint firstItem="K5V-y8-7oU" firstAttribute="leading" secondItem="ApP-7c-KDe" secondAttribute="leading" constant="68" id="OKS-Va-sWR"/>
                             <constraint firstItem="ApP-7c-KDe" firstAttribute="trailing" secondItem="EIW-lb-0Gj" secondAttribute="trailing" constant="34" id="REg-Qu-Grc"/>
                             <constraint firstItem="EIW-lb-0Gj" firstAttribute="top" secondItem="ApP-7c-KDe" secondAttribute="top" constant="48" id="Ux0-kE-zwb"/>
                             <constraint firstItem="K5V-y8-7oU" firstAttribute="centerY" secondItem="FSh-yZ-p70" secondAttribute="centerY" constant="6" id="YVY-gR-LGk"/>
+                            <constraint firstItem="eC0-a7-2Xi" firstAttribute="top" secondItem="FSh-yZ-p70" secondAttribute="top" id="Zdr-5R-uEs"/>
                             <constraint firstItem="gP1-b1-KrX" firstAttribute="top" secondItem="FSh-yZ-p70" secondAttribute="top" id="bMT-aO-4QL"/>
                             <constraint firstItem="K5V-y8-7oU" firstAttribute="top" secondItem="ApP-7c-KDe" secondAttribute="top" constant="214" id="kvv-46-44f"/>
                             <constraint firstItem="EIW-lb-0Gj" firstAttribute="leading" secondItem="ApP-7c-KDe" secondAttribute="leading" constant="34" id="lSO-Ap-8xK"/>
                             <constraint firstItem="K5V-y8-7oU" firstAttribute="top" secondItem="gP1-b1-KrX" secondAttribute="bottom" constant="150" id="pis-Z8-uVG"/>
                             <constraint firstItem="ApP-7c-KDe" firstAttribute="trailing" secondItem="K5V-y8-7oU" secondAttribute="trailing" constant="68" id="tPD-Se-g8J"/>
+                            <constraint firstItem="ApP-7c-KDe" firstAttribute="trailing" secondItem="eC0-a7-2Xi" secondAttribute="trailing" id="vT1-ff-sRE"/>
                             <constraint firstItem="K5V-y8-7oU" firstAttribute="top" secondItem="EIW-lb-0Gj" secondAttribute="bottom" constant="8" id="vUf-mC-yg2"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ApP-7c-KDe"/>

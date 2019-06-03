@@ -108,7 +108,7 @@ class CategoryViewController: UIViewController, UITableViewDelegate, UITableView
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "customCell", for: indexPath) as! CustomCategoryCell
         cell.delegate = self
-        
+              
         
         //let cell = UITableViewCell(style: .default, reuseIdentifier: "cell")
 

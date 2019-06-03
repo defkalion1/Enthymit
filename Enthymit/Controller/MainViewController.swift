@@ -71,6 +71,10 @@ class MainViewController: UIViewController{
             settingsButton.isEnabled = false
             settingsButton.image = UIImage()
             infoButton.image = UIImage()
+            healthButton.isHidden = true
+            selfImprovementButton.isHidden = true
+            topSecretButton.isHidden = true
+            otherButton.isHidden = true
             
             
             
@@ -88,6 +92,10 @@ class MainViewController: UIViewController{
                             self.settingsButton.image = UIImage(named: "Group")
                             self.infoButton.image = UIImage(named: "info")
                             self.navigationController?.navigationBar.isHidden = false
+                            self.healthButton.isHidden = false
+                            self.selfImprovementButton.isHidden = false
+                            self.topSecretButton.isHidden = false
+                            self.otherButton.isHidden = false
                             
                             self.effect = self.visualEffectView.effect
                            self.visualEffectView.effect = nil
