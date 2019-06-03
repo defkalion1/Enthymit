@@ -12,6 +12,12 @@ import LocalAuthentication
 class MainViewController: UIViewController{
 
 
+    @IBOutlet weak var healthButton: UIButton!
+    @IBOutlet weak var otherButton: UIButton!
+    //@IBOutlet weak var stackView: UIStackView!
+    @IBOutlet weak var selfImprovementButton: UIButton!
+    @IBOutlet weak var topSecretButton: UIButton!
+    
     
     @IBOutlet weak var settingsButton: UIBarButtonItem!
     @IBOutlet weak var infoButton: UIBarButtonItem!
@@ -31,11 +37,30 @@ class MainViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let buttons = [healthButton, selfImprovementButton, topSecretButton, otherButton]
+        //StackView constraints so that it has dynamic space between the buttons
+        let stackView = UIStackView(arrangedSubviews: buttons as! [UIView])
+        stackView.axis = .vertical
+        stackView.distribution = .equalSpacing
+       stackView.translatesAutoresizingMaskIntoConstraints = false
+        self.view.addSubview(stackView)
+        let salGuide = self.view.safeAreaLayoutGuide
+        NSLayoutConstraint.activate([
+            stackView.topAnchor.constraint(equalTo: salGuide.topAnchor, constant: 220),
+            
+            stackView.centerXAnchor.constraint(equalTo: salGuide.centerXAnchor, constant: 0),
+            stackView.widthAnchor.constraint(equalTo: salGuide.widthAnchor, constant: 47.0),
+            stackView.heightAnchor.constraint(equalTo: salGuide.heightAnchor, multiplier: 0.5)
+//           otherButton.heightAnchor.constraint(equalToConstant: 47)
+            ])
+        
+        
         
         if let navController = navigationController {
             System.clearNavigationBar(forBar: navController.navigationBar)
             navController.view.backgroundColor = .clear
             
+           
             
         }
         

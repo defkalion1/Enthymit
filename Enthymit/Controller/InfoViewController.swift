@@ -11,6 +11,7 @@ import UIKit
 
 class InfoViewController: UIViewController {
 
+    @IBOutlet weak var textView: UITextView!
     @IBOutlet var mainView: UIView!
     public let defaults = UserDefaults.standard
 
@@ -21,8 +22,12 @@ class InfoViewController: UIViewController {
         
         if defaults.bool(forKey: "DarkThemeIsOn") == true {
             mainView.backgroundColor = DarkTheme.background
+            textView.backgroundColor = DarkTheme.background
+            textView.textColor = DarkTheme.textColor
         }else{
             mainView.backgroundColor = LightTheme.background
+            textView.backgroundColor = LightTheme.background
+            textView.textColor = LightTheme.textColor
         }
         
         
