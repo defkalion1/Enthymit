@@ -224,17 +224,17 @@
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" adjustsFontForContentSizeCategory="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UeY-XH-MD1">
                                 <rect key="frame" x="8" y="185" width="359" height="627"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <string key="text">We all have a new goal. A new years resolution or want to pick up on a new hobby, but most of us stop or forget about the goal that we have set half way through. I always wanted to take note of a goal I have so that I could go back and remember. Remember why I started. Now, none of the typical note Apps fitted my needs because I would end up losing the goals or ideas I have written down in my notes clutter. So that is why I created Enthymit. 
+                                <mutableString key="text">We all have a new goal. A new year's resolution or want to pick up on a new hobby, but most of us stop or forget about the goal that we have set half way through. I always wanted to take note of a goal I have so that I could go back and remember. Remember why I started. But none of the typical note Apps fitted my needs because I would end up losing the goals or ideas I have written down in my notes clutter. So that is why I created Enthymit. 
 
-The name comes from the ancient greek word Enthymoumai ( Ενθυμούμαι ) which means  I remember. 
+The name comes from the ancient greek word Enthymoumai ( Ενθυμούμαι ) which means I remember. 
 
-With Enthymit you are able to pick a category whether that is health and fitness or top secret for your secret goals and projects. Then you are able to create your new item and begin by writing down some fundamental questions that will help you better understand your goal and refer to them later on.
+With Enthymit you are able to pick a category whether it is health and fitness or top secret for your secret goals and projects. Then you are able to create your new item and begin by writing down some fundamental questions that will help you better understand your goal and refer to it later on.
 
- Also each time you open the app, you get a different random quote handpicked just for you in order to give you a bit more motivation and courage if needed to tackle what you have set out. 
+ Also each time you open the app, you get a random quote handpicked just for you in order to give you a bit more motivation and courage if needed to tackle what you have set out. 
 
-So this is it, a very simple goal orientated note taking app that you can look back at what you have set out for yourself and you won’ t get lost in all of your notes clutter.  
+So this is it, a very simple goal-orientated note taking app that you can look back at what you have set out for yourself and you won’ t get lost in all of your notes clutter.  
   
-*Please note that all data are stored locally on your device. Therefore if you delete the app all of your app data including your items will be lost. Also if you download the app on a different device your items on this device won't be visible there*</string>
+*Please note that all data is stored locally on your device. Therefore if you delete the app all of your app data including your items will be lost. That is, if you download the app on a different device your items on this device won't be visible there*</mutableString>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
